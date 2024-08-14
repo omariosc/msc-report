@@ -1,0 +1,54 @@
+\section{Introduction}
+
+\subsection{Minimally Invasive Surgery and Laparoscopy}
+
+Minimally invasive surgery (MIS)
+
+\subsubsection{Low and Middle Income Countries}
+
+There are clear inequalities in access to surgical care between high-income countries (HICs) and low and middle-income countries (LMICs). In LMICs, there is a critical need for skilled surgeons, with an estimated 5 billion people lacking access to safe and affordable surgical care \cite{meara_global_2015}. The Lancet Commission on Global Surgery (LCoGS) has highlighted the need for 143 million additional surgical procedures each year to address this gap \cite{meara_global_2015}. The World Health Organization (WHO) has also identified the need for 44.5 million additional health workers globally, with a significant proportion required in surgery and anaesthesia \cite{world_health_organization_global_2016}. The lack of skilled surgeons in LMICs is a significant barrier to improving surgical outcomes and reducing the burden of surgical disease in these countries.
+
+% Describe target population
+
+% Intended purpose of the preduction model
+
+% Context of the care pathway and data pathway
+
+% Intended users by way of pathways contexts
+
+\subsection{Surgical Tool Detection and Tracking}
+
+% Reference existing models
+
+\subsection{Objectives}
+
+The aim is to develop a model that can accurately detect and track the position of surgical tools in laparoscopic videos, which can be used for surgical training in LMICs, taking into consideration their resource-constraint environments. These models will assist in evaluating surgical skills and providing feedback to trainees, which is essential for improving surgical outcomes and reducing the burden of surgical disease in these countries. 
+
+We further aim to compare the effects of different architectures and training strategies on the performance of the models, including anchor-based and anchor-free models, and the use of transfer learning and data augmentation techniques.
+
+\subsection{Contributions}
+
+In this paper we present a novel dataset of laparoscopic surgical videos and a the development and validation through re-implementations of state-of-the-art (SOTA) deep learning-based models for surgical tool detection and tracking. The dataset consists of 24 videos, totalling 103,629 frames of a peg transfer task using fenestrated and curved forceps, with annotated tooltips and ground truth values for the position in three dimensions and a quaternion representing the spatial orientation and rotation values, providing 6DOF. We have manually labelled 1\% of the images in 23 videos plus one completely labelled video as a test set.
+
+We further propose two tracking models; a deep learning anchor-based model using the YOLOv10 architecture for object detection, and a reimplementation of the anchor-free ART-Net model \cite{hasan_detection_2021}. We achieve a mAP50 of 99.0\% and mAP50-95 of 80.9\% on the test set with 25.4ms inference, demonstrating the effectiveness of the model for surgical tool detection and tracking. The dataset and model can be particular useful in resource-constrained environments such as LMICs and in future work in laparoscopic surgical skill analysis and workflow recognition, contributing to the development of surgical training programs and improving surgical outcomes in these countries.
+
+% TABLE OF ACRONYMS
+\begin{table}[h]
+    \centering
+    \caption{Table of Acronyms}
+    \begin{tabular}{ll}
+      \toprule
+      \textbf{Acronym} & \textbf{Definition} \\
+      \midrule
+      HICs & High-Income Countries \\
+      LMICs & Low and Middle-Income Countries \\
+      MIS & Minimally Invasive Surgery \\
+      WHO & World Health Organization \\
+      LCoGS & Lancet Commission on Global Surgery \\
+      mAP & Mean Average Precision \\
+      COCO & Common Objects in Context \\
+      SOTA & State-of-the-Art \\
+      \bottomrule
+    \end{tabular}
+    \label{tab:acronyms}
+  \end{table}

@@ -1,0 +1,49 @@
+\section{Related Work}
+
+\subsection{Identification and Evaluation of Relevant Datasets}
+
+% avoiding segmentation
+
+% 1.	The systematic review is reported according to the recommendations of the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) statement (Moher, 2010). 
+% a.	D. Moher, A. Liberati, J. Tetzlaff and D. G. Altman, "Preferred reporting items for systematic reviews and meta-analyses: The PRISMA statement", Int. J. Surg., vol. 8, no. 5, pp. 336-341, 2010.
+% b.	Figure 1. Flow diagram of the search and inclusion process.
+
+% records identified through database searching (n = 1,000) pubmed, etc.
+% additional records identified through other sources (n = 1,000) google scholar, etc.
+% records after duplicates removed (n = 1,000)
+% records screened (n = 1,000) (link to each different component)
+    % records excluded as irrelevant (n = 1,000)
+% full-text articles assessed for eligibility (n = 1,000)
+% articles excluded after full text assessment (n = 1,000)
+% studies included (n = 1,000)
+
+% The flow diagram of the paper selection and pruning process according to the recommendations of the PRISMA method.
+
+% ART-NET: If there is enough time, we could try the method on another dataset. For ART-Net, we could convert the segmentation map into a bounding box, for the entire tool and just for the tool tip. I could consider other public datasets and what has been benchmarked already and how, so that I could employ the same method for comparison.
+
+\subsubsection{Potential to Collect New Datasets}
+
+% training datasets are fewer, easier to collect and to be used in LMIC
+
+\subsection{State-of-the-Art Methods}
+
+% emphases what has been done
+
+\subsubsection{Anchor-based and Anchor-free Detection Methods}
+
+% Anchor-based is interesting because videos often have a wide range of aspect ratios, etc. (insert examples). We decided that it would be best to continue with the current dataset, and to make it scientific and sufficient for the MSc, I would look at investigating anchor-based methods (e.g. YOLO) and anchor-less methods (fully connected one-stage CNN). A method for each would be sufficient. The idea is that the aspect ratio of the tool will change as it moves around and is rotated, with different orientations and scales in various ways, so anchors in anchor-based methods would need to be optimised. I would look at what methods could cope with those situations and what their limitations are.
+
+\subsection{Tracking Methods}
+
+% Secondly, the main focus is on detection. Tracking can be done if IDs are tracked and we consider tools moving out of frame (their appearance, disappearance and reappearance). Segmentation is not needed as tracking is our aim, not pixel-wise classification.
+
+\subsection{Potential Gaps and Insights}
+
+% what has not been done whicih could be done
+% pose research questions
+
+\subsections{Limitations}
+
+\subsections{Future Use Cases}
+
+% Need to have a concise plan going forward. I have focused on image tracking and segmentation across many datasets. Going forward, I should consider what could be done, working with state-of-the-art (SOTAs) and focusing on something different to give different results. Using the papers from the literature review I have carried out, I should pick a paper, run the SOTA method and consider why it performs best or why it fails at certain things. These things are where I should look for improvements. Consider the mistakes made and how I could solve them. If there are good and bad samples, then focus on those which fail and innovate on what could be done about them. For example, there could be different sizes or occlusions or look at the domain-safe problem (solving the generalisation problem on real and fake data). If the methods do not work on real data, what is the gap which needs to be solved? Goal is to get inference down.

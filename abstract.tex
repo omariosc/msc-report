@@ -1,0 +1,13 @@
+\begin{abstract}
+    \textbf{Background:} In low-middle-income countries (LMICs), there is a critical need for skilled surgeons. Alternative training processes that include computer-assisted surgical skill evaluation are essential to address this gap. Leveraging surgical videos to derive insights into tool detection and tracking is a highly researched area. This study focuses on tracking the \textcolor{red}{spatial} positions of surgical tools in laparoscopic datasets, aiming to develop a generalizable model applicable to non-in vivo contexts.
+    
+    \textbf{Objectives:} The primary objective is to build accurate models for tool detection and tracking in laparoscopic videos. To benchmark performance, these models are evaluated against comparable datasets, such as ART-Net.
+  
+    \textbf{Methods:} We collected an in-house dataset comprising 24 laparoscopic surgery videos, each approximately 3 minutes long in 1920x1080 resolution, totalling 1.32GB. These videos feature procedures performed by either a trainee or an expert trainer. The dataset includes 103,629 frames annotated with tooltips and ground truth data for tool position in three dimensions, including quaternions for spatial orientation and rotation values (6 degrees of freedom). Two deep learning models are implemented: one anchor-based model using the YOLOv10 architecture and a state-of-the-art (SOTA) model reimplementation. These models are evaluated using the standard Common Objects in Context (COCO) metric, yielding mean Average Precision (mAP) scores for detecting bounding boxes.
+  
+    \textbf{Results:} The best-produced model, the anchor-based YOLOv10 model, achieved a mAP50 of 99.0\% and a mAP50-95 of 80.9\% on the test set with an inference time of 25.4ms, demonstrating its effectiveness in surgical tool detection and tracking. These results highlight the potential of the models for accurate tool localization, even in resource-constrained environments.
+  
+    \textbf{Discussion:} The proposed models and dataset are particularly useful for applications in LMICs where access to advanced training facilities is limited. This research contributes to the development of robust surgical training programs by providing tools for surgical skill analysis and workflow recognition to help ultimately improve surgical outcomes in these countries.
+  
+    \textbf{Repository:} The datasets, code and model checkpoints are available at \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
+  \end{abstract}
