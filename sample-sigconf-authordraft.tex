@@ -50,6 +50,12 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{pgf-pie}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{footnote}
+\usepackage{multicol}
 
 \raggedbottom
 \settopmatter{printacmref=false} % Removes the ACM reference format (copyright block)
@@ -136,17 +142,17 @@
 %% Of note is the shared affiliation of the first two authors, and the
 %% "authornote" and "authornotemark" commands
 %% used to denote shared contribution to the research.
-\author{Omar Choudhry}
+\author{Omar Shaur Choudhry}
 \authornote{School of Computing, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:O.Choudhry@leeds.ac.uk}{O.Choudhry@leeds.ac.uk}}
 \authornote{\textbf{Correspondence:} Dr Dominic Jones, School of Electronic and Electrical Engineering, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:D.P.Jones@leeds.ac.uk}{D.P.Jones@leeds.ac.uk}}
-\email{O.Choudhry@leeds.ac.uk}
+% \email{O.Choudhry@leeds.ac.uk}
 \orcid{0000-0003-4434-3550}
-\affiliation{%
-  \institution{University of Leeds}
-  \city{Leeds}
-  \state{West Yorkshire}
-  \country{United Kingdom}
-}
+% \affiliation{%
+%   \institution{University of Leeds}
+%   \city{Leeds}
+%   \state{West Yorkshire}
+%   \country{United Kingdom}
+% }
 
 %%
 %% By default, the full list of authors will be used in the page
@@ -212,13 +218,13 @@
 %% A "teaser" image appears between the author and affiliation
 %% information and the body of the document, and typically spans the
 %% page.
-\begin{teaserfigure}
-  \centering
-  \includegraphics[height=150px]{teaserimage}
-  \caption{Sample frame with tracked tools using best model and its performance.}
-  \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precicision against weighted inference time on multiple datasets \textit{(right)}.}
-  \label{fig:teaser}
-\end{teaserfigure}
+% \begin{teaserfigure}
+%   \centering
+%   \includegraphics[height=150px]{teaserimage}
+%   \caption{Sample frame with tracked tools using best model and its performance.}
+%   \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precicision against weighted inference time on multiple datasets \textit{(right)}.}
+%   \label{fig:teaser}
+% \end{teaserfigure}
 
 \received[Submitted]{30 August 2024}
 % \received[revised]{12 March 2009}
@@ -232,7 +238,7 @@
 \input{introduction}
 
 % SECTION 2
-\input{relatedwork}
+\input{background}
 
 % SECTION 3
 \input{methods}
@@ -277,75 +283,7 @@ The code, including all helper files, scripts, notebooks, models and checkpoints
 
 %%
 %% If your work has an appendix, this is the place to put it.
-\appendix
-
-\section{Literature Search}
-
-The search strategy was meticulously designed to ensure a comprehensive and thorough exploration of the literature concerning surgical tool tracking and related topics. The selected databases — PubMed and Ovid - are among the most comprehensive resources for biomedical literature, ensuring that the search covers a broad spectrum of relevant research. The literature search began in April, and to keep the review current, alerts were set up on PubMed to capture any newly published research. This ongoing search process, combined with backward and forward citation tracking and additional searches through other sources like Google Scholar, ensured that the review was as comprehensive and up-to-date as possible.
-
-The Figure \ref{fig:prisma} illustrates the flow of the search and inclusion process, following the recommendations of the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) statement \cite{moher_preferred_2010}. The strategy was divided into three main categories: tool-related searches, skill-related searches, and segmentation-related searches. This was not focused on conducting a systematic review but rather on establishing context, considering state-of-the-art (SOTA) methods and models, and identifying areas for further research in AI-enhanced laparoscopic training. This approach allows for a more flexible and comprehensive understanding of the current research landscape, facilitating the identification of gaps and opportunities for future research, including the focus for this study.
-
-\begin{figure}[htbp]
-    \centering
-    \begin{tikzpicture}[node distance=1.5cm, scale=0.65, every node/.style={transform shape, font=\fontsize{9}{10}\selectfont}]
-
-    % Top level boxes
-    \node (tool) [rectangle, draw, text width=10em, text centered, rounded corners] {Tool-related searches (n = 4,085)};
-    \node (skill) [rectangle, draw, text width=10em, text centered, rounded corners, right of=tool, xshift=3cm] {Skill-related searches (n = 304)};
-    \node (segmentation) [rectangle, draw, text width=10em, text centered, rounded corners, right of=skill, xshift=3cm] {Segmentation-related searches (n = 228)};
-
-    % Box connecting to database searching
-    \node (id) [rectangle, draw, text width=10em, text centered, rounded corners, below of=skill, yshift=-2cm] {Records identified through database searching (n = 4,860)};
-    \draw[->] (tool) -- (id);
-    \draw[->] (skill) -- (id);
-    \draw[->] (segmentation) -- (id);
-
-    % Additional records
-    \node (os) [rectangle, draw, text width=10em, text centered, rounded corners, right of=id, xshift=3cm] {Additional records identified through other sources (n = 243)};
-    \draw[->] (os) -- (id);
-
-    % Duplicates removed
-    \node (dup) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=id, yshift=-1cm] {Records after duplicates removed (n = 3,712)};
-    \draw[->] (id) -- (dup);
-
-    % Screening
-    \node (sc) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=dup] {Records after further concise database searching (n = 380)};
-    \draw[->] (dup) -- (sc);
-
-    % Irrelevant exclusion
-    \node (ex) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=sc] {Records excluded as irrelevant (n = 106)};
-    \draw[->] (sc) -- (ex);
-
-    % Full text assessed
-    \node (ft) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=ex] {Full-text articles assessed for eligibility (n = 73)};
-    \draw[->] (ex) -- (ft);
-
-    % Articles excluded after full text assessment
-    \node (fa) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=ft] {Articles excluded after full-text assessment (n = 43)};
-    \draw[->] (ft) -- (fa);
-
-    % Final studies included
-    \node (inc) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=fa] {Studies included in the final review (n = \textcolor{red}{XX})};
-    \draw[->] (fa) -- (inc);
-
-    \end{tikzpicture}
-    \caption{PRISMA Flow Diagram}
-    \Description{The flow diagram of the paper selection and pruning process according to the recommendations of the PRISMA method.}
-    \label{fig:prisma}
-\end{figure}
-
-\section{Online Resources}
-
-\begin{itemize}
-    \item \textbf{Anchor Optimisation:} \url{https://github.com/martinzlocha/anchor-optimization}
-    \item \textbf{Augmented Reality Tool Network (ART-Net):} \url{https://github.com/kamruleee51/ART-Net}
-    \item \textbf{EfficientDet:} \url{https://github.com/rwightman/efficientdet-pytorch}
-    \item \textbf{End-to-End Object Detection with Transformers (DETR):} \url{https://github.com/facebookresearch/detr}
-    \item \textbf{MICCAI 2015 EndoVis Dataset (EndoVis 2015):} \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}
-    \item \textbf{PyTorch RetinaNet:} \url{https://github.com/yhenon/pytorch-retinanet}
-    \item \textbf{Ultralytics YOLO Models:} \url{https://github.com/ultralytics/ultralytics}
-    \item \textbf{YOLOv10: Real-Time End-to-End Object Detection:} \url{https://github.com/THU-MIG/yolov10?tab=readme-ov-file}
-\end{itemize}
+\input{appendix}
 
 \end{document}
 

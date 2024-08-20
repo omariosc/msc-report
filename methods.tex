@@ -1,6 +1,6 @@
 \section{Methodology}
 
-% We collected an in-house dataset comprising 24 laparoscopic surgery videos, each approximately 3 minutes long in 1920x1080 resolution, totalling 1.32GB. These videos feature procedures performed by either a trainee or an expert trainer. The dataset includes 103,629 frames annotated with tooltips and ground truth data for tool position in three dimensions, including quaternions for spatial orientation and rotation values (6 degrees of freedom). Multiple anchor-based and anchor-free deep learning models, including various state-of-the-art (SOTA) models, are implemented and tested. These models are evaluated using the standard Common Objects in Context (COCO) metric, yielding mean Average Precision (mAP) scores for detected bounding boxes around the tools and tooltips at a 0.5 intersection over union (IoU) threshold. The models are trained on a single NVIDIA GeForce RTX 3060 GPU with 12GB of GPU memory.
+% \textbf{Methods:} We collected an in-house dataset comprising 24 laparoscopic surgery videos, each approximately 3 minutes long in 1920x1080 resolution, totalling 1.32GB. These videos feature procedures performed by either a trainee or an expert trainer. The dataset includes 103,629 frames annotated with tooltips and six degrees of freedom ground truth data for three-dimensional tool positions and quaternions for spatial rotation, with complete bounding box annotations for tools and tooltips. Multiple anchor-based and anchor-free deep learning models are implemented and tested, including various state-of-the-art (SOTA) models. These models are evaluated using the standard Common Objects in Context (COCO) metric, yielding mean Average Precision (mAP) scores for detected bounding boxes around the tools and tooltips at a 0.5 intersection over union (IoU) threshold. The models are trained on a single NVIDIA GeForce RTX 3060 GPU with 12GB of GPU memory.
 
 \subsection{Datasets}
 
@@ -9,6 +9,7 @@
 \subsubsection{Data Collection}
 
 % why collecting this dataset?
+% Higher POV, more detail about surgeons, more tools, higher quality of data, use in LMICs and training networks
 
 % Data was collected on 11th and 12th October 2023 (at the 8th Urology Boot Camp).
 % We collected data about the handedness and level of expertise of the participants (but not gone through any of this yet as we hadn't touched the skill side).
@@ -17,7 +18,7 @@
 % We also collected data on the surgeons' estimated number of procedures in their lifetimes' and within the last 12 months.
 % We will confirm that the patients do not have a pacemaker or any other metal implants that could interfere with the electromagnetic tracking system.
 
-
+% Use reference (See Figure 1 \ref{fig:teaser}) the black sensor on the right of the peg transfer board with the blue tap to localise the tooltips and cameras positions and orientations.
 % DIAGRAM Data Collection
 
 % Collected motion data from a peg transfer task. The goal is that we can train an AI system to localise the laparoscopic tools using the image alone. This will well help us develop a new training system, giving automated feedback on indiidual sub-skills. In this study we focus on first detecting the tools which can then be used with the sensor data to build a model which can predict the motion of the tools based on the location of the tool in the image.
@@ -107,6 +108,8 @@ PETRAW was a dataset primarily for segmentation and workflow recognition, howeve
 \subsubsection{Object Tracking}
 
 \subsection{Model Training}
+
+There are some points to be made clear about the training processes. We will use patience set to 10, batch size of 16 but 8 in models which require more GPU memory (the SIMO models and EfficientDet). The YOLO models used a specific type of mosaic augmentation where images are cropped and stitched together to form a larger image, improving generalisation. Inference time was based on the detection times per image over the test set. The YOLOv10 models on the AI-ELT dataset were fine-tuned versions of the YOLOv10 models trained on the ART-Net dataset so epoch numbers are not completely representative. Simiarly, both RetinaNet models with anchor-based optimisation were fine-tuned versions of the non-optimised models. We also reduced the frequency of testing on validation set to every 10 epochs to reduce the time taken to train the models in this specific case. However, none of these points will take away from the main results.
 
 % using the data and splits
 

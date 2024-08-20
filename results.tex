@@ -1,7 +1,7 @@
 \section{Experimentation}
 
-% The best-produced model, the anchor-free YOLOv8-X model, achieved a mAP50 of 99.5\% and a mAP50-95 of 85.6\% on the test set with an inference time of 21.7ms, approximately 46 frames per second (FPS), demonstrating its effectiveness in real-time surgical tool detection. The proposed tracking algorithm has an accuracy of 100\% over the detected tools and too.tipsl These results highlight the potential of the models for accurate tool localization, even in resource-constrained environments.
 
+% \textbf{Results:} The anchor-free YOLOv8-X model was the most accurate, achieving a mAP_{50} of 99.5\% and a mAP_{50:95} of 85.6\% on the test set with an inference time of 21.7ms, approximately 46 frames per second (FPS), demonstrating its effectiveness in real-time surgical tool detection. The most efficient model was YOLOv8-N, achieving a mAP_{50} of 99.5\% and a mAP_{50:95} of 83.3\% with 1.8ms inference time, approximately 555FPS (with only 3 million parameters - less than 20x the number in YOLOv8-X). The proposed tracking algorithm has an accuracy of 100\% over the detected tools and tooltips.
 \subsection{In-House Dataset}
 
 % describe the flow of participants throughout the study
@@ -25,13 +25,22 @@
 
 Inspired by the CholecTrack20 schematic diagram \cite{nwoye_cholectrack20_2023}, we present an intuitive way to understand the dataset.
 
-The average number of procedures performed was 120, with a range of 0 to over a 1000, with 22 estimated to be performed on average in the last 12 months, ranging from 0 to 100. All 24 participants agreed to share their results entirely. If we categorise the surgeons skill based on number of procedures, were low is <20, medium is between 20 and 100 and high is >100, then we have 9 low, 9 medium and 6 high skilled surgeons. Results from the Edinburgh Handedness survey \cite{oldfield_assessment_1971} showed almost all surgeons were right-handed, with one left-handed (participant 12) and one who alternated hands (participant 3).
+The average number of procedures performed was 120, with a range of 0 to over a 1000, with 22 estimated to be performed on average in the last 12 months, ranging from 0 to 100. All 24 participants agreed to share their results entirely. If we categorise the surgeons skill based on number of procedures, were low is <20, medium is between 20 and 100 and high is >100, then we have 9 low, 9 medium and 6 high skilled surgeons. Results from the Edinburgh Handedness survey \cite{oldfield_assessment_1971} showed almost all surgeons were right-handed, with one left-\usepackage{multirow}
+ (participant 12) and one who alternated hands (participant 3).
 
 \subsubsection{Data Annotations}
 
 % overall data annotated
 
 % issues faced
+
+In future, further annotations could be developed based on existing metrics of technical surgeons, e.g. Objective Structured Assessment of Technical Skills (OSATS) 8, Prostatectomy Assessment and Competency Evaluation (PACE) 9.
+% 8 JA Martin, 10.1046/j.1365-2168.1997.02502.x 9 A Hussein, 10.1016/j.juro.2016.11.100
+Though they are subjective, being based on questionnaires, they could be useful in settings a baseline for categorising surgical skill level 
+% Hilal, Z.; Kumpernatz, A.K.; Rezniczek, G.A.; Cetin, C.; Tempfer-Bentz, E.-K.; Tempfer, C.B. A randomized comparison of video demonstration versus hands-on training of medical students for vacuum delivery using Objective Structured Assessment of Technical Skills (OSATS). Medicine 2017, 96, 11. [Google Scholar] [CrossRef]
+we will identify key movement metrics which define the skill level for typical tasks in a laparoscopic procedure17. These metrics will be quantified from trainee videos to create task-specific learning curves.
+% 17 M Pears, 10.1177/00369330211008594
+
 
 \subsection{Model Configurations}
 
