@@ -2,48 +2,120 @@
 
 \subsection{Identification and Evaluation of Relevant Datasets}
 
+% https://link.springer.com/article/10.1007/s11263-022-01640-6
+
+We identified 64 surgical datasets, of which we categorised 5 for tracking (where there is video access or subsequent frames available with appropriate annotations), 4 for pose estimation (with ground truth sensor data), 6 for detection (only bounding box annotations available), 10 for skill (classification of the operators' surgical skills), 11 for workflow analysis (the current sub-procedure or workflow carried out by the surgeon), 20 for segmentation (with full tool masks) and 7 for other use. Since some datasets have multiple use cases, we organised them so that if we could use them for tracking then we considered it to a dataset for tracking. In total, 37 datasets were identified as being useful with 9 excluded as they were based on robotic surgery (not relevant to us), with the remaning 18 datasets being excluded as they were not relevant. Only 7 datasets were ready for immediate use, with a further 5 available after requesting access.
+
+Some datasets had more value as the quality of images and annotations were greater and very few had code available for direct use. We list these datasets as follows: MICCAI 2015 Endoscopic Vision Challenge (EndoVis 2015), MICCAI 2016 Endoscopic Vision Challenge (m2cai16), MICCAI 2024 Endoscopic Vision Challenge (SurgVU) \footnote{Based on the previous 2022 and 2023 challenge versions.}, PEg TRAnsfer Workflow Recognition by different modalities (PETRAW) \footnote{Sub-challenge as a part of MICCAI 2021} and the Augmented Reality Tool Network (ART-Net) dataset. Of these, the most relevant datasets were PETRAW as it is the ideal quality of the dataset that we would expect ours to be and ART-Net as it contained segmentation masks for tooltips which is something most datasets lacked.
+
 % avoiding segmentation
 
-% 1.	The systematic review is reported according to the recommendations of the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) statement (Moher, 2010). 
-% a.	D. Moher, A. Liberati, J. Tetzlaff and D. G. Altman, "Preferred reporting items for systematic reviews and meta-analyses: The PRISMA statement", Int. J. Surg., vol. 8, no. 5, pp. 336-341, 2010.
-% b.	Figure 1. Flow diagram of the search and inclusion process.
-
-% records identified through database searching (n = 1,000) pubmed, etc.
-% additional records identified through other sources (n = 1,000) google scholar, etc.
-% records after duplicates removed (n = 1,000)
-% records screened (n = 1,000) (link to each different component)
-    % records excluded as irrelevant (n = 1,000)
-% full-text articles assessed for eligibility (n = 1,000)
-% articles excluded after full text assessment (n = 1,000)
-% studies included (n = 1,000)
-
-% The flow diagram of the paper selection and pruning process according to the recommendations of the PRISMA method.
+\subsubsection{Augmented Reality Tool Network (ART-Net) Dataset}
 
 % ART-NET: If there is enough time, we could try the method on another dataset. For ART-Net, we could convert the segmentation map into a bounding box, for the entire tool and just for the tool tip. I could consider other public datasets and what has been benchmarked already and how, so that I could employ the same method for comparison.
+% This dataset consists non-robotic tools with annotated tool presence, tool segmentation, and instrumnt geometric primitives (mid-line, edge-line, tooltip). The images come from laparoscopic hysterectomy videos. This dataset also contains tool presence annotated for another set of 3000 images, namely 1500 positive and 1500 negative images, respectively, for which some positive images contain multiple tools. 4270 images are labelled for tool detection. If the tool shaft is not visible at all, the image is marked as negative. When a small part of the tool shaft is visible, the image is marked as positive. For segmentation and geometric primitive extraction, 635 images are annotated.
+% The ART-Net dataset (Hasan et al., 2021) is tailored for nonrobotic laparoscopic hysterectomy, emphasizing 3D graphics applications. Annotations cover tool presence detection, binary tool segmentation, and 2D pose estimation. Extracted from 29 procedures, the dataset provides frames with and without instruments, annotating these frames for tool presence. Keyframes are annotated for binary tool segmentation and 2D pose in the form of geometric primitives (tool-tip, midline and instrument shaft heatmaps). https://arxiv.org/abs/2401.08256
+% This project proposed ART-Net to detect, segment, and extract three geometric primitives simultaneously from the laparoscopic images. These primitives are the tool edge-lines, mid-line, and tip. They allow the tool's 3D pose to be estimated by a fast algebraic procedure. The framework only proceeds if a tool is detected. The accuracy of segmentation and geometric primitive extraction is boosted by a new Full resolution feature map Generator (FrG). https://github.com/kamruleee51/ART-Net
+
+\subsubsection{PEg TRAnsfer Workflow Recognition by different modalities (PETRAW) Dataset}
+
+% PETRAW: The PETRAW dataset (Huaulme et al., 2023) is designed for workflow recognition in peg transfer training sessions. The dataset comprises 150 sequences of peg transfer sessions recorded on a virtual reality simulator, kinematic data, videos, and annotations for semantic segmentation (2 targets and 1 instrument), phase (2 phases), step (12 steps), and action annotations (6 actions). https://arxiv.org/abs/2401.08256
+% https://www.synapse.org/Synapse:syn25147789/wiki/608848
+% https://arxiv.org/abs/2202.05821
+
+\subsubsection{MICCAI 2015 Endoscopic Vision Challenge (EndoVis 2015) Dataset}
+
+% The EndoVis challenge is a high-profile international challenge for the comparative validation of endoscopic vision algorithms that focus on different problems each year. One of the most used for surgical instruments is the EndoVis 2015, which is a multi-instrument dataset, split into training and test data, with the training data including four 45-second intervention videos, and the test set being comprised of additional 15-seconds video sequences for each of the training sequences and two additional 1-minute recorded interventions. The resolution of all sequences is 720×576 pixels. https://ieeexplore.ieee.org/abstract/document/10253772
 
 \subsubsection{Potential to Collect New Datasets}
 
 % training datasets are fewer, easier to collect and to be used in LMIC
 
-\subsection{State-of-the-Art Methods}
+\subsection{State-of-the-Art Object Detection Methods}
 
-% emphases what has been done
+Much work has been done in the field of object detection.
 
-\subsubsection{Anchor-based and Anchor-free Detection Methods}
+We will not discuss the exact performance of these models nor compare them against each other directly here as there are various context and different metrics used. We will have further discussions on this later in the paper.
+
+\subsubsection{You Only Look Once (YOLO)}
+
+% frame object detection as a regression problem to spatially separated bounding boxes and associated class probabilities. A single neural network predicts bounding boxes and class probabilities directly from full images in one evaluation. Since the whole detection pipeline is a single network, it can be optimized end-to-end directly on detection performance. YOLO learns very general representations of objects. A single convolutional network simultaneously predicts multiple bounding boxes and class probabilities for those boxes. YOLO trains on full images and directly optimizes detection performance. This unified model has several benefits over traditional methods of object detection. Unlike classifier-based approaches, YOLO is trained on a loss function that directly corresponds to detection performance and the entire model is trained jointly. YOLO also generalizes well to new domains making it ideal for applications that rely on fast, robust object detection. https://arxiv.org/abs/1506.02640
+% YOLO: Redmon et al.[19] proposed YOLO (You Only Look Once) algorithm in 2016. As the earliest one-stage detection algorithm, it treats the object detection task as a regression problem, and predicts the coordinates of the bounding box, the categories of objects contained in the bounding box and the confidence of classification by directly processing the whole image. https://www.sciencedirect.com/science/article/pii/S0921889021002232
 
 % Anchor-based is interesting because videos often have a wide range of aspect ratios, etc. (insert examples). We decided that it would be best to continue with the current dataset, and to make it scientific and sufficient for the MSc, I would look at investigating anchor-based methods (e.g. YOLO) and anchor-less methods (fully connected one-stage CNN). A method for each would be sufficient. The idea is that the aspect ratio of the tool will change as it moves around and is rotated, with different orientations and scales in various ways, so anchors in anchor-based methods would need to be optimised. I would look at what methods could cope with those situations and what their limitations are.
 
+% Non-maximum suppression (NMS) is a technique used in object detection to remove overlapping bounding boxes. It is a post-processing algorithm that filters out boxes with low confidence scores and high IoU (Intersection over Union) with other boxes. NMS is a crucial step in object detection pipelines to ensure that the model predicts only one bounding box for each object. The algorithm works by selecting the box with the highest confidence score and removing all other boxes that have a high IoU with the selected box. This process is repeated until all boxes are processed. NMS is an essential step in object detection pipelines to ensure that the model predicts accurate bounding boxes for objects in the image. https://www.pyimagesearch.com/2020/08/10/opencv-object-tracking/
+
+% The execution time of NMS primarily depends on the number of boxes and two thresholds. As the confidence threshold increases, more prediction boxes are filtered out, and the number of remaining boxes that need to calculate IoU decreases, thus reducing the execution time of NMS. Another observation is that anchor-free detectors outperform anchor-based detectors with equivalent accuracy for YOLO detectors because the former require less NMS time than the latter.
+
+% YOLOv10: YOLOs have emerged as the predominant paradigm in the field of real-time object detection owing to their effective balance between computational cost and detection performance. Researchers have explored the architectural designs, optimization objectives, data augmentation strategies, and others for YOLOs, achieving notable progress. consistent dual assignments for NMS-free training of YOLOs, which brings the competitive performance and low inference latency simultaneously. Moreover, we introduce the holistic efficiency-accuracy driven model design strategy for YOLOs. We comprehensively optimize various components of YOLOs from both the efficiency and accuracy perspectives, which greatly reduces the computational overhead and enhances the capability achieves the stateof-the-art performance and efficiency across various model scales.
+% we target both the post-processing and model architecture throughout the detection pipeline of YOLOs. For the post-processing, we propose the consistent dual assignments for NMSfree training, achieving efficient end-to-end detection. For the model architecture, we introduce the holistic efficiency-accuracy driven model design strategy, improving the performance-efficiency tradeoffs. These bring our YOLOv10, a new real-time end-to-end object detector. Extensive experiments show that YOLOv10 achieves the state-of-the-art performance and latency compared with other advanced detectors, well demonstrating its superiority. https://arxiv.org/pdf/2405.14458
+% https://arxiv.org/abs/2405.14458#
+
+% A YOLO-based model was presented by Choi et al. [20]. His work reported the fastest inference time of 48 FPS in the m2cai16-tool-location dataset but low performance for localization over preselected videos for validation. Choi, B., Jo, K., Choi, S., Choi, J.: Surgical-tools detection based on convolutional neural network in laparoscopic robot-assisted surgery. In: Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society, EMBS, pp.  1756–1759. IEEE, Piscataway, NJ (2017)
+
+\subsubsection{ART-Net Model}
+
+% ART-Net: Problem is the model was built for segmentation. To convert this into a detection problem would significantly reduce the accuracy of the model. Though we can easily convert segmentation masks into bounding box annotations for the ART-Net dataset, annotating our dataset to be used for segmentation would be very time-consuming and not relevant as discussed in the introduction.
+% ART-Net achieves in both average precision and accuracy. In segmentation, it achieves in mean Intersection over Union (mIoU) on the robotic EndoVis dataset (articulated tool), \cite{hasan_detection_2021}. The proposed framework outperforms existing ones in detection and segmentation. Compared to separate networks, integrating the tasks in a single network preserves accuracy in detection and segmentation but substantially improves accuracy in geometric primitive extraction. 
+% ART-Net has a single encoder and five sub-network branches, namely one for tool detection, one for tool segmentation, and three for geometric primitive extraction.
+
+\subsubsection{RetinaNet}
+
+% RetinaNet: Retina-net [21] is the latest one-stage detection framework, which puts forward focus loss for unbalanced categories. It inhibits the categories with more and easier classification in the loss function and greatly improves the proportion of losses with less and difficult classification. This network structure has significant advantages in accuracy, efficiency and complexity. https://www.sciencedirect.com/science/article/pii/S0921889021002232
+% Based on ResNet He, K., Zhang, X., Ren, S., Sun, J.: Deep residual learning for image recognition. In: CVPR (2016) https://arxiv.org/abs/1512.03385
+
+We can use RetinaNet with anchor-box optimisation \cite{zlocha2019improving}.
+
+% \subsubsection{EfficientDet}
+
+\subsubsection{DEtection TRansformer (DETR)}
+
+% DETR: views object detection as a direct set prediction problem. \cite{vedaldi_end--end_2020}. streamlines the detection pipeline, effectively removing the need for many hand-designed components like a non-maximum suppression procedure or anchor generation that explicitly encode our prior knowledge about the task.
+% Many Deep Learning based methods such as Fast-RCNN have achieved SOTA performance in tool detection and localization (Du et al, 2018a) but are computationally expensive, introducing inference time penalties. https://arxiv.org/abs/2209.01435.
+% The goal of object detection is to predict a set of bounding boxes and category labels for each object of interest. Modern detectors address this set prediction task in an indirect way, by defining surrogate regression and classification problems on a large set of proposals [37,5], anchors [23], or window centers [53,46].
+% 23: Lin, T.Y., Goyal, P., Girshick, R.B., He, K., Doll´ar, P.: Focal loss for dense object detection. In: ICCV (2017)
+% 37: Ren, S., He, K., Girshick, R.B., Sun, J.: Faster R-CNN: Towards real-time object detection with region proposal networks. PAMI (2015)
+% 5: Cai, Z., Vasconcelos, N.: Cascade R-CNN: High quality object detection and instance segmentation. PAMI (2019)
+% 53. Zhou, X., Wang, D., Kr¨ahenb¨uhl, P.: Objects as points. arXiv:1904.07850 (2019)
+% 46. Tian, Z., Shen, C., Chen, H., He, T.: FCOS: Fully convolutional one-stage object detection. In: ICCV (2019)
+% DETR directly predicts (in parallel) the final set of detections by combining a common CNN with a transformer architecture [47]. During training, bipartite matching uniquely assigns predictions with ground truth boxes. 
+% 47:. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., Polosukhin, I.: Attention is all you need. In: NeurIPS (2017)
+% DETR uses a conventional CNN backbone to learn a 2D representation of an input image. The model flattens it and supplements it with a positional encoding before passing it into a transformer encoder. A transformer decoder then takes as input a small fixed number of learned positional embeddings, which we call object queries, and additionally attends to the encoder output. We pass each output embedding of the decoder to a shared feed forward network (FFN) that predicts either a detection (class and bounding box) or a “no object” class.
+% achieves competitive results compared to Faster R-CNN in quantitative evaluation on COCO.
+% resnet backbone https://arxiv.org/abs/1512.03385
+
+% Loza: we use advancements in \cite{Loza2023DTx}. The proposal is to utilize multi-scale features within thefeature extraction layer and at the transformer-based detection architecture through posi-tional encoding that can reﬁne and capture context-aware and structural information ofdifferent-sized tools. Furthermore, a supervised contrastive loss is introduced to optimizerepresentations of object embeddings, resulting in improved feed-forward network perfor-mances for classifying localized bounding boxes. The strategy demonstrates superiority tostate-of-the-art (SOTA) methods. Generation of richer features through incorporating aRes2Net [https://doi.org/10.1109/TPAMI.2019.2938758] as backbone, an architecture that makeslocal-scale consideration for the extraction of features.∙ Multi-scale position encoding of two projected features mapsextracted from the backbone to incorporate features at multi-ple scales in the self-attention mechanism of the transformer.We call this new architecture our proposed “’dense trans-former” (DTX) network and it is inspired by the DETRdetector \cite{vedaldi_end--end_2020}.∙ Contrastive learning over the object representation of the sur-gical tools to encourage consistency and separability in thefeature embeddings of the different classes
+
+
 \subsection{Tracking Methods}
 
-% Secondly, the main focus is on detection. Tracking can be done if IDs are tracked and we consider tools moving out of frame (their appearance, disappearance and reappearance). Segmentation is not needed as tracking is our aim, not pixel-wise classification.
+% Secondary focus is tracking, the main focus is on detection. Tracking can be done if IDs are tracked and we consider tools moving out of frame (their appearance, disappearance and reappearance). Segmentation is not needed as tracking is our aim, not pixel-wise classification.
+
+% many different algorithms, and list some (DeepSORT, ByteTrack, BotSORT) however we will create our own algorithm for us on datasets similar to PETRAW and our dataset.
+
+Currently, tool detection methods primarily rely on tracking-by-detection, with a reduced focus on exploring temporal tracking \url{https://www.sciencedirect.com/science/article/pii/S1361841516301657?via%3Dihub}. This approach treats each frame as a separate detection problem, neglecting the temporal aspect. Tracking by detection is beneficial in complex environments where the tracked object may frequently move in and out of view, a scenario that would require explicit handling in a temporal model with a reinitialization procedure. However, in surgical skill analysis with multiple tools, we require information about each individual tool and its use, necessitating a tracking approach that can handle multiple objects simultaneously. This is particularly important in laparoscopic surgery, where multiple tools are used simultaneously, and the surgeon's hands may occlude the tools and they may move in and out of view.
+
+% Generally, tracking by detection methods train a classifier to separate the region of interest from the background and then keep on updating with new information in each frame. The reliability of these methods may be compromised if some of the samples are incorrectly labelled. Furthermore, the substantial challenge for tracking by detection methods is that the bounding box not only contains the object of interest but rather a considerable portion of background too. This has an adverse effect on the model training since background portion keeps on hanging in different frames. https://arxiv.org/pdf/2209.01435
+
+%  Nwoye et al (2019) uses frame-level labels to detect tool tip and track multiple instruments resulting in 12.6% improvement in SOTA.https://arxiv.org/pdf/2209.01435. 
+
+\subsubsection{Computer Vision Methods}
+
+There are many alternative methods which can be used for specific tasks, which can be incredibly useful with increasing accuracies of detection and tracking. Optical flow methods estimate the motion of objects between consecutive frames of video. By tracking keypoints or pixels, these methods can determine movement patterns which correspond to the movement of the tool. A key technique used in the Lucas-Kanade method which utilises a differental method for optical flow estimation, efficient for small motion which is what we experience in laparoscopic data. It also uses the Horn-Schunkck method which assumes smoothness in the motion field. This works well in real-time applications and can be used to track movement across frames with moderate accuracy. We can improve the robustness and accuracy by using sensor data to initialise and help guide the optical flow tracking process. The Kalman Filter method is an extremely popular and widely used method in tracking which provides estimates of unkown variables by optimally combining a series of measurements observed over time, which is excellent for real-time applications and noisy data. They also offer a simple, cost-effective way to combine sensor data, but are only accurate for linear motion models with Gaussian uncertainties \url{https://www.sciencedirect.com/science/article/pii/S1361841516301657?via%3Dihub}. Despite this, they have been sufficient for many instrument detection applications. A particle filter can track the tool positions based on probabilistic models, based on sensor readings and a motion model. This makes it robust to non-linearities and multi-modal distirbutions in the sensor data. Background subtraction is a simple method which involves separating foreground objects from the background in video frames to isolate and track moving objects. We can use Gaussian Mixture Models to model the background using multiple normal distributions to adapt to changes in lighting, scene dynamics and camera movement. The simplest methd is to use frame differencing to highlight moving objects. This is extremely effective in controlled environments with static backgrounds making it highly suitable in our application. Feature matching can be used to track movement by detecting and matching key features such as corners and edges. With enhancemnets such as speeded-up robust features (SURF), a faster alternative to scale-invariant feature transform (SIFT) which describes local features, we can track keypoints in real-time applications, robust to scale and rotation changes common in laparoscopic videos. We could use template matching where we use pre-defined templates of the tools to locate and track frame-by-frame. Its weakness is in aspect-ratio changes which can be countered by also implemeneting one of the aforementioned SIFT or SURF techniques. Simple edge detection and contour tracking can also be used in non in-vivo datasets where there is a simpler non-moving background compared to in-vivo data.
+
+\subsubsection{Artificial Intelligence Methods}
+
+Artificial intelligence methods can be used to track tools in laparoscopic videos. We can use a deep learning method such as a convolutional neural network (CNN) to detect tools in images. Then we can use a recurrent neural network (RNN) to use previous information to help reinforce predictions in the current frame. We coudl also use a long short-term memory (LSTM) network to remember information over long periods of time, or a gated recurrent unit (GRU) network which is a simplified version of an LSTM network which is more efficient and can be used in real-time applications. We could use a transformer network which is a deep learning model that uses attention mechanisms to learn dependencies between input and output data.  Graph neural networks can be used to model spatial and temporal relationships between objects in a scene, which can be used to track tools in a video where we consider tool positions as nodes and edges as the relationships between them. 
+All of these methods essentially allow us to track tools in real-time applications, with the ability to learn from previous frames and predict future frames, with more robustness and accuracy than traditional computer vision methods.
 
 \subsection{Potential Gaps and Insights}
 
 % what has not been done whicih could be done
 % pose research questions
 
-\subsections{Limitations}
+% Data-related gaps: One of the important hurdles in integrating AI into surgery is the availability of sufficient annotated training data. The performance of AI-based models relies heavily upon data availability. Also, the data labeling requires expert annotators. Maier-Hein et al (2022) argues that the lack of success stories in surgery as contrasted to other medical domains, such as radiology and dermatology can be attributed to the lack of quality in the annotated datasets. For clinical usefulness, algorithms need to have faster inference times, and need to be tested on sufficiently fast hardware to enable real-time execution. https://arxiv.org/pdf/2209.01435
 
-\subsections{Future Use Cases}
+\subsection{Future Use Cases}
 
 % Need to have a concise plan going forward. I have focused on image tracking and segmentation across many datasets. Going forward, I should consider what could be done, working with state-of-the-art (SOTAs) and focusing on something different to give different results. Using the papers from the literature review I have carried out, I should pick a paper, run the SOTA method and consider why it performs best or why it fails at certain things. These things are where I should look for improvements. Consider the mistakes made and how I could solve them. If there are good and bad samples, then focus on those which fail and innovate on what could be done about them. For example, there could be different sizes or occlusions or look at the domain-safe problem (solving the generalisation problem on real and fake data). If the methods do not work on real data, what is the gap which needs to be solved? Goal is to get inference down.
