@@ -1,0 +1,58 @@
+\section{Introduction}
+
+\subsection{Minimally Invasive Surgery and Laparoscopy}
+
+Minimally invasive surgery (MIS) represents a significant advancement in surgical techniques, characterized by the use of small incisions and specialized instruments to perform complex procedures with minimal damage to surrounding tissues. Laparoscopy, a subset of MIS, involves the insertion of a laparoscope—a long, thin tube with a high-intensity light and a high-resolution camera at the front—into the abdomen through a small incision. This allows surgeons to view and operate on the internal organs with greater precision. The reduced trauma to the patient, faster recovery times, and lower risk of complications make MIS an attractive option, particularly in resource-constrained environments where hospital stays and postoperative care can be expensive and logistically challenging. However, the successful implementation of MIS in low and middle-income countries (LMICs) is often hindered by the lack of skilled surgeons and the high cost of the required equipment.
+
+% Laparoscopy is a preferable approach for many surgical procedures, as it reduces blood loss, trauma, infection rate, and increases the speed of recovery compared to open surgery \cite{hasan_detection_2021}
+
+\subsubsection{Low and Middle-Income Countries}
+
+There are clear and persistent inequalities in access to surgical care between high-income countries (HICs) and low and middle-income countries (LMICs). In LMICs, the shortage of skilled surgeons poses a significant challenge, contributing to an estimated 5 billion people lacking access to safe and affordable surgical care, according to the Lancet Commission on Global Surgery (LCoGS) \cite{mearaglobal2015}. The LCoGS further emphasizes the need for 143 million additional surgical procedures annually to bridge this gap \cite{mearaglobal2015}. Furthermore, the World Health Organization (WHO) has highlighted a global shortfall of 44.5 million health workers, with a considerable proportion of this deficit being in surgery and anesthesia \cite{worldhealthorganizationglobal2016}. This shortage of skilled surgeons in LMICs is a substantial barrier to improving surgical outcomes and reducing the burden of surgical diseases in these regions. Consequently, there is a pressing need for scalable, effective training solutions that can elevate the surgical capacity in LMICs, particularly through innovative approaches such as tool detection and tracking in laparoscopic surgery, which can aid in both training and assessment.
+
+The lack of large-scale datasets hampers Artificial Intelligence (AI) implementation in this domain \cite{nwoye_cholectrack20_2023}. Current datasets mainly focus on in-vivo context, which limits the generalizability of models and research overall to surgical training in non-in-vivo settings such as in LMICs. As tools become more sophisticated and versatile, the need for precise and accurate tracking becomes increasingly essential in assessing surgical skill.
+
+\subsection{Surgical Skill}
+
+Currently, five billion people lack access to quality surgical care, with a significant variation in surgeon skills leading to complications and avoidable harm for patients \url{https://ieeexplore.ieee.org/document/8354185}. Improving surgical training and feedback is critical to reducing these rates, and assessing operative skill is essential to this improvement. Traditional methods of skill assessment are manual, time-consuming, and subjective. The current standard for surgical performance assessment is to have an expert surgeon observe the operation in its entirety and provide feedback to the surgeon performing the surgery. The Global Operative Assessment of Laparo-scopic Skills (GOALS) rating system, is a validated rubric for grading surgeons on laparoscopic surgery performance. For each of the five assessment domains of GOALS-depth perception, bimanual dexterity, efficiency, and tissue handling, and autonomy, surgeons are rated on a scale of 1 to 5, from least to most technically proficient, totaling to a final score out of 25. In order for an automated system to measure and evaluate these domains from a video feed, it must be able to detect and track the surgical tools used in the procedure, giving us the motivation to develop a model that can accurately detect and track the position of surgical tools in laparoscopic videos, which would be similar to what could be expected in a deployed system.
+
+% Real-time detection of surgical tools in laparoscopic data plays a vital role in under-standing surgical procedures, evaluating the performance of trainees, facilitating learning,and ultimately supporting the autonomy of robotic systems. \cite{Loza2023DTx}
+
+\subsection{Surgical Tool Detection and Tracking}
+
+Tool tracking in surgical videos is vital in computer-assisted intervention for skill assessment during MIS \cite{nwoye_cholectrack20_2023}. The field of surgical tool detection and tracking has seen significant advancements with the advent of deep learning and computer vision technologies. Existing models such as RetinaNet, EfficientDet, YOLOv8, YOLOv10, ART-Net, and DTX have demonstrated varying degrees of success in detecting and tracking surgical instruments in real-time, which is crucial for applications in MIS. These models leverage sophisticated architectures, including convolutional neural networks (CNNs) and time-series analysis, to accurately identify and locate surgical tools within video frames. The anchor-based models, such as those built on the YOLO architecture, use predefined anchor boxes to predict bounding boxes, while anchor-free models like ART-Net predict the location of tools directly, potentially offering greater flexibility in varying surgical environments. The evaluation of these models is commonly performed using the Common Objects in Context (COCO) dataset's metrics, particularly the mean Average Precision (mAP) and Intersection over Union (IoU) scores, which provide a robust measure of the model's performance in detecting objects within a defined area. These advancements not only improve the precision of tool tracking in surgical videos but also enhance the potential for automated skill assessment in surgical training.
+
+\subsection{Objectives}
+
+The primary objective of this study is to develop a model that can accurately detect and track the position of surgical tools in laparoscopic videos, tailored for use in surgical training programs within LMICs. Given the resource constraints in these settings, the models need to be both computationally efficient and reliable. The goal is to provide real-time feedback to trainees, enabling a more effective evaluation of their surgical skills. By facilitating objective assessments of tool positioning and manipulation, these models can help bridge the training gap in regions where access to expert supervision is limited. Additionally, this study aims to compare the performance of different deep learning architectures—specifically anchor-based models, such as those using YOLOv10, and anchor-free models, such as ART-Net. The impact of various training strategies, including transfer learning and data augmentation, on the models' performance will also be explored. The findings from this comparative analysis will inform the development of more generalizable models applicable to a wide range of laparoscopic procedures, particularly in non-in vivo contexts.
+
+\subsection{Contributions}
+
+In this paper, we present a novel dataset of laparoscopic surgical videos and detail the development and validation of state-of-the-art (SOTA) deep learning-based models for surgical tool detection and tracking. The dataset comprises 24 videos, totaling 103,629 frames of a peg transfer task performed using fenestrated and curved forceps. Each frame is meticulously annotated with tooltips and ground truth values that include the tool's position in three dimensions and a quaternion representing its spatial orientation and rotation, providing six degrees of freedom (6DOF). To ensure robust model validation, we have manually labeled 1\% of the images across 23 videos, with one video fully labeled as a test set.
+
+We propose two models for tracking surgical tools: an anchor-based deep learning model built on the YOLOv10 architecture, and a reimplementation of the anchor-free ART-Net model \cite{hasan_detection_2021}. Our evaluation shows that the YOLOv10 model achieved a mean Average Precision (mAP50) of 99.0\% and a mAP50-95 of 80.9\% on the test set, with an inference time of 25.4ms per frame. These results demonstrate the effectiveness of our models in accurately detecting and tracking surgical tools, even in the challenging environments typical of LMICs. The dataset and models we present have significant potential for application in laparoscopic surgical skill analysis and workflow recognition, contributing to the advancement of surgical training programs and ultimately improving surgical outcomes in resource-constrained settings.
+
+% TABLE OF ACRONYMS
+\begin{table}[h]
+    \centering
+    \caption{Table of Acronyms}
+    \begin{tabular}{ll}
+      \toprule
+      \textbf{Acronym} & \textbf{Definition} \\
+      \midrule
+      6DOF & Six Degrees of Freedom \\
+      AI & Artificial Intelligence \\
+      COCO & Common Objects in Context \\
+      FPS & Frames Per Second \\
+      HICs & High-Income Countries \\
+      IoU & Intersection over Union \\
+      LCoGS & Lancet Commission on Global Surgery \\
+      LMICs & Low and Middle-Income Countries \\
+      MIS & Minimally Invasive Surgery \\
+      mAP & Mean Average Precision \\
+      SOTA & State-of-the-Art \\
+      WHO & World Health Organization \\
+      \bottomrule
+    \end{tabular}
+    \label{tab:acronyms}
+  \end{table}

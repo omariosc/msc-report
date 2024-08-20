@@ -1,0 +1,59 @@
+\section{Discussion}
+
+% The proposed models and dataset are particularly useful for applications in LMICs where access to advanced training facilities is limited, considering our data is comparable to what would be obtained in a real-world training setting. The spatial data combined with our results from tool detection and tracking can be developed upon in further research to build models for more precise surgical tool pose estimation, workflow recognition and skill assessment.
+
+\subsection{Comparison to Previous Work}
+
+\subsection{Analysis of Model Performance}
+
+% differences and what is being caused in the various models
+
+\subsection{Interpretation of Results}
+
+% overall interpretation of the main results
+
+% issues of fairness in context of the objectives
+
+% issues of fairness in context of previous studied
+
+\subsubsection{Model Usability}
+
+% the usability of the model in the context of current care
+
+% the model is lightweight and can easily run on other machines and devices
+% the model is fast and can be used in real-time
+% we can also deploy the model on a server and videos can be sent from mobile devices to the server for processing
+% the model can be used in a variety of settings, such as in the operating room, in the training room, or in the classroom
+% however, it may require a slight amount of training to consider the different distirbution of data. YOLO can generalise well to different datasets, and does not take much time to train nor fine tune for a new dataset
+
+% intended users would be developers. if the model is deployed then anyone who uses the system would be the intended users. their expertise would be just enough to understand the Python code, running the model and interpreting the results. the model is not intended for end-users, but for developers who would like to integrate the model into their own systems. there would be noo interacting with the handling of input data, unless there is intention to fine tune the model for a new dataset (e.g. machines at a specific hospital).
+
+\subsection{Limitations}
+
+Even though the dataset is of high quality, the model is limited by certain aspects of quality of the data, as the dataset is relatively small and the tools are not always visible in the frames. The model is also limited by the quality of the annotations, as they are not exact ground truth values. We are also limited by the quantity of the annotations, having only labelled 1\% of the entire dataset.
+
+Bias also plays a role in the model, as the dataset is collected from a single training event and the tools are only from a single manufacturer. This could lead to a model that is biased towards the tools and techniques used in that setup, and may not generalise well to other environments or tools.
+
+\subsection{Future Work}
+
+By utilising the full degrees of freedom in the dataset, we could build a model to track the tools in three dimensions and estimate the tool poses, giving us a 3D spatial reconstruction of the tools and their movements. This would allow for a more accurate and robust tool tracking system, which will provide more accurate insights and increased reliability through minimised error in evaluating surgical skill.
+
+We can utilise more standard and lightweight computer vision techniques to filter out parts of the scene and create better attention to reduce inference time of the model.
+
+We can evaluate the models on other datasets, especially with different tools.
+
+We can adapt the annotations so that the tools are labelled, allowing us to have a classification of the tool type, which can be useful in predicting the workflow of the surgery.
+
+Though we did not discuss it, the results of the Edinburgh Handedness survey \cite{oldfield_assessment_1971} could be used to evaluate surgical skill based on the handedness of the surgeon. If a surgeon uses their dominant hand more often, they may be more skilled in that hand, and less skilled with the other hand if they use it less often.
+
+% applicability of the model in future
+
+% generalisation of the model in future (other dataets, tools, etc.)
+
+% what will be done in the future - 3D pose estimation and spatial reconstruction, workflow recognition, skill assessment
+
+\subsection{Conclusion}
+
+% newness and novelty
+No doubt that there are many use cases for surgical tool detection and tracking. They can be used in-vivo contexts, giving live feedback to surgeons, or in training contexts, providing feedback to surgeons in past surgeries or for trainees on surgical training apparatus.
+This research contributes to the development of robust surgical training programs by providing a framework for future surgical skill analysis and workflow recognition to help ultimately improve surgical outcomes in these countries.

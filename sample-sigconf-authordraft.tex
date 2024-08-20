@@ -47,6 +47,10 @@
 %%
 \documentclass[sigconf, screen, review]{acmart}
 
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+
 \raggedbottom
 \settopmatter{printacmref=false} % Removes the ACM reference format (copyright block)
 \renewcommand\footnotetextcopyrightpermission[1]{} % Removes the footnote with the permission statement
@@ -56,7 +60,6 @@
 \acmYear{2024}
 
 \acmConference[LeedsAIMed-ConSim '24]{LeedsAIMed-ConSim2024 Internal Conference at the University of Leeds}{September 04, 2024}{Leeds, United Kingdom}
-
 
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
@@ -134,7 +137,7 @@
 %% "authornote" and "authornotemark" commands
 %% used to denote shared contribution to the research.
 \author{Omar Choudhry}
-\authornote{School of Computing, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:O.Choudhry@leeds.ac.uk}{O.Choudhry@leeds.ac.uk}}}
+\authornote{School of Computing, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:O.Choudhry@leeds.ac.uk}{O.Choudhry@leeds.ac.uk}}
 \authornote{\textbf{Correspondence:} Dr Dominic Jones, School of Electronic and Electrical Engineering, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:D.P.Jones@leeds.ac.uk}{D.P.Jones@leeds.ac.uk}}
 \email{O.Choudhry@leeds.ac.uk}
 \orcid{0000-0003-4434-3550}
@@ -156,22 +159,10 @@
 %%
 %% The abstract is a short summary of the work to be presented in the
 %% article.
-\begin{abstract}
-  \textbf{Background:} In low-middle-income countries (LMICs), there is a critical need for skilled surgeons. Alternative training processes that include computer-assisted surgical skill evaluation are essential to address this gap. Leveraging surgical videos to derive insights into tool detection and tracking is a highly researched area. This study focuses on tracking the \textcolor{red}{spatial} positions of surgical tools in laparoscopic datasets, aiming to develop a generalizable model applicable to non-in vivo contexts.
-
-  \textbf{Objectives:} The primary objective is to build accurate models for tool detection and tracking in laparoscopic videos. These models are evaluated against comparable datasets, such as ART-Net, to benchmark performance.
-
-  \textbf{Methods:} We collected an in-house dataset comprising 24 laparoscopic surgery videos, each approximately 3 minutes long in 1920x1080 resolution, totalling 1.32GB. These videos feature procedures performed by either a trainee or an expert trainer. The dataset includes 103,629 frames annotated with tooltips and ground truth data for tool position in three dimensions, including quaternions for spatial orientation and rotation values (6 degrees of freedom). Two deep learning models are implemented: one anchor-based model using the YOLOv10 architecture and a reimplementation of a state-of-the-art (SOTA) model. These models are evaluated using the standard Common Objects in Context (COCO) metric, yielding mean Average Precision (mAP) scores for detecting bounding boxes.
-
-  \textbf{Results:} The best produced model, the anchor-based YOLOv10 model achieved an mAP50 of 99.0\% and an mAP50-95 of 80.9\% on the test set with an inference time of 25.4ms, demonstrating its effectiveness in surgical tool detection and tracking. These results highlight the potential of the models for accurate tool localization, even in resource-constrained environments.
-
-  \textbf{Discussion:} The proposed models and dataset are particularly useful for applications in LMICs where access to advanced training facilities is limited. This research contributes to the development of robust surgical training programs by providing tools for surgical skill analysis and workflow recognition, to help ultimately improve surgical outcomes in these countries.
-
-  \textbf{Repository:} The code is available at \url{https://github.com/omariosc/msc-surgical-skill-improvements/}.
-\end{abstract}
-
-% In this paper we present a novel dataset of laparoscopic surgical videos and a re-implementations of SOTA deep learning-based models for surgical tool detection and tracking. The dataset consists of 24 videos, totalling 103,629 frames of a peg transfer task using fenestrated and curved forceps, with annotated tooltips and ground truth values for the position in three dimensions and a quaternion representing the spatial orientation and rotation values, providing 6DOF. We have manually labelled 1\% of the images in 23 videos plus one completely labelled video as a test set. We further propose two tracking models; a deep learning model based on the YOLOv10 architecture for surgical tool detection, and a reimplementation of the ART-Net model \cite{hasan_detection_2021}. We achieve a mAP50 of 99.0\% and mAP50-95 of 80.9\% on the test set with 25.4ms inference, demonstrating the effectiveness of the model for surgical tool detection and tracking. The dataset and model can be particular useful in resource-constrained environments such as LMICs and in future work in laparoscopic surgical skill analysis and workflow recognition, contributing to the development of surgical training programs and improving surgical outcomes in these countries.
-
+\input{abstract}
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\keywords{Surgical Tool Detection, Surgical Tool Tracking, Medical Image Analysis, Computer Vision, Machine Learning, Deep Learning, Convolutional Neural Networks (CNNs), Computer-assisted Laparoscopy, Surgical Training, Surgical Skill Improvement, Low and Middle-Income Countries (LMICs)}
 %%
 %% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
 %% Please copy and paste the code instead of the example below.
@@ -218,9 +209,6 @@
 \ccsdesc[500]{Computing methodologies~Machine learning algorithms}
 \ccsdesc[300]{Applied computing~Health informatics}
 %%
-%% Keywords. The author(s) should pick words that accurately describe
-%% the work being presented. Separate the keywords with commas.
-\keywords{Surgical Tool Detection, Surgical Tool Tracking, Computer-assisted Laparoscopy, Surgical Training, Low and Middle-Income Countries (LMIICs), Computer Vision, Machine Learning, Deep Learning, Convolutional Neural Networks (CNNs), Medical Image Analysis, Health Informatics, Artificial Intelligence in Medicine, Surgical Education Technologies, Resource-Constrained Environments}
 %% A "teaser" image appears between the author and affiliation
 %% information and the body of the document, and typically spans the
 %% page.
@@ -228,11 +216,11 @@
   \centering
   \includegraphics[height=150px]{teaserimage}
   \caption{Sample frame with tracked tools using best model and its performance.}
-  \DescriptionSample{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the precision-recall curve for the model's performance \textit{(right)}.}
+  \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precicision against weighted inference time on multiple datasets \textit{(right)}.}
   \label{fig:teaser}
 \end{teaserfigure}
 
-\received{30 August 2024}
+\received[Submitted]{30 August 2024}
 % \received[revised]{12 March 2009}
 % \received[accepted]{5 June 2009}
 %%
@@ -241,28 +229,45 @@
 \maketitle
 
 % SECTION 1
-\section{Introduction}
-
-\subsection{Minimally Invasive Surgery and Laparoscopy}
-
-\subsubsection{Low and Middle Income Countries}
-
-\subsection{Surgical Tool Detection and Tracking}
-
-\subsection{Contributions}
+\input{introduction}
 
 % SECTION 2
-\section{Background Research}
+\input{relatedwork}
 
 % SECTION 3
+\input{methods}
 
 % SECTION 4
+\input{results}
 
 % SECTION 5
+\input{discussion}
 
 \begin{acks}
-This worked was funded by the UK Engineering and Physical Sciences Research Council (EPSRC) grant \textcolor{red}{EP/S024336/1} for the University of Leeds Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. We would like to thank the supervisors Dr Dominic Jones and Dr Sharib Ali for their guidance and support throughout the project.
+O. Choudhry's Ph.D. studies is supported by the University of Leeds (UoL). The work was supported in full by UK Research and Innovation (UKRI) and UK Engineering and Physical Sciences Research Council (EPSRC) grant EP/S024336/1 for the UoL Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. Any opinions, findings, conclusions, or recommendations expressed in this article are those of the author and do not necessarily reflect the views of the UKRI, ESPRC or UoL.
+
+We would like to thank the supervisors \href{mailto: D.P.Jones@leeds.ac.uk}{Dr Dominic Jones} and \href{mailto: S.S.Ali@leeds.ac.uk}{Dr Sharib Ali} for their guidance and support throughout the project.
 \end{acks}
+
+\section*{Conflict of Interest Statement}
+
+The authors declare no conflicts of interest.
+
+\section*{Ethical Approval Statement}
+
+This study was approved by the University of Leeds School of Computing Ethics Committee. (Approval number: \textcolor{red}{\textit{[insert number here]}}).
+
+\section*{Reporting Statement}
+
+In this paper we aim to follow the Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD+AI) \cite{collins_tripodai_2024}, in order to assist in the reporting of this study. Even though we will not be looking specifically at prognosis or diagnosis, the TRIPOD+AI guidelines still provide a useful framework for the reporting of machine learning studies in healthcare.
+
+\section*{Data Availability Statement}
+
+The in-house dataset is not yet publically available, however will be in the future at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}. The Augmented Reality Tool Network (ART-Net) dataset can be requested from the authors of the original paper in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}. the PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
+
+\section*{Code Sharing Statement}
+
+The code, including all helper files, scripts, notebooks, models and checkpoints used and results obtained in this study are all freely available at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
 
 %%
 %% The next two lines define the bibliography style to be used, and
@@ -270,42 +275,80 @@ This worked was funded by the UK Engineering and Physical Sciences Research Coun
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{sample-base}
 
-
 %%
 %% If your work has an appendix, this is the place to put it.
 \appendix
 
-\section{Research Methods}
+\section{Literature Search}
 
-\subsection{Part One}
+The search strategy was meticulously designed to ensure a comprehensive and thorough exploration of the literature concerning surgical tool tracking and related topics. The selected databases — PubMed and Ovid - are among the most comprehensive resources for biomedical literature, ensuring that the search covers a broad spectrum of relevant research. The literature search began in April, and to keep the review current, alerts were set up on PubMed to capture any newly published research. This ongoing search process, combined with backward and forward citation tracking and additional searches through other sources like Google Scholar, ensured that the review was as comprehensive and up-to-date as possible.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-malesuada, quam in pulvinar varius, metus nunc fermentum urna, id
-sollicitudin purus odio sit amet enim. Aliquam ullamcorper eu ipsum
-vel mollis. Curabitur quis dictum nisl. Phasellus vel semper risus, et
-lacinia dolor. Integer ultricies commodo sem nec semper.
+The Figure \ref{fig:prisma} illustrates the flow of the search and inclusion process, following the recommendations of the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) statement \cite{moher_preferred_2010}. The strategy was divided into three main categories: tool-related searches, skill-related searches, and segmentation-related searches. This was not focused on conducting a systematic review but rather on establishing context, considering state-of-the-art (SOTA) methods and models, and identifying areas for further research in AI-enhanced laparoscopic training. This approach allows for a more flexible and comprehensive understanding of the current research landscape, facilitating the identification of gaps and opportunities for future research, including the focus for this study.
 
-\subsection{Part Two}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[node distance=1.5cm, scale=0.65, every node/.style={transform shape, font=\fontsize{9}{10}\selectfont}]
 
-Etiam commodo feugiat nisl pulvinar pellentesque. Etiam auctor sodales
-ligula, non varius nibh pulvinar semper. Suspendisse nec lectus non
-ipsum convallis congue hendrerit vitae sapien. Donec at laoreet
-eros. Vivamus non purus placerat, scelerisque diam eu, cursus
-ante. Etiam aliquam tortor auctor efficitur mattis.
+    % Top level boxes
+    \node (tool) [rectangle, draw, text width=10em, text centered, rounded corners] {Tool-related searches (n = 4,085)};
+    \node (skill) [rectangle, draw, text width=10em, text centered, rounded corners, right of=tool, xshift=3cm] {Skill-related searches (n = 304)};
+    \node (segmentation) [rectangle, draw, text width=10em, text centered, rounded corners, right of=skill, xshift=3cm] {Segmentation-related searches (n = 228)};
+
+    % Box connecting to database searching
+    \node (id) [rectangle, draw, text width=10em, text centered, rounded corners, below of=skill, yshift=-2cm] {Records identified through database searching (n = 4,860)};
+    \draw[->] (tool) -- (id);
+    \draw[->] (skill) -- (id);
+    \draw[->] (segmentation) -- (id);
+
+    % Additional records
+    \node (os) [rectangle, draw, text width=10em, text centered, rounded corners, right of=id, xshift=3cm] {Additional records identified through other sources (n = 243)};
+    \draw[->] (os) -- (id);
+
+    % Duplicates removed
+    \node (dup) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=id, yshift=-1cm] {Records after duplicates removed (n = 3,712)};
+    \draw[->] (id) -- (dup);
+
+    % Screening
+    \node (sc) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=dup] {Records after further concise database searching (n = 380)};
+    \draw[->] (dup) -- (sc);
+
+    % Irrelevant exclusion
+    \node (ex) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=sc] {Records excluded as irrelevant (n = 106)};
+    \draw[->] (sc) -- (ex);
+
+    % Full text assessed
+    \node (ft) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=ex] {Full-text articles assessed for eligibility (n = 73)};
+    \draw[->] (ex) -- (ft);
+
+    % Articles excluded after full text assessment
+    \node (fa) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=ft] {Articles excluded after full-text assessment (n = 43)};
+    \draw[->] (ft) -- (fa);
+
+    % Final studies included
+    \node (inc) [rectangle, draw, text width=13.5em, text centered, rounded corners, below of=fa] {Studies included in the final review (n = \textcolor{red}{XX})};
+    \draw[->] (fa) -- (inc);
+
+    \end{tikzpicture}
+    \caption{PRISMA Flow Diagram}
+    \Description{The flow diagram of the paper selection and pruning process according to the recommendations of the PRISMA method.}
+    \label{fig:prisma}
+\end{figure}
 
 \section{Online Resources}
 
-Nam id fermentum dui. Suspendisse sagittis tortor a nulla mollis, in
-pulvinar ex pretium. Sed interdum orci quis metus euismod, et sagittis
-enim maximus. Vestibulum gravida massa ut felis suscipit
-congue. Quisque mattis elit a risus ultrices commodo venenatis eget
-dui. Etiam sagittis eleifend elementum.
-
-Nam interdum magna at lectus dignissim, ac dignissim lorem
-rhoncus. Maecenas eu arcu ac neque placerat aliquam. Nunc pulvinar
-massa et mattis lacinia.
+\begin{itemize}
+    \item \textbf{Anchor Optimisation:} \url{https://github.com/martinzlocha/anchor-optimization}
+    \item \textbf{Augmented Reality Tool Network (ART-Net):} \url{https://github.com/kamruleee51/ART-Net}
+    \item \textbf{EfficientDet:} \url{https://github.com/rwightman/efficientdet-pytorch}
+    \item \textbf{End-to-End Object Detection with Transformers (DETR):} \url{https://github.com/facebookresearch/detr}
+    \item \textbf{MICCAI 2015 EndoVis Dataset (EndoVis 2015):} \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}
+    \item \textbf{PyTorch RetinaNet:} \url{https://github.com/yhenon/pytorch-retinanet}
+    \item \textbf{Ultralytics YOLO Models:} \url{https://github.com/ultralytics/ultralytics}
+    \item \textbf{YOLOv10: Real-Time End-to-End Object Detection:} \url{https://github.com/THU-MIG/yolov10?tab=readme-ov-file}
+\end{itemize}
 
 \end{document}
+
 \endinput
 %%
 %% End of file `sample-sigconf-authordraft.tex'.
