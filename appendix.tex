@@ -14,15 +14,15 @@ For more detail, Tables \ref{fig:modelsummary}, \ref{fig:aieltresults}, and \ref
 \hline
 \multicolumn{6}{|c|}{\textbf{Model Architecture}} & \multicolumn{2}{c|}{\textbf{Inference}} \\
 \hline
-\textbf{Model Name} & \textbf{Anchor} & \textbf{Architecture} & \textbf{Params}\begin{scriptsize}\footnote{Trainable parameters in millions.}\end{scriptsize} & \textbf{Layers} & \textbf{Loss Function} & \textbf{Time} \begin{scriptsize}\footnote{Inference time per image in milliseconds.}\end{scriptsize} & \textbf{FPS} \\
+\textbf{Model Name} & \textbf{Anchor} & \textbf{Architecture} & \textbf{Params} $^a$ & \textbf{Layers} & \textbf{Loss Function} & \textbf{Time}  $^b$ & \textbf{FPS} \\
 \hline
-YOLOv10-X & Anchor-based & YOLOv10 & 31.7 & \textbf{688} & YOLOv10 Loss\begin{scriptsize}\footnote{Box Objectness Loss + Class Objectness Loss + Detect Focal Loss + Box Offset Loss + Class Offset Loss + Detect Focal Loss Offset.}\end{scriptsize}  & 19.3 & 51.8  \\ 
+YOLOv10-X & Anchor-based & YOLOv10 & 31.7 & \textbf{688} & YOLOv10 Loss $^c$ & 19.3 & 51.8  \\ 
 YOLOv10-L & Anchor-based & YOLOv10 & 25.8 & 628 & YOLOv10 Loss & 13.0 & 76.9  \\ 
 YOLOv10-B & Anchor-based & YOLOv10 & 20.5 & 518 & YOLOv10 Loss & 10.3 & 97.1  \\ 
 YOLOv10-M & Anchor-based & YOLOv10 & 16.5 & 498 & YOLOv10 Loss & 8.0 & 125.0  \\ 
 YOLOv10-S & Anchor-based & YOLOv10 & 8.1 & 402 & YOLOv10 Loss & 3.9 & 256.4  \\ 
 YOLOv10-N & Anchor-based & YOLOv10 & 2.7 & 385 & YOLOv10 Loss & 2.2 & 465.1  \\ 
-YOLOv8-X & Anchor-free & YOLOv8 & \textbf{68.2} & 385 & YOLOv8 Loss \footnote{Detect Focal Loss + Verifocal Loss + Complete Intersection over Union (IoU).} & 21.7 & 46.1  \\ 
+YOLOv8-X & Anchor-free & YOLOv8 & \textbf{68.2} & 385 & YOLOv8 Loss $^d$ & 21.7 & 46.1  \\ 
 YOLOv8-L & Anchor-free & YOLOv8 & 43.6 & 365 & YOLOv8 Loss & 12.8 & 78.1  \\ 
 YOLOv8-M & Anchor-free & YOLOv8 & 25.9 & 295 & YOLOv8 Loss & 8.0 & 125.0  \\ 
 YOLOv8-S & Anchor-free & YOLOv8 & 11.1 & 225 & YOLOv8 Loss & 3.4 & 294.1  \\ 
@@ -30,11 +30,13 @@ YOLOv8-N & Anchor-free & YOLOv8 & 3.0 & 225 & YOLOv8 Loss & \textbf{1.8} & \text
 RetinaNet & Anchor Non-Optimized & ResNet 50 & 36.4 & 195 & IoU + Focal Loss & 5.1 & 196.1  \\ 
 RetinaNet-Opt & Anchor Optimized & ResNet 50 & 36.4 & 195 & IoU + Focal Loss & 5.2 & 192.3  \\ 
 EfficientDet & Anchor-based & ImageNet & 6.6 & 552 & Focal Loss & 4.0 & 250.0  \\ 
-SIMO-Resnet & Anchor-free & ResNet 50 & 23.5 & 231 & IoU + MSE\begin{scriptsize}\footnote{Mean Squared Error.}\end{scriptsize} & 350.0 & 2.9  \\ 
+SIMO-Resnet & Anchor-free & ResNet 50 & 23.5 & 231 & IoU + MSE $^e$ & 350.0 & 2.9  \\ 
 SIMO-VGG & Anchor-free & VGG & 14.7 & 98 & IoU + MSE & 1280.0 & 0.8  \\ 
 DETR & Anchor-free & ResNet 50 & 41.5 & 318 & IoU + DETR Loss & 35.9 & 27.9  \\ 
 \hline
 \end{tabular}
+\newline
+\footnotesize{$^a$ Trainable parameters in millions. $^b$ Inference time per image in milliseconds. $^c$ Box Objectness Loss + Class Objectness Loss + Detect Focal Loss + Box Offset Loss + Class Offset Loss + Detect Focal Loss Offset. $^d$ Detect Focal Loss + Verifocal Loss + Complete Intersection over Union (IoU). $^e$ Mean Squared Error.}
 \end{table*}
 
 \begin{table*}[h]
@@ -45,7 +47,7 @@ DETR & Anchor-free & ResNet 50 & 41.5 & 318 & IoU + DETR Loss & 35.9 & 27.9  \\
 \hline
 \multicolumn{1}{|c|}{} & \multicolumn{3}{c|}{\textbf{mAP$_{50}$}} & \multicolumn{3}{c|}{\textbf{mAP$_{50:95}$}} & \multicolumn{3}{c|}{\textbf{Training}} \\
 \hline
-\textbf{Model Name} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Epochs} & \textbf{TT}\begin{scriptsize}\footnote{Training Time (in hours).}\end{scriptsize} & \textbf{T/E}\begin{scriptsize}\footnote{Time per epoch (in hours).}\end{scriptsize} \\ 
+\textbf{Model Name} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Epochs} & \textbf{TT} $^a$ & \textbf{T/E} $^b$ \\ 
 \hline
 YOLOv10-X & 98.9 & 99.1 & 99.0 & 93.5 & 68.4 & 81.0 & 19 & 7.8 & 0.41 \\ 
 YOLOv10-L & 98.9 & 98.3 & 98.6 & 89.4 & 67.0 & 78.2 & 15 & 3.5 & 0.23 \\ 
@@ -58,14 +60,16 @@ YOLOv8-L & 99.5 & \textbf{99.4} & \textbf{99.5} & 95.2 & 73.0 & 84.1 & 36 & 1.6 
 YOLOv8-M & 99.5 & \textbf{99.4} & \textbf{99.5} & 94.5 & 73.7 & 84.1 & 29 & 1.7 & 0.06 \\ 
 YOLOv8-S & 99.5 & \textbf{99.4} & \textbf{99.5} & 96.0 & 73.9 & 85. 0& 66 & 1.0 & \textbf{0.02} \\ 
 YOLOv8-N & 99.5 & \textbf{99.4} & \textbf{99.5} & 94.5 & 72.0 & 83.3 & 41 & \textbf{0.8} & \textbf{0.02} \\ 
-RetinaDet & \textbf{99.9} & 98.4 & 99.2 & 89.1 & 65.3 & 77.2 & \textbf{99} & 25.7 & 0.26 \\ 
+RetinaDet & \textbf{99.9} & 98.4 & 99.2 & 89.1 & 65.3 & 77.2 & 99 & 25.7 & 0.26 \\ 
 RetinaDet-Opt & \textbf{99.9} & 98.5 & 99.2 & 88.3 & 66.7 & 77.5 & 25 & 2.15 & 0.09 \\ 
 EfficientDet & N/A & N/A & 48.5 & N/A & N/A & 33.7 & 162 & 4.77 & 0.03 \\ 
 SIMO-Resnet & 15.6 & 12.5 & 14.1 & 13.4 & 10.9 & 12.2 & 16 & 1.30 & 0.08 \\ 
 SIMO-VGG & 19.3 & 16.2 & 17.8 & 15.7 & 13.0 & 14.4 & 26 & 13.0 & 0.50 \\ 
-DETR & N/A & N/A & N/A & N/A & N/A & N/A & N/A & N/A & N/A \\
+DETR & 49.5 & 49.0 & 49.3 & 46.3 & 32.3 & 39.3 & \textbf{294} & 16.2 & 0.06 \\
 \hline
 \end{tabular}
+\newline
+\footnotesize{$^a$ Training Time (in hours). $^b$ Time per epoch (in hours).}
 \end{table*}
 
 \begin{table*}[h]
@@ -76,7 +80,7 @@ DETR & N/A & N/A & N/A & N/A & N/A & N/A & N/A & N/A & N/A \\
 \hline
 \multicolumn{1}{|c|}{} & \multicolumn{3}{c|}{\textbf{mAP$_{50:95}$}} & \multicolumn{3}{c|}{\textbf{mAP$_{50:95}$}} & \multicolumn{3}{c|}{\textbf{Training}} \\
 \hline
-\textbf{Model Name} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Epochs} & \textbf{TT}\begin{scriptsize}\footnote{Training Time (in hours).}\end{scriptsize} & \textbf{T/E}\begin{scriptsize}\footnote{Time per epoch (in hours).}\end{scriptsize} \\ 
+\textbf{Model Name} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Tool} & \textbf{Tooltip} & \textbf{Both} & \textbf{Epochs} & \textbf{TT} $^a$ & \textbf{T/E} $^b$ \\ 
 \hline
 YOLOv10-X & 75.3 & 43.1 & 59.2 & 55.4 & 20.8 & 38.1 & 47 & 8.6 & 0.18 \\ 
 YOLOv10-L & 57.3 & 29.0 & 43.2 & 35.0 & 12.2 & 23.6 & 19 & 1.2 & 0.06 \\ 
@@ -97,6 +101,8 @@ SIMO-VGG & 19.1 & 12.1 & 15.6 & 18.8 & 11.7 & 15.2 & 32 & 7.0 & 0.22 \\
 DETR & 23.7 & 13.3 & 18.5 & 13.1 & 13.3 & 13.2 & \textbf{305} & 19.7 & 0.06 \\ 
 \hline
 \end{tabular}
+\newline
+\footnotesize{$^a$ Training Time (in hours). $^b$ Time per epoch (in hours).}
 \end{table*}
 
 \begin{figure}[htbp]
@@ -115,7 +121,7 @@ DETR & 23.7 & 13.3 & 18.5 & 13.1 & 13.3 & 13.2 & \textbf{305} & 19.7 & 0.06 \\
     \draw[->] (segmentation) -- (id);
 
     % Additional records
-    \node (os) [rectangle, draw, text width=10em, text centered, rounded corners, right of=id, xshift=3cm] {Additional records identified through other sources (n = 243)};
+    \node (os) [rectangle, draw, text width=10em, text centered, rounded corners, left of=id, xshift=-3cm] {Additional records identified through other sources (n = 243)};
     \draw[->] (os) -- (id);
 
     % Duplicates removed
@@ -166,15 +172,18 @@ Many alternative tracking methods can be used for specific tasks, which can be i
 
 Artificial intelligence methods can be used to track tools in laparoscopic videos. We can use a deep learning method, such as a convolutional neural network (CNN), to detect image tools. Then, we can use a recurrent neural network (RNN) to use previous information to reinforce predictions in the current frame. We could also use a long short-term memory (LSTM) network to remember information over long periods or a gated recurrent unit (GRU) network, a simplified version of an LSTM network that is more efficient and can be used in real-time applications. We could use a transformer network, a deep learning model that uses attention mechanisms to learn dependencies between input and output data.  Graph neural networks can model spatial and temporal relationships between objects in a scene. They can be used to track tools in a video where we consider tool positions as nodes and edges as the relationships between them. All these methods essentially allow us to track tools in real-time applications, with the ability to learn from previous frames and predict future frames more robustly and accurately than traditional computer vision methods.
 
-% \section{Online Resources}
+\section{Online Resources}
 
-% \begin{itemize}
-%     \item \textbf{Anchor Optimisation:} \url{https://github.com/martinzlocha/anchor-optimization}
-%     \item \textbf{Augmented Reality Tool Network (ART-Net):} \url{https://github.com/kamruleee51/ART-Net}
-%     \item \textbf{EfficientDet:} \url{https://github.com/rwightman/efficientdet-pytorch}
-%     \item \textbf{End-to-End Object Detection with Transformers (DETR):} \url{https://github.com/facebookresearch/detr}
-%     \item \textbf{MICCAI 2015 EndoVis Dataset (EndoVis 2015):} \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}
-%     \item \textbf{PyTorch RetinaNet:} \url{https://github.com/yhenon/pytorch-retinanet}
-%     \item \textbf{Ultralytics YOLO Models:} \url{https://github.com/ultralytics/ultralytics}
-%     \item \textbf{YOLOv10: Real-Time End-to-End Object Detection:} \url{https://github.com/THU-MIG/yolov10?tab=readme-ov-file}
-% \end{itemize}
+Other resources including models and datasets can be found at the following links:
+
+\begin{itemize}[noitemsep, left=0pt]
+\item \textbf{Anchor Optimisation:} \url{https://github.com/martinzlocha/anchor-optimization}
+\item \textbf{Augmented Reality Tool Network (ART-Net):} \url{https://github.com/kamruleee51/ART-Net}
+\item \textbf{EfficientDet:} \url{https://github.com/rwightman/efficientdet-pytorch}
+\item \textbf{End-to-End Object Detection with Transformers (DETR):} \url{https://github.com/facebookresearch/detr}
+\item \textbf{MICCAI 2015 EndoVis Dataset (EndoVis 2015):} \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}
+\item \textbf{PEg TRAnsfer Workflow (PETRAW) Dataset:} \url{https://www.synapse.org/Synapse:syn25147789/wiki/608848}
+\item \textbf{PyTorch RetinaNet:} \url{https://github.com/yhenon/pytorch-retinanet}
+\item \textbf{Ultralytics YOLO Models:} \url{https://github.com/ultralytics/ultralytics}
+\item \textbf{YOLOv10: Real-Time End-to-End Object Detection:} \url{https://github.com/THU-MIG/yolov10?tab=readme-ov-file}
+\end{itemize}

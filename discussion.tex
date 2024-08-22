@@ -1,38 +1,44 @@
 \section{Discussion}
 
 % The proposed models and dataset are particularly useful for applications in LMICs where access to advanced training facilities is limited, considering our data is comparable to what would be obtained in a real-world training setting. The spatial data combined with our results from tool detection and tracking can be developed upon in further research to build models for more precise surgical tool pose estimation, workflow recognition and skill assessment.
+The dataset comprises 24 videos, totalling 103,629 frames of a peg transfer task performed using Reddick (fenestrated) and Maryland (curved) forceps. Each frame is meticulously annotated with ground truth values, including the tool's position in three dimensions and a quaternion representing its spatial rotation, providing six degrees of freedom (6DOF). To ensure robust model validation, we have manually labelled 1\% of the images across 23 videos and one video fully labelled as a test set, with all remaining images weakly labelled using the best model to assist in the future full annotation. We validate surgical tool detection on the dataset using various anchor-based models (YOLOv10, RetinaNet and EfficienDet) and anchor-free models (YOLOv8, ART-Net and DETR). YOLOv8-X was the most accurate model, achieving mAP$_{50}$ of 99.5\% and mAP$_{50:95}$ of 85.6\% on the test set with an inference time of 21.7ms, approximately 46 frames per second (FPS), using ~68 million parameters. However, the overall best and most useful model was the YOLOv8-N model, achieving mAP$_{50}$ of 99.5\% and mAP$_{50:95}$ of 83.3\% on the test set with an inference time of 1.8ms, approximately 556 frames per second (FPS), using ~3 million parameters. That makes it the most computationally efficient model with the highest accuracy, at over 20 times smaller and more than 10 times faster than the YOLOv8-X model. These results demonstrate the effectiveness of our models in accurately detecting and tracking surgical tools, even in the challenging environments typical of LMICs. Overall, our dataset and models have significant potential for application in laparoscopic surgical skill analysis and workflow recognition. They could contribute to the advancement of surgical training programs and ultimately improve surgical outcomes in resource-constrained settings.
 
 \subsection{Comparison to Previous Work}
 
 \subsection{Analysis of Model Performance}
 
-% differences and what is being caused in the various models
+yolov8 and yolov10 very good, but 8 edges out. similar complexity overall so potential that anchor-based method pulling yolov10 down
+bounding box is not as good as segmentation mask (ART-Net, DETR, EfficientDet)
+
+differences and what is being caused in the various models
 
 \subsection{Interpretation of Results}
 
-% overall interpretation of the main results
+overall interpretation of the main results
 
-% issues of fairness in context of the objectives
+issues of fairness in context of the objectives
 
-% issues of fairness in context of previous studied
+issues of fairness in context of previous studied
 
 \subsubsection{Model Usability}
 
-% the usability of the model in the context of current care
+the usability of the model in the context of current care
 
-% the model is lightweight and can easily run on other machines and devices
-% the model is fast and can be used in real-time
-% we can also deploy the model on a server and videos can be sent from mobile devices to the server for processing
-% the model can be used in a variety of settings, such as in the operating room, in the training room, or in the classroom
-% however, it may require a slight amount of training to consider the different distirbution of data. YOLO can generalise well to different datasets, and does not take much time to train nor fine tune for a new dataset
+the model is lightweight and can easily run on other machines and devices
+the model is fast and can be used in real-time
+we can also deploy the model on a server and videos can be sent from mobile devices to the server for processing
+the model can be used in a variety of settings, such as in the operating room, in the training room, or in the classroom
+however, it may require a slight amount of training to consider the different distirbution of data. YOLO can generalise well to different datasets, and does not take much time to train nor fine tune for a new dataset
 
-% intended users would be developers. if the model is deployed then anyone who uses the system would be the intended users. their expertise would be just enough to understand the Python code, running the model and interpreting the results. the model is not intended for end-users, but for developers who would like to integrate the model into their own systems. there would be noo interacting with the handling of input data, unless there is intention to fine tune the model for a new dataset (e.g. machines at a specific hospital).
+intended users would be developers. if the model is deployed then anyone who uses the system would be the intended users. their expertise would be just enough to understand the Python code, running the model and interpreting the results. the model is not intended for end-users, but for developers who would like to integrate the model into their own systems. there would be noo interacting with the handling of input data, unless there is intention to fine tune the model for a new dataset (e.g. machines at a specific hospital).
 
 \subsection{Limitations}
 
 Even though the dataset is of high quality, the model is limited by certain aspects of quality of the data, as the dataset is relatively small and the tools are not always visible in the frames. The model is also limited by the quality of the annotations, as they are not exact ground truth values. We are also limited by the quantity of the annotations, having only labelled 1\% of the entire dataset.
 
 Bias also plays a role in the model, as the dataset is collected from a single training event and the tools are only from a single manufacturer. This could lead to a model that is biased towards the tools and techniques used in that setup, and may not generalise well to other environments or tools.
+
+Human bias in the labelling so close results cannot be quantitatively compared directly.
 
 \subsection{Future Work}
 
@@ -48,16 +54,20 @@ Though we did not discuss it, the results of the Edinburgh Handedness survey \ci
 
 We could use more advanced trackinig algorithms. An issue the YOLO models faced with BoT-SORT and ByteTrack was re-identification of tools.
 
-Plan to use the best produced model to annotate the rest of the data. It will give sample bounding boxes for us to use as a starting point for the rest of the labelling process.
+Plan to use the best produced model to annotate the rest of the data. It will give sample bounding boxes for us to use as a starting point for the rest of the labelling process. Can use a teacher-student framework https://www.tandfonline.com/doi/full/10.1080/21681163.2022.2150688 for this.
 
-% applicability of the model in future
+applicability of the model in future
 
-% generalisation of the model in future (other dataets, tools, etc.)
+generalisation of the model in future (other dataets, tools, etc.)
 
-% what will be done in the future - 3D pose estimation and spatial reconstruction, workflow recognition, skill assessment
+what will be done in the future - 3D pose estimation and spatial reconstruction, workflow recognition, skill assessment
 
 \subsection{Conclusion}
 
 % newness and novelty
 No doubt that there are many use cases for surgical tool detection and tracking. They can be used in-vivo contexts, giving live feedback to surgeons, or in training contexts, providing feedback to surgeons in past surgeries or for trainees on surgical training apparatus.
 This research contributes to the development of robust surgical training programs by providing a framework for future surgical skill analysis and workflow recognition to help ultimately improve surgical outcomes in these countries.
+
+The primary objective of this study is to develop a model that can accurately detect and track the position of surgical tools in laparoscopic videos tailored for use in surgical training programs within LMICs. Given the resource constraints in these settings, the models need to be both computationally efficient and reliable. The goal is to provide real-time feedback to trainees, enabling a more effective evaluation of their surgical skills. By facilitating objective assessment of tool positioning and manipulation, these models can help bridge the training gap in regions with limited access to expert supervision. Additionally, this study aims to compare the performance of different deep learning architectures—specifically anchor-based models, such as those using YOLOv10, and anchor-free models, such as ART-Net. The impact of various training strategies, including transfer learning and data augmentation, on the models' performance will also be explored. The findings from this comparative analysis will inform the development of more generalizable models applicable to a wide range of laparoscopic procedures, particularly in non-in vivo contexts.
+
+Specialised surgical training programs can benefit from AI-driven intelligent systems providing automated, personalised feedback to trainees. This study contributes to developing and integrating low-cost systems that can be easily adapted to resource-constraint settings that can be easily set up in training programs. 

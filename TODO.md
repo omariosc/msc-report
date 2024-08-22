@@ -18,19 +18,19 @@
 | 14 | Sun 11th Aug | ~~The SIMO (anchor-free model) needs to be trained and evaluated on the ART-Net test sets with key metrics extracted.~~ |
 | 15 | Mon 12th Aug | ~~The SIMO (anchor-free model) needs to be trained and evaluated on the 6DOF test sets with key metrics extracted. Add outline document notes.~~ |
 | 16 | Tues 13th Aug  | ~~Fix YOLO tracking issue. Train new SIMO model on ART-Net, 6DOF and obtained tracking videos.~~ |
-| 17 | Wed 14th Aug   | ~~Generated all annotations using Yolov10X. Create table of results. YOLOv8 models on 6DOF.~~ |
+| 17 | Wed 14th Aug   | ~~Generated all annotations using YOLOv10X. Create table of results. YOLOv8 models on 6DOF.~~ |
 | 18 | Thurs 15th Aug | ~~Processed annotations for RetinaNet anchor-box optimisation. YOLOv8 models on ART-Net. Run RetinaNet (with and without anchor-box optimisation) on 6DOF and ART-Net.~~ |
 | 19 | Fri 16th Aug   | ~~Prepared models and data for running future experiments.~~ |
 | 20 | Sat 17th Aug   | ~~Run remaining RetinaNet models. Run EfficientDet models. Introduction.~~ |
 | 21 | Sun 18th Aug   | ~~Run remaining EfficientDet models and produce videos. Rerun validation on YOLOv8 and YOLOv10 on 6DOF and ART-Net at 0.5 IoU and get non-tracked videos. Improve tracking and get new tracking videos. Scheduled running SIMO models. Introduction.~~ |
 | 22 | Mon 19th Aug   | ~~Run DETR on ART. Computer vision and AI methods. PRISMA diagram. Added notes from Google Sheets.~~ |
 | 23 | Tues 20th Aug  | ~~Schematic diagram inspired by CholecTrack20. Add remaining notes from Google Sheets. Run DETR on 6DOF. Formulated PhD Plan. Results tables.~~ |
-| 24 | Wed 21st Aug   | Introduction. |
-| 25 | Thurs 22nd Aug | Background Research. |
-| 26 | Fri 23rd Aug   | Methodology. |
-| 27 | Sat 24th Aug   | Results. |
-| 28 | Mon 26th Aug   | Discussion. |
-| 29 | Tues 27th Aug  | If not enough references, use "Selected Papers" in the Google Sheets. Dominic and Sharib review. |
-| 30 | Wed 28th Aug   | |
-| 31 | Thurs 29th Aug | |
-| 32 | Fri 30th Aug | Report deadline. Combined Tracking Video. Presentation. |
+| 24 | Wed 21st Aug   | ~~Fix repo. Presentation.~~ |
+| 25 | Thurs 22nd Aug | ~~Introduction.~~ Results. |
+| 26 | Fri 23rd Aug   | Results. Discussion. |
+| 27 | Sat 24th Aug   | Discussion. |
+| 28 | Mon 26th Aug   | Methodology. |
+| 29 | Tues 27th Aug  | Dominic and Sharib review. Methodology. |
+| 30 | Wed 28th Aug   | If not enough references, use "Selected Papers" in the Google Sheets. Background Research. |
+| 31 | Thurs 29th Aug | Background Research. |
+| 32 | Fri 30th Aug | Report deadline. QR code for references. Finalise Presentation. |
