@@ -1,4 +1,3 @@
-
 @article{hasan_detection_2021,
 	title = {Detection, segmentation, and {3D} pose estimation of surgical tools using convolutional neural networks and algebraic geometry},
 	volume = {70},
@@ -16,7 +15,7 @@
 	file = {Full Text:/Users/scsoc/Zotero/storage/2GCQ5DNM/Hasan et al. - 2021 - Detection, segmentation, and 3D pose estimation of.pdf:application/pdf;ScienceDirect Snapshot:/Users/scsoc/Zotero/storage/S5QSR5KS/S1361841521000402.html:text/html},
 }
 
-@article{collins_tripodai_2024,
+@misc{collins_tripodai_2024,
 	title = {{TRIPOD}+{AI} statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods},
 	issn = {1756-1833},
 	shorttitle = {{TRIPOD}+{AI} statement},
@@ -42,12 +41,6 @@
 	file = {Alabi et al. - 2024 - Multitask Learning in Minimally Invasive Surgical .pdf:/Users/scsoc/Zotero/storage/AYQ46MM2/Alabi et al. - 2024 - Multitask Learning in Minimally Invasive Surgical .pdf:application/pdf},
 }
 
-@misc{noauthor_240108256_nodate,
-	title = {[2401.08256] {Multitask} {Learning} in {Minimally} {Invasive} {Surgical} {Vision}: {A} {Review}},
-	url = {https://arxiv.org/abs/2401.08256},
-	urldate = {2024-08-14},
-	file = {[2401.08256] Multitask Learning in Minimally Invasive Surgical Vision\: A Review:/Users/scsoc/Zotero/storage/76EEQMXK/2401.html:text/html},
-}
 
 @article{bernal_comparative_2017,
 	title = {Comparative {Validation} of {Polyp} {Detection} {Methods} in {Video} {Colonoscopy}: {Results} {From} the {MICCAI} 2015 {Endoscopic} {Vision} {Challenge}},
@@ -84,41 +77,37 @@
 	pages = {336--341},
 }
 
-@misc{ali_comprehensive_2022,
-	title = {A comprehensive survey on recent deep learning-based methods applied to surgical data},
-	copyright = {Creative Commons Attribution 4.0 International},
-	url = {https://arxiv.org/abs/2209.01435},
-	doi = {10.48550/ARXIV.2209.01435},
-	abstract = {Minimally invasive surgery is highly operator dependant with a lengthy procedural time causing fatigue to surgeon and risks to patients such as injury to organs, infection, bleeding, and complications of anesthesia. To mitigate such risks, real-time systems are desired to be developed that can provide intra-operative guidance to surgeons. For example, an automated system for tool localization, tool (or tissue) tracking, and depth estimation can enable a clear understanding of surgical scenes preventing miscalculations during surgical procedures. In this work, we present a systematic review of recent machine learning-based approaches including surgical tool localization, segmentation, tracking, and 3D scene perception. Furthermore, we provide a detailed overview of publicly available benchmark datasets widely used for surgical navigation tasks. While recent deep learning architectures have shown promising results, there are still several open research problems such as a lack of annotated datasets, the presence of artifacts in surgical scenes, and non-textured surfaces that hinder 3D reconstruction of the anatomical structures. Based on our comprehensive review, we present a discussion on current gaps and needed steps to improve the adaptation of technology in surgery.},
-	urldate = {2024-08-19},
-	publisher = {arXiv},
-	author = {Ali, Mansoor and Pena, Rafael Martinez Garcia and Ruiz, Gilberto Ochoa and Ali, Sharib},
-	year = {2022},
-	note = {Version Number: 4},
-	keywords = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
-	annote = {Other
-This paper is to be submitted to International journal of computer vision},
+@misc{ali2023comprehensivesurveyrecentdeep,
+      title={A comprehensive survey on recent deep learning-based methods applied to surgical data}, 
+      author={Mansoor Ali and Rafael Martinez Garcia Pena and Gilberto Ochoa Ruiz and Sharib Ali},
+      year={2023},
+      eprint={2209.01435},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2209.01435}, 
 }
 
-@incollection{vedaldi_end--end_2020,
-	address = {Cham},
-	title = {End-to-{End} {Object} {Detection} with {Transformers}},
-	volume = {12346},
-	isbn = {978-3-030-58451-1 978-3-030-58452-8},
-	url = {https://link.springer.com/10.1007/978-3-030-58452-8_13},
-	abstract = {We present a new method that views object detection as a direct set prediction problem. Our approach streamlines the detection pipeline, eﬀectively removing the need for many hand-designed components like a non-maximum suppression procedure or anchor generation that explicitly encode our prior knowledge about the task. The main ingredients of the new framework, called DEtection TRansformer or DETR, are a set-based global loss that forces unique predictions via bipartite matching, and a transformer encoder-decoder architecture. Given a ﬁxed small set of learned object queries, DETR reasons about the relations of the objects and the global image context to directly output the ﬁnal set of predictions in parallel. The new model is conceptually simple and does not require a specialized library, unlike many other modern detectors. DETR demonstrates accuracy and run-time performance on par with the well-established and highly-optimized Faster RCNN baseline on the challenging COCO object detection dataset. Moreover, DETR can be easily generalized to produce panoptic segmentation in a uniﬁed manner. We show that it signiﬁcantly outperforms competitive baselines. Training code and pretrained models are available at https://github.com/facebookresearch/detr.},
-	language = {en},
-	urldate = {2024-08-19},
-	booktitle = {Computer {Vision} – {ECCV} 2020},
-	publisher = {Springer International Publishing},
-	author = {Carion, Nicolas and Massa, Francisco and Synnaeve, Gabriel and Usunier, Nicolas and Kirillov, Alexander and Zagoruyko, Sergey},
-	editor = {Vedaldi, Andrea and Bischof, Horst and Brox, Thomas and Frahm, Jan-Michael},
-	year = {2020},
-	doi = {10.1007/978-3-030-58452-8_13},
-	note = {Series Title: Lecture Notes in Computer Science},
-	pages = {213--229},
-	file = {Carion et al. - 2020 - End-to-End Object Detection with Transformers.pdf:/Users/scsoc/Zotero/storage/3UECQHJY/Carion et al. - 2020 - End-to-End Object Detection with Transformers.pdf:application/pdf},
+@InProceedings{10.1007/978-3-030-58452-8_13,
+author="Carion, Nicolas
+and Massa, Francisco
+and Synnaeve, Gabriel
+and Usunier, Nicolas
+and Kirillov, Alexander
+and Zagoruyko, Sergey",
+editor="Vedaldi, Andrea
+and Bischof, Horst
+and Brox, Thomas
+and Frahm, Jan-Michael",
+title="End-to-End Object Detection with Transformers",
+booktitle="Computer Vision -- ECCV 2020",
+year="2020",
+publisher="Springer International Publishing",
+address="Cham",
+pages="213--229",
+abstract="We present a new method that views object detection as a direct set prediction problem. Our approach streamlines the detection pipeline, effectively removing the need for many hand-designed components like a non-maximum suppression procedure or anchor generation that explicitly encode our prior knowledge about the task. The main ingredients of the new framework, called DEtection TRansformer or DETR, are a set-based global loss that forces unique predictions via bipartite matching, and a transformer encoder-decoder architecture. Given a fixed small set of learned object queries, DETR reasons about the relations of the objects and the global image context to directly output the final set of predictions in parallel. The new model is conceptually simple and does not require a specialized library, unlike many other modern detectors. DETR demonstrates accuracy and run-time performance on par with the well-established and highly-optimized Faster R-CNN baseline on the challenging COCO object detection dataset. Moreover, DETR can be easily generalized to produce panoptic segmentation in a unified manner. We show that it significantly outperforms competitive baselines. Training code and pretrained models are available at https://github.com/facebookresearch/detr.",
+isbn="978-3-030-58452-8"
 }
+
 
 @misc{nwoye_cholectrack20_2023,
 	title = {{CholecTrack20}: {A} {Dataset} for {Multi}-{Class} {Multiple} {Tool} {Tracking} in {Laparoscopic} {Surgery}},
@@ -467,4 +456,270 @@ Surgical tool tracking dataset paper, 15 pages, 9 figures, 4 tables},
 	month = apr,
 	year = {2024},
 	pages = {48--58},
+}
+
+@article{bouget_vision-based_2017,
+	title = {Vision-based and marker-less surgical tool detection and tracking: a review of the literature},
+	volume = {35},
+	issn = {13618415},
+	shorttitle = {Vision-based and marker-less surgical tool detection and tracking},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S1361841516301657},
+	doi = {10.1016/j.media.2016.09.003},
+	language = {en},
+	urldate = {2024-08-22},
+	journal = {Medical Image Analysis},
+	author = {Bouget, David and Allan, Max and Stoyanov, Danail and Jannin, Pierre},
+	month = jan,
+	year = {2017},
+	pages = {633--654},
+	file = {Submitted Version:/Users/scsoc/Zotero/storage/KQWNXPFJ/Bouget et al. - 2017 - Vision-based and marker-less surgical tool detecti.pdf:application/pdf},
+}
+@incollection{koonce_resnet_2021,
+	address = {Berkeley, CA},
+	title = {{ResNet} 50},
+	isbn = {978-1-4842-6167-5 978-1-4842-6168-2},
+	url = {http://link.springer.com/10.1007/978-1-4842-6168-2_6},
+	language = {en},
+	urldate = {2024-08-23},
+	booktitle = {Convolutional {Neural} {Networks} with {Swift} for {Tensorflow}},
+	publisher = {Apress},
+	author = {Koonce, Brett},
+	collaborator = {Koonce, Brett},
+	year = {2021},
+	doi = {10.1007/978-1-4842-6168-2_6},
+	pages = {63--72},
+}
+
+@article{teevno_semi-supervised_2023,
+	title = {A semi-supervised {Teacher}-{Student} framework for surgical tool detection and localization},
+	volume = {11},
+	issn = {2168-1163, 2168-1171},
+	url = {https://www.tandfonline.com/doi/full/10.1080/21681163.2022.2150688},
+	doi = {10.1080/21681163.2022.2150688},
+	language = {en},
+	number = {4},
+	urldate = {2024-08-24},
+	journal = {Computer Methods in Biomechanics and Biomedical Engineering: Imaging \& Visualization},
+	author = {Teevno, Mansoor Ali and Ochoa-Ruiz, Gilberto and Ali, Sharib},
+	month = jul,
+	year = {2023},
+	pages = {1033--1041},
+}
+
+@article{martin_objective_1997,
+	title = {Objective structured assessment of technical skill ({OSATS}) for surgical residents: {OBJECTIVE} {STRUCTURED} {ASSESSMENT} {OF} {TECHNICAL} {SKILL}},
+	volume = {84},
+	copyright = {http://doi.wiley.com/10.1002/tdm\_license\_1.1},
+	issn = {00071323},
+	shorttitle = {Objective structured assessment of technical skill ({OSATS}) for surgical residents},
+	url = {https://academic.oup.com/bjs/article/84/2/273/6167081},
+	doi = {10.1046/j.1365-2168.1997.02502.x},
+	language = {en},
+	number = {2},
+	urldate = {2024-08-24},
+	journal = {British Journal of Surgery},
+	author = {Martin, J. A. and Regehr, G. and Reznick, R. and Macrae, H. and Murnaghan, J. and Hutchison, C. and Brown, M.},
+	month = feb,
+	year = {1997},
+	pages = {273--278},
+}
+
+@article{hussein_development_2017,
+	title = {Development and {Validation} of an {Objective} {Scoring} {Tool} for {Robot}-{Assisted} {Radical} {Prostatectomy}: {Prostatectomy} {Assessment} and {Competency} {Evaluation}},
+	volume = {197},
+	issn = {0022-5347, 1527-3792},
+	shorttitle = {Development and {Validation} of an {Objective} {Scoring} {Tool} for {Robot}-{Assisted} {Radical} {Prostatectomy}},
+	url = {http://www.jurology.com/doi/10.1016/j.juro.2016.11.100},
+	doi = {10.1016/j.juro.2016.11.100},
+	language = {en},
+	number = {5},
+	urldate = {2024-08-24},
+	journal = {Journal of Urology},
+	author = {Hussein, Ahmed A. and Ghani, Khurshid R. and Peabody, James and Sarle, Richard and Abaza, Ronney and Eun, Daniel and Hu, Jim and Fumo, Michael and Lane, Brian and Montgomery, Jeffrey S. and Hinata, Nobuyuki and Rooney, Deborah and Comstock, Bryan and Chan, Hei Kit and Mane, Sridhar S. and Mohler, James L. and Wilding, Gregory and Miller, David and Guru, Khurshid A. and {Michigan Urological Surgery Improvement Collaborative and Applied Technology Laboratory for Advanced Surgery Program}},
+	month = may,
+	year = {2017},
+	pages = {1237--1244},
+}
+
+@article{hilal_randomized_2017,
+	title = {A randomized comparison of video demonstration versus hands-on training of medical students for vacuum delivery using {Objective} {Structured} {Assessment} of {Technical} {Skills} ({OSATS})},
+	volume = {96},
+	issn = {0025-7974},
+	url = {https://journals.lww.com/00005792-201703170-00052},
+	doi = {10.1097/MD.0000000000006355},
+	language = {en},
+	number = {11},
+	urldate = {2024-08-24},
+	journal = {Medicine},
+	author = {Hilal, Ziad and Kumpernatz, Anne K. and Rezniczek, Günther A. and Cetin, Cem and Tempfer-Bentz, Eva-Katrin and Tempfer, Clemens B.},
+	month = mar,
+	year = {2017},
+	pages = {e6355},
+	file = {Full Text:/Users/scsoc/Zotero/storage/RKX45GPC/Hilal et al. - 2017 - A randomized comparison of video demonstration ver.pdf:application/pdf},
+}
+
+@article{pears_capturing_2021,
+	title = {Capturing the non-technical skills of a technical skills trainer ({NTS}-{TeST}) during simulation},
+	volume = {66},
+	issn = {0036-9330, 2045-6441},
+	url = {http://journals.sagepub.com/doi/10.1177/00369330211008594},
+	doi = {10.1177/00369330211008594},
+	abstract = {Objective
+              To develop an assessment instrument that can be used as a comprehensive feedback record to convey to a trainer the non-technical aspects of skill acquisition and training.
+            
+            
+              Methods
+              The instrument was developed across three rounds. In Round 1, 6 endourological consultants undertook a modified Delphi process. Round 2 included 10 trainers who assessed each question’s relevance and practicability. Round 3 involved a pilot study with fifteen urology residents who participated in a technical skills simulation session with the incorporation of the instrument. We report the content, face, and construct validity, and the internal consistency of an NTS instrument for trainers.
+            
+            
+              Results
+              The instrument had a consistent and a high positive average for each of the 4 sections of the instrument, regardless of the type of user. Positive Spearman’s correlation coefficients (0.02 to .64) for content validity and Cronbach’s alpha (a = 0.70) indicated good validity and moderate reliability of the instrument.
+            
+            
+              Conclusion
+              We propose a novel NTS instrument for trainers during a simulation. This instrument can be used for benchmarking the quality of technical skills simulation training.},
+	language = {en},
+	number = {3},
+	urldate = {2024-08-24},
+	journal = {Scottish Medical Journal},
+	author = {Pears, Matthew and Biyani, Chandra Shekhar and Joyce, Adrian D and Spearpoint, Ken and Yiasemidou, Marina and Cleynenbreugel, Ben Van and Patterson, Jake and Mushtaq, Faisal},
+	month = aug,
+	year = {2021},
+	pages = {124--133},
+}
+
+@misc{noauthor_yolov10_nodate,
+	title = {{YOLOv10} - {Ultralytics} {YOLO} {Docs}},
+	url = {https://docs.ultralytics.com/models/yolov10/},
+	urldate = {2024-08-25},
+	file = {YOLOv10 - Ultralytics YOLO Docs:/Users/scsoc/Zotero/storage/75BLN7M7/yolov10.html:text/html},
+}
+
+@misc{zlocha_improving_2019,
+	title = {Improving {RetinaNet} for {CT} {Lesion} {Detection} with {Dense} {Masks} from {Weak} {RECIST} {Labels}},
+	copyright = {arXiv.org perpetual, non-exclusive license},
+	url = {https://arxiv.org/abs/1906.02283},
+	doi = {10.48550/ARXIV.1906.02283},
+	abstract = {Accurate, automated lesion detection in Computed Tomography (CT) is an important yet challenging task due to the large variation of lesion types, sizes, locations and appearances. Recent work on CT lesion detection employs two-stage region proposal based methods trained with centroid or bounding-box annotations. We propose a highly accurate and efficient one-stage lesion detector, by re-designing a RetinaNet to meet the particular challenges in medical imaging. Specifically, we optimize the anchor configurations using a differential evolution search algorithm. For training, we leverage the response evaluation criteria in solid tumors (RECIST) annotation which are measured in clinical routine. We incorporate dense masks from weak RECIST labels, obtained automatically using GrabCut, into the training objective, which in combination with other advancements yields new state-of-the-art performance. We evaluate our method on the public DeepLesion benchmark, consisting of 32,735 lesions across the body. Our one-stage detector achieves a sensitivity of 90.77\% at 4 false positives per image, significantly outperforming the best reported methods by over 5\%.},
+	urldate = {2024-08-25},
+	publisher = {arXiv},
+	author = {Zlocha, Martin and Dou, Qi and Glocker, Ben},
+	year = {2019},
+	note = {Version Number: 1},
+	keywords = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering, Image and Video Processing (eess.IV), Machine Learning (cs.LG)},
+	annote = {Other
+Accepted at MICCAI 2019},
+}
+
+@article{Rashidi_Fathabadi_Grantner_Shebrain_Abdel,
+	title = {Autonomous sequential surgical skills assessment for the peg transfer task in a laparoscopic box-trainer system with three cameras},
+	volume = {41},
+	DOI = {10.1017/S0263574723000218},
+	number = {6},
+	journal = {Robotica},
+	author = {Rashidi Fathabadi, Fatemeh and Grantner, Janos L. and Shebrain, Saad A and Abdel-Qader, Ikhlas},
+	year = {2023},
+	pages = {1837–1855},
+}
+
+
+@article{maciel_development_2008,
+	title = {Development of the {VBLaST} $^{\textrm{™}}$ : a virtual basic laparoscopic skill trainer},
+	volume = {4},
+	copyright = {http://onlinelibrary.wiley.com/termsAndConditions\#vor},
+	issn = {1478-5951, 1478-596X},
+	shorttitle = {Development of the {VBLaST} $^{\textrm{™}}$},
+	url = {https://onlinelibrary.wiley.com/doi/10.1002/rcs.185},
+	doi = {10.1002/rcs.185},
+	abstract = {Abstract
+            
+              Background
+              The FLS training tool box has now been adopted by the Society of Gastrointestinal Endoscopic Surgeons (SAGES) as an official training tool for minimally invasive procedures.
+            
+            
+              Methods
+              To overcome the limitations of the physical FLS training tool box, we have developed a Virtual Basic Laparoscopic Skill Trainer (VBLaSTTM) system, which is a 3D simulator that will allow trainees to acquire basic laparoscopic skill.
+            
+            
+              Results
+              The outcome of this work is the development of an integrated visio‐haptic workstation environment including force feedback devices and a stereo display interface whereby trainees can practice on virtual versions of the FLS. Realistic graphical rendering and high fidelity haptic interactions are achieved.
+            
+            
+              Conclusions
+              Surgical skill training is a long and tedious process of acquiring fine motor skills. It is expected that residents would start on trainers such as VBLaSTTM and after reaching a certain level of competence would progress to the more complex trainers for training on specific surgical procedures. Copyright © 2008 John Wiley \& Sons, Ltd.},
+	language = {en},
+	number = {2},
+	urldate = {2024-08-26},
+	journal = {The International Journal of Medical Robotics and Computer Assisted Surgery},
+	author = {Maciel, Anderson and Liu, Youquan and Ahn, Woojin and Singh, T. Paul and Dunnican, Ward and De, Suvranu},
+	month = jun,
+	year = {2008},
+	pages = {131--138},
+	file = {Accepted Version:/Users/scsoc/Zotero/storage/45FF3LU3/Maciel et al. - 2008 - Development of the VBLaST ™  a virtual.pdf:application/pdf},
+}
+
+@article{matsumoto_laparoscopic_2022,
+	title = {Laparoscopic surgical skill evaluation with motion capture and eyeglass gaze cameras: {A} pilot study},
+	volume = {15},
+	issn = {1758-5902, 1758-5910},
+	shorttitle = {Laparoscopic surgical skill evaluation with motion capture and eyeglass gaze cameras},
+	url = {https://onlinelibrary.wiley.com/doi/10.1111/ases.13065},
+	doi = {10.1111/ases.13065},
+	abstract = {Abstract
+            
+              Introduction
+              An eyeglass gaze camera and a skeletal coordinate camera without sensors attached to the operator's body were used to monitor gaze and movement during a simulated surgical procedure. These new devices have the potential to change skill assessment for laparoscopic surgery. The suitability of these devices for skill assessment was investigated.
+            
+            
+              Material and Methods
+              Six medical students, six intermediate surgeons, and four experts performed suturing tasks in a dry box. The tip positions of the instruments were identified from video recordings. Performance was evaluated based on instrument movement, gaze, and skeletal coordination.
+            
+            
+              Results
+              Task performance time and skeletal coordinates were not significantly different among skill levels. The total movement distance of the right instrument was significantly different depending on the skill level. The SD of the gaze coordinates was significantly different depending on skill level and was less for experts. The expert's gaze stayed in a small area with little blurring.
+            
+            
+              Conclusions
+              The SD of gaze point coordinates correlates with laparoscopic surgical skill level. These devices may facilitate objective intraoperative skill evaluation in future studies.},
+	language = {en},
+	number = {3},
+	urldate = {2024-08-26},
+	journal = {Asian Journal of Endoscopic Surgery},
+	author = {Matsumoto, Shiro and Kawahira, Hiroshi and Oiwa, Kosuke and Maeda, Yoshitaka and Nozawa, Akio and Lefor, Alan Kawarai and Hosoya, Yoshinori and Sata, Naohiro},
+	month = jul,
+	year = {2022},
+	pages = {619--628},
+}
+
+
+@misc{urology2023,
+	title = {Medical {Education} {Leeds} - {Course}: {UBOOT} 22},
+	url = {https://www.maxcourse.co.uk/medicaleducationleeds/guestCourseDetails.asp?cKey=1443},
+	urldate = {2024-08-26},
+	file = {Medical Education Leeds - Course\: UBOOT 22:/Users/scsoc/Zotero/storage/25RNHZMC/guestCourseDetails.html:text/html},
+	year = {2023},
+	author = {Medical Education Leeds},
+}
+
+@misc{herrera_luiscarlosgphkeypoint-annotation-tool_2024,
+	title = {luiscarlosgph/keypoint-annotation-tool},
+	copyright = {MIT},
+	url = {https://github.com/luiscarlosgph/keypoint-annotation-tool},
+	abstract = {Web app to annotate images for surgical tooltip localisation.},
+	urldate = {2024-08-26},
+	author = {Herrera, Luis C. Garcia Peraza},
+	month = jun,
+	year = {2024},
+	note = {original-date: 2021-01-20T23:32:50Z},
+}
+
+@misc{choudhry_omarioscmsc-surgical-tool-tracking_2024,
+	title = {omariosc/msc-surgical-tool-tracking},
+	url = {https://github.com/omariosc/msc-surgical-tool-tracking},
+	abstract = {MSc Code},
+	urldate = {2024-08-26},
+	author = {Choudhry, Omar},
+	month = aug,
+	year = {2024},
+	note = {original-date: 2024-04-21T19:14:57Z},
 }

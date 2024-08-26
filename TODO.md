@@ -26,11 +26,12 @@
 | 22 | Mon 19th Aug   | ~~Run DETR on ART. Computer vision and AI methods. PRISMA diagram. Added notes from Google Sheets.~~ |
 | 23 | Tues 20th Aug  | ~~Schematic diagram inspired by CholecTrack20. Add remaining notes from Google Sheets. Run DETR on 6DOF. Formulated PhD Plan. Results tables.~~ |
 | 24 | Wed 21st Aug   | ~~Fix repo. Presentation.~~ |
-| 25 | Thurs 22nd Aug | ~~Introduction.~~ Results. |
-| 26 | Fri 23rd Aug   | Results. Discussion. |
-| 27 | Sat 24th Aug   | Discussion. |
-| 28 | Mon 26th Aug   | Methodology. |
-| 29 | Tues 27th Aug  | Dominic and Sharib review. Methodology. |
-| 30 | Wed 28th Aug   | If not enough references, use "Selected Papers" in the Google Sheets. Background Research. |
-| 31 | Thurs 29th Aug | Background Research. |
-| 32 | Fri 30th Aug | Report deadline. QR code for references. Finalise Presentation. |
+| 25 | Thurs 22nd Aug | ~~Introduction.~~ |
+| 26 | Fri 23rd Aug   | ~~Results and partial discussion.~~ |
+| 27 | Sat 24th Aug   | ~~Complete discussion and partial methodology.~~ |
+| 28 | Sun 25th Aug   | ~~Partial methodology.~~ |
+| 29 | Mon 26th Aug   | ~~Complete methodology.~~ |
+| 30 | Tues 27th Aug  | Start background Research. |
+| 31 | Wed 28th Aug   | Finish background Research. |
+| 32 | Thurs 29th Aug | If not enough references, use "Selected Papers" in the Google Sheets.  |
+| 33 | Fri 30th Aug | Report deadline. Finalise Presentation. |

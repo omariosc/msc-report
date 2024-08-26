@@ -2,6 +2,8 @@
 
 \subsection{Identification and Evaluation of Relevant Datasets}
 
+The peg transfer task is one of the hands-on exams in the Fundamental Laparoscopic System \cite{maciel_development_2008, matsumoto_laparoscopic_2022, Rashidi_Fathabadi_Grantner_Shebrain_Abdel} in which a trainee works with two graspers. Several peg transfer skill assessment systems have been proposed in recent years using laparoscopic box trainers \cite{Rashidi_Fathabadi_Grantner_Shebrain_Abdel}. Various computer vision applications for tooltip detection and tracking have been developed for laparoscopic surgery training \cite{matsumoto_laparoscopic_2022}. This motivates us to collect a dataset using a peg transfer task with tracking and skill annotations. Nevertheless, we should identify other relevant datasets.
+
 % https://link.springer.com/article/10.1007/s11263-022-01640-6
 
 We identified 64 surgical datasets, of which we categorised 5 for tracking (where there is video access or subsequent frames available with appropriate annotations), 4 for pose estimation (with ground truth sensor data), 6 for detection (only bounding box annotations available), 10 for skill (classification of the operators' surgical skills), 11 for workflow analysis (the current sub-procedure or workflow carried out by the surgeon), 20 for segmentation (with full tool masks) and 7 for other use. Since some datasets have multiple use cases, we organised them so that if we could use them for tracking then we considered it to a dataset for tracking. In total, 37 datasets were identified as being useful with 9 excluded as they were based on robotic surgery (not relevant to us), with the remaning 18 datasets being excluded as they were not relevant. Only 7 datasets were ready for immediate use, with a further 5 available after requesting access.
@@ -48,11 +50,20 @@ PETRAW: The PETRAW dataset (Huaulme et al., 2023) is designed for workflow recog
 % https://www.synapse.org/Synapse:syn25147789/wiki/608848
 % https://arxiv.org/abs/2202.05821
 
+PETRAW was a dataset primarily for segmentation and workflow recognition, however we tested it for surgical tool detection and tracking. Since the dataset was collected in-situ, we have exact ground truth values. It is the gold standard for comparison of what we would want our dataset to be like in the future.
+We would have used PETRAW but the dataset was not originally purposed for object detection and tracking, so it would be difficult to compare to existing results of developed models.
+Using PETRAW was my idea because of the similarities in data. I thought it would be decent when evaluated on our in house. One thing I could do is use the segmentation mask to change the colours of the entire image to something more similar of what we have. Could even adapt the tool to make it look more similar to our ones.
+show petraw IMAGE and example of data
+Only problem I see currently is that the tools look to have reflective surfaces in PETRAW. We will see if thats actually a big problem later (you can look at how it literally detects everything but the tool).
+show table of different datasets, their annotations, and their use cases
+
 \subsubsection{MICCAI 2015 Endoscopic Vision Challenge (EndoVis 2015) Dataset}
 
 The EndoVis challenge is a high-profile international challenge for the comparative validation of endoscopic vision algorithms that focus on different problems each year. One of the most used for surgical instruments is the EndoVis 2015, which is a multi-instrument dataset, split into training and test data, with the training data including four 45-second intervention videos, and the test set being comprised of additional 15-seconds video sequences for each of the training sequences and two additional 1-minute recorded interventions. The resolution of all sequences is 720×576 pixels. https://ieeexplore.ieee.org/abstract/document/10253772
 
 \subsubsection{Potential to Collect New Datasets}
+
+The goal is that we can train an AI system to localise the laparoscopic tools using the image alone. This will help us develop a new training system to give automated feedback on individual sub-skills. In this study, we focus on first detecting the tools, which can then be used with the sensor data to build a model which can predict the tools' motion based on the tool's location in the image. We will also collect information on handedness for skill assessment. If a surgeon uses their dominant hand more often, they may be more skilled in that hand and less skilled with the other hand if they use it less often. Motion data will be collected as motion actions, and characteristics may be used to identify an expert surgeon compared to the actions of a novice or trainee \cite{jones_analysis_2018}.
 
 % training datasets are fewer, easier to collect and to be used in LMIC
 
@@ -63,10 +74,19 @@ The EndoVis challenge is a high-profile international challenge for the comparat
 \subsection{State-of-the-Art Object Detection Models}
 
 The field of surgical tool detection and tracking has seen significant advancements with the advent of deep learning and computer vision technologies. Existing models such as RetinaNet, EfficientDet, YOLOv8, YOLOv10, ART-Net, and DTX have demonstrated varying degrees of success in detecting and tracking surgical instruments in real-time, which is crucial for applications in MIS. These models leverage sophisticated architectures, including convolutional neural networks (CNNs) and time-series analysis, to accurately identify and locate surgical tools within video frames. The anchor-based models, such as those built on the YOLO architecture, use predefined anchor boxes to predict bounding boxes, while anchor-free models like ART-Net predict the location of tools directly, potentially offering greater flexibility in varying surgical environments. The evaluation of these models is commonly performed using the Common Objects in Context (COCO) dataset's metrics, particularly the mean Average Precision (mAP) and Intersection over Union (IoU) scores, which provide a robust measure of the model's performance in detecting objects within a defined area. 
+% https://ietresearch.onlinelibrary.wiley.com/action/getFTRLinkout?url=http%3A%2F%2Fscholar.google.com%2Fscholar_lookup%3Fhl%3Den%26publication_year%3D2018%26author%3DA.%2BJin%26author%3DS.%2BYeung%26author%3DJ.%2BJopling%26author%3DJ.%2BKrause%26title%3DTool%2Bdetection%2Band%2Boperative%2Bskill%2Bassessment%2Bin%2Bsurgical%2Bvideos%2Busing%2Bregion%25E2%2580%2590based%2Bconvolutional%2Bneural%2Bnetworks&doi=10.1049%2Fhtl2.12060&linkType=gs&linkLocation=Reference&linkSource=FULL_TEXT, 
+% https://doi.org/10.1109/ACCESS.2020.2969885
+% https://ietresearch.onlinelibrary.wiley.com/action/getFTRLinkout?url=http%3A%2F%2Fscholar.google.com%2Fscholar_lookup%3Fhl%3Den%26publication_year%3D2017%26author%3DB.%2BChoi%26author%3DK.%2BJo%26author%3DS.%2BChoi%26author%3DJ.%2BChoi%26title%3DSurgical%25E2%2580%2590tools%2Bdetection%2Bbased%2Bon%2Bconvolutional%2Bneural%2Bnetwork%2Bin%2Blaparoscopic%2Brobot%25E2%2580%2590assisted%2Bsurgery&doi=10.1049%2Fhtl2.12060&linkType=gs&linkLocation=Reference&linkSource=FULL_TEXT
+% https://ietresearch.onlinelibrary.wiley.com/action/getFTRLinkout?url=http%3A%2F%2Fscholar.google.com%2Fscholar_lookup%3Fhl%3Den%26publication_year%3D2022%26author%3DC.S.%2BPradeep%26author%3DN.%2BSinha%26title%3DMulti%25E2%2580%2590tasking%2BDSSD%2Barchitecture%2Bfor%2Blaparoscopic%2Bcholecystectomy%2Bsurgical%2Bassistance%2Bsystems&doi=10.1049%2Fhtl2.12060&linkType=gs&linkLocation=Reference&linkSource=FULL_TEXT
+% https://doi.org/10.1080/21681163.2022.2150688
 
 We will not discuss the exact performance of these models nor compare them against each other directly here as there are various context and different metrics used. We will have further discussions on this later in the paper.
 
+Even though there are works in surgical tool detection in literature, these methods are widely built on anchor-based methods, do not incorporate multi-scale feature embedding for tackling variable tool sizes, and suffer from low speed
+
 \subsubsection{You Only Look Once (YOLO)}
+
+YOLOv10 has various modifications and improvements compared to previous versions, reducing latency and improving accuracy \cite{noauthor_yolov10_nodate}. 
 
 frame object detection as a regression problem to spatially separated bounding boxes and associated class probabilities. A single neural network predicts bounding boxes and class probabilities directly from full images in one evaluation. Since the whole detection pipeline is a single network, it can be optimized end-to-end directly on detection performance. YOLO learns very general representations of objects. A single convolutional network simultaneously predicts multiple bounding boxes and class probabilities for those boxes. YOLO trains on full images and directly optimizes detection performance. This unified model has several benefits over traditional methods of object detection. Unlike classifier-based approaches, YOLO is trained on a loss function that directly corresponds to detection performance and the entire model is trained jointly. YOLO also generalizes well to new domains making it ideal for applications that rely on fast, robust object detection. https://arxiv.org/abs/1506.02640
 YOLO: Redmon et al.[19] proposed YOLO (You Only Look Once) algorithm in 2016. As the earliest one-stage detection algorithm, it treats the object detection task as a regression problem, and predicts the coordinates of the bounding box, the categories of objects contained in the bounding box and the confidence of classification by directly processing the whole image. 

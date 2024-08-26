@@ -57,6 +57,298 @@
 \usepackage{footnote}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage[table,x11names]{xcolor}
+\usepackage{amsmath}
+
+\raggedbottom
+\settopmatter{printacmref=false} % Removes the ACM reference format (copyright block)
+\renewcommand\footnotetextcopyrightpermission[1]{} % Removes the footnote with the permission statement
+\pagestyle{plain} % Removes running headers
+
+\copyrightyear{2024}
+\acmYear{2024}
+
+\acmConference[LeedsAIMed-ConSim '24]{LeedsAIMed-ConSim2024 Internal Conference at the University of Leeds}{September 04, 2024}{Leeds, United Kingdom}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+% \newgeometry{left=1.75cm,bottom=2cm,top=2.5cm,right=1.75cm}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+% \setcopyright{acmlicensed}
+% \copyrightyear{2024}
+% \acmYear{2024}
+% \acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+% \acmConference[LeedsAIMed-ConSim '24]{LeedsAIMed-ConSim2024 Internal Conference at the University of Leeds}{September 04, 2024}{Leeds, United Kingdom}
+%%
+%%  Uncomment \acmBooktitle if the title of the proceedings is different
+%%  from ``Proceedings of ...''!
+%%
+%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%%  June 03--05, 2018, Woodstock, NY}
+% \acmISBN{978-1-4503-XXXX-X/18/06}
+
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%% \citestyle{acmauthoryear}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title[Tool Detection and Tracking in Laparoscopic Datasets for Surgical Training in LMICs]{Tool Detection and Tracking in Laparoscopic Datasets for Surgical Training in Low and Middle-Income Countries}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Omar Shaur Choudhry}
+\authornote{School of Computing, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:O.Choudhry@leeds.ac.uk}{O.Choudhry@leeds.ac.uk}}
+% \authornote{\textbf{Correspondence:} Dr Dominic Jones, School of Electronic and Electrical Engineering, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:D.P.Jones@leeds.ac.uk}{D.P.Jones@leeds.ac.uk}}
+% \email{O.Choudhry@leeds.ac.uk}
+\orcid{0000-0003-4434-3550}
+% \affiliation{%
+%   \institution{University of Leeds}
+%   \city{Leeds}
+%   \state{West Yorkshire}
+%   \country{United Kingdom}
+% }
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Choudhry}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\input{abstract}
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+% \keywords{Surgical Tool Detection, Surgical Tool Tracking, Computer Vision, Machine Learning, Deep Learning, Surgical Training, Surgical Skill Improvement, Low and Middle-Income Countries (LMICs)}
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+% \begin{CCSXML}
+%   <ccs2012>
+%      <concept>
+%          <concept_id>10003456.10003462.10003602.10003608</concept_id>
+%          <concept_desc>Social and professional topics~Medical technologies</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010250</concept_id>
+%          <concept_desc>Computing methodologies~Object detection</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010253</concept_id>
+%          <concept_desc>Computing methodologies~Tracking</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178</concept_id>
+%          <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010257.10010321</concept_id>
+%          <concept_desc>Computing methodologies~Machine learning algorithms</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010405.10010444.10010449</concept_id>
+%          <concept_desc>Applied computing~Health informatics</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%    </ccs2012>
+% \end{CCSXML}
+  
+% \ccsdesc[300]{Social and professional topics~Medical technologies}
+% \ccsdesc[500]{Computing methodologies~Object detection}
+% \ccsdesc[500]{Computing methodologies~Tracking}
+% \ccsdesc[500]{Computing methodologies~Artificial intelligence}
+% \ccsdesc[500]{Computing methodologies~Machine learning algorithms}
+% \ccsdesc[300]{Applied computing~Health informatics}
+%%
+%% A "teaser" image appears between the author and affiliation
+%% information and the body of the document, and typically spans the
+%% page.
+% \begin{teaserfigure}
+%   \centering
+%   \includegraphics[height=150px]{teaserimage}
+%   \caption{Sample frame with tracked tools using best model and its performance.}
+%   \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precision against weighted inference time on multiple datasets \textit{(right)}.}
+%   \label{fig:teaser}
+% \end{teaserfigure}
+
+\received[Submitted]{30 August 2024}
+% \received[revised]{12 March 2009}
+% \received[accepted]{5 June 2009}
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+% SECTION 1
+\input{introduction}
+
+% SECTION 2
+% \input{background}
+
+% SECTION 3
+\input{methods}
+
+% SECTION 4
+\input{discussion}
+
+\begin{acks}
+O. Choudhry's Ph.D. studies are supported by the University of Leeds (UoL). The work was supported in full by UK Research and Innovation (UKRI) and UK Engineering and Physical Sciences Research Council (EPSRC) grant EP/S024336/1 for the UoL Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. Any opinions, findings, conclusions, or recommendations expressed in this article are those of the author and do not necessarily reflect the views of the UKRI, ESPRC or UoL.
+
+We want to thank the supervisors \href{mailto: D.P.Jones@leeds.ac.uk}{Dr Dominic Jones} and \href{mailto: S.S.Ali@leeds.ac.uk}{Dr Sharib Ali} for their guidance and support throughout the project.
+\end{acks}
+
+\section*{Conflict of Interest Statement}
+
+The authors declare no conflicts of interest.
+
+% \section*{Ethical Approval Statement}
+
+% This study was approved by the Ethics Committee of the University of Leeds School of Computing. (Approval number: \textcolor{red}{\textit{[insert number here]}}).
+
+\section*{Reporting Statement}
+
+In this paper, we aim to follow the Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD+AI) \cite{collins_tripodai_2024} to assist in reporting this study. Even though we will not look specifically at prognosis or diagnosis, the TRIPOD+AI guidelines still provide a useful framework for reporting machine learning studies in healthcare.
+
+\section*{Data Availability Statement}
+
+The in-house Artificial Intelligence Enhanced Laparoscopic Training (AI-ELT) dataset is not yet publicly available; however, it will be in the future at the repository: \url{https://github.com/omariosc/AI-ELT/}. %The Augmented Reality Tool Network (ART-Net) dataset can be requested from the original paper's authors in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}. the PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
+
+\section*{Code Sharing Statement}
+
+The code, including all helper files, scripts, notebooks and models used and results obtained in this study, are all freely available at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
+
+\section*{Declarations}
+
+We acknowledge the use of ChatGPT-4o (Open AI, \url{https://chatgpt.com/}) to proofread the final draft and assistance in code development alongside GitHub Copilot (v1.223.1063 pre-release, \url{https://github.com/features/copilot}).
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+% \bibliographystyle{unsrt}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
+%%
+%% If your work has an appendix, this is the place to put it.
+% \input{appendix}
+\end{document}
+%%
+%% This is file `sample-sigconf-authordraft.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `all,proceedings,bibtex,authordraft')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-sigconf-authordraft.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass
+%% command.
+%%
+%% For submission and review of your manuscript please change the
+%% command to \documentclass[manuscript, screen, review]{acmart}.
+%%
+%% When submitting camera ready or to TAPS, please change the command
+%% to \documentclass[sigconf]{acmart} or whichever template is required
+%% for your publication.
+%%
+%%
+\documentclass[sigconf, screen, review]{acmart}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{footnote}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[table,x11names]{xcolor}
 
 \raggedbottom
 \settopmatter{printacmref=false} % Removes the ACM reference format (copyright block)
@@ -170,52 +462,52 @@
 \input{abstract}
 %% Keywords. The author(s) should pick words that accurately describe
 %% the work being presented. Separate the keywords with commas.
-\keywords{Surgical Tool Detection, Surgical Tool Tracking, Computer Vision, Machine Learning, Deep Learning, Surgical Training, Surgical Skill Improvement, Low and Middle-Income Countries (LMICs)}
+% \keywords{Surgical Tool Detection, Surgical Tool Tracking, Computer Vision, Machine Learning, Deep Learning, Surgical Training, Surgical Skill Improvement, Low and Middle-Income Countries (LMICs)}
 %%
 %% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
 %% Please copy and paste the code instead of the example below.
 %%
-\begin{CCSXML}
-  <ccs2012>
-     <concept>
-         <concept_id>10003456.10003462.10003602.10003608</concept_id>
-         <concept_desc>Social and professional topics~Medical technologies</concept_desc>
-         <concept_significance>300</concept_significance>
-         </concept>
-     <concept>
-         <concept_id>10010147.10010178.10010224.10010245.10010250</concept_id>
-         <concept_desc>Computing methodologies~Object detection</concept_desc>
-         <concept_significance>500</concept_significance>
-         </concept>
-     <concept>
-         <concept_id>10010147.10010178.10010224.10010245.10010253</concept_id>
-         <concept_desc>Computing methodologies~Tracking</concept_desc>
-         <concept_significance>500</concept_significance>
-         </concept>
-     <concept>
-         <concept_id>10010147.10010178</concept_id>
-         <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
-         <concept_significance>500</concept_significance>
-         </concept>
-     <concept>
-         <concept_id>10010147.10010257.10010321</concept_id>
-         <concept_desc>Computing methodologies~Machine learning algorithms</concept_desc>
-         <concept_significance>500</concept_significance>
-         </concept>
-     <concept>
-         <concept_id>10010405.10010444.10010449</concept_id>
-         <concept_desc>Applied computing~Health informatics</concept_desc>
-         <concept_significance>300</concept_significance>
-         </concept>
-   </ccs2012>
-\end{CCSXML}
+% \begin{CCSXML}
+%   <ccs2012>
+%      <concept>
+%          <concept_id>10003456.10003462.10003602.10003608</concept_id>
+%          <concept_desc>Social and professional topics~Medical technologies</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010250</concept_id>
+%          <concept_desc>Computing methodologies~Object detection</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010253</concept_id>
+%          <concept_desc>Computing methodologies~Tracking</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178</concept_id>
+%          <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010257.10010321</concept_id>
+%          <concept_desc>Computing methodologies~Machine learning algorithms</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010405.10010444.10010449</concept_id>
+%          <concept_desc>Applied computing~Health informatics</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%    </ccs2012>
+% \end{CCSXML}
   
-\ccsdesc[300]{Social and professional topics~Medical technologies}
-\ccsdesc[500]{Computing methodologies~Object detection}
-\ccsdesc[500]{Computing methodologies~Tracking}
-\ccsdesc[500]{Computing methodologies~Artificial intelligence}
-\ccsdesc[500]{Computing methodologies~Machine learning algorithms}
-\ccsdesc[300]{Applied computing~Health informatics}
+% \ccsdesc[300]{Social and professional topics~Medical technologies}
+% \ccsdesc[500]{Computing methodologies~Object detection}
+% \ccsdesc[500]{Computing methodologies~Tracking}
+% \ccsdesc[500]{Computing methodologies~Artificial intelligence}
+% \ccsdesc[500]{Computing methodologies~Machine learning algorithms}
+% \ccsdesc[300]{Applied computing~Health informatics}
 %%
 %% A "teaser" image appears between the author and affiliation
 %% information and the body of the document, and typically spans the
@@ -224,7 +516,7 @@
 %   \centering
 %   \includegraphics[height=150px]{teaserimage}
 %   \caption{Sample frame with tracked tools using best model and its performance.}
-%   \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precicision against weighted inference time on multiple datasets \textit{(right)}.}
+%   \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precision against weighted inference time on multiple datasets \textit{(right)}.}
 %   \label{fig:teaser}
 % \end{teaserfigure}
 
@@ -243,13 +535,10 @@
 % \input{background}
 
 % SECTION 3
-% \input{methods}
+\input{methods}
 
 % SECTION 4
-% \input{results}
-
-% SECTION 5
-% \input{discussion}
+\input{discussion}
 
 \begin{acks}
 O. Choudhry's Ph.D. studies are supported by the University of Leeds (UoL). The work was supported in full by UK Research and Innovation (UKRI) and UK Engineering and Physical Sciences Research Council (EPSRC) grant EP/S024336/1 for the UoL Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. Any opinions, findings, conclusions, or recommendations expressed in this article are those of the author and do not necessarily reflect the views of the UKRI, ESPRC or UoL.
@@ -263,20 +552,23 @@ The authors declare no conflicts of interest.
 
 % \section*{Ethical Approval Statement}
 
-% This study was approved by the University of Leeds School of Computing Ethics Committee. (Approval number: \textcolor{red}{\textit{[insert number here]}}).
+% This study was approved by the Ethics Committee of the University of Leeds School of Computing. (Approval number: \textcolor{red}{\textit{[insert number here]}}).
 
 \section*{Reporting Statement}
 
-In this paper, we aim to follow the Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD+AI) \cite{collins_tripodai_2024} to assist in the reporting of this study. Even though we will not be looking specifically at prognosis or diagnosis, the TRIPOD+AI guidelines still provide a useful framework for reporting machine learning studies in healthcare.
+In this paper, we aim to follow the Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD+AI) \cite{collins_tripodai_2024} to assist in reporting this study. Even though we will not look specifically at prognosis or diagnosis, the TRIPOD+AI guidelines still provide a useful framework for reporting machine learning studies in healthcare.
 
 \section*{Data Availability Statement}
 
-The in-house Artificial Intelligence Enchanced Laparoscopic Training (AI-ELT) dataset is not yet publically available; however, it will be in the future at the repository: \url{https://github.com/omariosc/AI-ELT/}. %The Augmented Reality Tool Network (ART-Net) dataset can be requested from the original paper's authors in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}. the PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
+The in-house Artificial Intelligence Enhanced Laparoscopic Training (AI-ELT) dataset is not yet publicly available; however, it will be in the future at the repository: \url{https://github.com/omariosc/AI-ELT/}. %The Augmented Reality Tool Network (ART-Net) dataset can be requested from the original paper's authors in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}. the PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
 
 \section*{Code Sharing Statement}
 
-The code, including all helper files, scripts, notebooks and models used and results obtained in this study are all freely available at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
+The code, including all helper files, scripts, notebooks and models used and results obtained in this study, are all freely available at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
 
+\section*{Declarations}
+
+We acknowledge the use of ChatGPT-4o (Open AI, \url{https://chatgpt.com/}) to proofread the final draft and assistance in code development alongside GitHub Copilot (v1.223.1063 pre-release, \url{https://github.com/features/copilot}).
 %%
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
@@ -285,10 +577,590 @@ The code, including all helper files, scripts, notebooks and models used and res
 \bibliography{sample-base}
 %%
 %% If your work has an appendix, this is the place to put it.
-\input{appendix}
+% \input{appendix}
 \end{document}
+%%
+%% This is file `sample-sigconf-authordraft.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `all,proceedings,bibtex,authordraft')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-sigconf-authordraft.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass
+%% command.
+%%
+%% For submission and review of your manuscript please change the
+%% command to \documentclass[manuscript, screen, review]{acmart}.
+%%
+%% When submitting camera ready or to TAPS, please change the command
+%% to \documentclass[sigconf]{acmart} or whichever template is required
+%% for your publication.
+%%
+%%
+\documentclass[sigconf, screen, review]{acmart}
 
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{footnote}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[table,x11names]{xcolor}
+
+\raggedbottom
+\settopmatter{printacmref=false} % Removes the ACM reference format (copyright block)
+\renewcommand\footnotetextcopyrightpermission[1]{} % Removes the footnote with the permission statement
+\pagestyle{plain} % Removes running headers
+
+\copyrightyear{2024}
+\acmYear{2024}
+
+\acmConference[LeedsAIMed-ConSim '24]{LeedsAIMed-ConSim2024 Internal Conference at the University of Leeds}{September 04, 2024}{Leeds, United Kingdom}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+% \newgeometry{left=1.75cm,bottom=2cm,top=2.5cm,right=1.75cm}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+% \setcopyright{acmlicensed}
+% \copyrightyear{2024}
+% \acmYear{2024}
+% \acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+% \acmConference[LeedsAIMed-ConSim '24]{LeedsAIMed-ConSim2024 Internal Conference at the University of Leeds}{September 04, 2024}{Leeds, United Kingdom}
+%%
+%%  Uncomment \acmBooktitle if the title of the proceedings is different
+%%  from ``Proceedings of ...''!
+%%
+%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%%  June 03--05, 2018, Woodstock, NY}
+% \acmISBN{978-1-4503-XXXX-X/18/06}
+
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%% \citestyle{acmauthoryear}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title[Tool Detection and Tracking in Laparoscopic Datasets for Surgical Training in LMICs]{Tool Detection and Tracking in Laparoscopic Datasets for Surgical Training in Low and Middle-Income Countries}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Omar Shaur Choudhry}
+\authornote{School of Computing, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:O.Choudhry@leeds.ac.uk}{O.Choudhry@leeds.ac.uk}}
+\authornote{\textbf{Correspondence:} Dr Dominic Jones, School of Electronic and Electrical Engineering, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:D.P.Jones@leeds.ac.uk}{D.P.Jones@leeds.ac.uk}}
+% \email{O.Choudhry@leeds.ac.uk}
+\orcid{0000-0003-4434-3550}
+% \affiliation{%
+%   \institution{University of Leeds}
+%   \city{Leeds}
+%   \state{West Yorkshire}
+%   \country{United Kingdom}
+% }
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Choudhry}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\input{abstract}
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+% \keywords{Surgical Tool Detection, Surgical Tool Tracking, Computer Vision, Machine Learning, Deep Learning, Surgical Training, Surgical Skill Improvement, Low and Middle-Income Countries (LMICs)}
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+% \begin{CCSXML}
+%   <ccs2012>
+%      <concept>
+%          <concept_id>10003456.10003462.10003602.10003608</concept_id>
+%          <concept_desc>Social and professional topics~Medical technologies</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010250</concept_id>
+%          <concept_desc>Computing methodologies~Object detection</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010253</concept_id>
+%          <concept_desc>Computing methodologies~Tracking</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178</concept_id>
+%          <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010257.10010321</concept_id>
+%          <concept_desc>Computing methodologies~Machine learning algorithms</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010405.10010444.10010449</concept_id>
+%          <concept_desc>Applied computing~Health informatics</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%    </ccs2012>
+% \end{CCSXML}
+  
+% \ccsdesc[300]{Social and professional topics~Medical technologies}
+% \ccsdesc[500]{Computing methodologies~Object detection}
+% \ccsdesc[500]{Computing methodologies~Tracking}
+% \ccsdesc[500]{Computing methodologies~Artificial intelligence}
+% \ccsdesc[500]{Computing methodologies~Machine learning algorithms}
+% \ccsdesc[300]{Applied computing~Health informatics}
+%%
+%% A "teaser" image appears between the author and affiliation
+%% information and the body of the document, and typically spans the
+%% page.
+% \begin{teaserfigure}
+%   \centering
+%   \includegraphics[height=150px]{teaserimage}
+%   \caption{Sample frame with tracked tools using best model and its performance.}
+%   \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precision against weighted inference time on multiple datasets \textit{(right)}.}
+%   \label{fig:teaser}
+% \end{teaserfigure}
+
+\received[Submitted]{30 August 2024}
+% \received[revised]{12 March 2009}
+% \received[accepted]{5 June 2009}
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+% SECTION 1
+\input{introduction}
+
+% SECTION 2
+% \input{background}
+
+% SECTION 3
+\input{methods}
+
+% SECTION 4
+\input{discussion}
+
+\begin{acks}
+O. Choudhry's Ph.D. studies are supported by the University of Leeds (UoL). The work was supported in full by UK Research and Innovation (UKRI) and UK Engineering and Physical Sciences Research Council (EPSRC) grant EP/S024336/1 for the UoL Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. Any opinions, findings, conclusions, or recommendations expressed in this article are those of the author and do not necessarily reflect the views of the UKRI, ESPRC or UoL.
+
+We want to thank the supervisors \href{mailto: D.P.Jones@leeds.ac.uk}{Dr Dominic Jones} and \href{mailto: S.S.Ali@leeds.ac.uk}{Dr Sharib Ali} for their guidance and support throughout the project.
+\end{acks}
+
+\section*{Conflict of Interest Statement}
+
+The authors declare no conflicts of interest.
+
+% \section*{Ethical Approval Statement}
+
+% This study was approved by the Ethics Committee of the University of Leeds School of Computing. (Approval number: \textcolor{red}{\textit{[insert number here]}}).
+
+\section*{Reporting Statement}
+
+In this paper, we aim to follow the Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD+AI) \cite{collins_tripodai_2024} to assist in reporting this study. Even though we will not look specifically at prognosis or diagnosis, the TRIPOD+AI guidelines still provide a useful framework for reporting machine learning studies in healthcare.
+
+\section*{Data Availability Statement}
+
+The in-house Artificial Intelligence Enhanced Laparoscopic Training (AI-ELT) dataset is not yet publicly available; however, it will be in the future at the repository: \url{https://github.com/omariosc/AI-ELT/}. %The Augmented Reality Tool Network (ART-Net) dataset can be requested from the original paper's authors in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}. the PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
+
+\section*{Code Sharing Statement}
+
+The code, including all helper files, scripts, notebooks and models used and results obtained in this study, are all freely available at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
+
+\section*{Declarations}
+
+We acknowledge the use of ChatGPT-4o (Open AI, \url{https://chatgpt.com/}) to proofread the final draft and assistance in code development alongside GitHub Copilot (v1.223.1063 pre-release, \url{https://github.com/features/copilot}).
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+% \bibliographystyle{unsrt}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
+%%
+%% If your work has an appendix, this is the place to put it.
+% \input{appendix}
+\end{document}
+%%
+%% This is file `sample-sigconf-authordraft.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% samples.dtx  (with options: `all,proceedings,bibtex,authordraft')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from sample-sigconf-authordraft.tex.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass
+%% command.
+%%
+%% For submission and review of your manuscript please change the
+%% command to \documentclass[manuscript, screen, review]{acmart}.
+%%
+%% When submitting camera ready or to TAPS, please change the command
+%% to \documentclass[sigconf]{acmart} or whichever template is required
+%% for your publication.
+%%
+%%
+\documentclass[sigconf, screen, review]{acmart}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{footnote}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[table,x11names]{xcolor}
+
+\raggedbottom
+\settopmatter{printacmref=false} % Removes the ACM reference format (copyright block)
+\renewcommand\footnotetextcopyrightpermission[1]{} % Removes the footnote with the permission statement
+\pagestyle{plain} % Removes running headers
+
+\copyrightyear{2024}
+\acmYear{2024}
+
+\acmConference[LeedsAIMed-ConSim '24]{LeedsAIMed-ConSim2024 Internal Conference at the University of Leeds}{September 04, 2024}{Leeds, United Kingdom}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+% \newgeometry{left=1.75cm,bottom=2cm,top=2.5cm,right=1.75cm}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+% \setcopyright{acmlicensed}
+% \copyrightyear{2024}
+% \acmYear{2024}
+% \acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+% \acmConference[LeedsAIMed-ConSim '24]{LeedsAIMed-ConSim2024 Internal Conference at the University of Leeds}{September 04, 2024}{Leeds, United Kingdom}
+%%
+%%  Uncomment \acmBooktitle if the title of the proceedings is different
+%%  from ``Proceedings of ...''!
+%%
+%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%%  June 03--05, 2018, Woodstock, NY}
+% \acmISBN{978-1-4503-XXXX-X/18/06}
+
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%% \citestyle{acmauthoryear}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title[Tool Detection and Tracking in Laparoscopic Datasets for Surgical Training in LMICs]{Tool Detection and Tracking in Laparoscopic Datasets for Surgical Training in Low and Middle-Income Countries}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Omar Shaur Choudhry}
+\authornote{School of Computing, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:O.Choudhry@leeds.ac.uk}{O.Choudhry@leeds.ac.uk}}
+\authornote{\textbf{Correspondence:} Dr Dominic Jones, School of Electronic and Electrical Engineering, Faculty of Engineering and Physical Sciences, University of Leeds, West Yorkshire, LS2 9JT, United Kingdom. Email: \href{mailto:D.P.Jones@leeds.ac.uk}{D.P.Jones@leeds.ac.uk}}
+% \email{O.Choudhry@leeds.ac.uk}
+\orcid{0000-0003-4434-3550}
+% \affiliation{%
+%   \institution{University of Leeds}
+%   \city{Leeds}
+%   \state{West Yorkshire}
+%   \country{United Kingdom}
+% }
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Choudhry}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\input{abstract}
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+% \keywords{Surgical Tool Detection, Surgical Tool Tracking, Computer Vision, Machine Learning, Deep Learning, Surgical Training, Surgical Skill Improvement, Low and Middle-Income Countries (LMICs)}
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+% \begin{CCSXML}
+%   <ccs2012>
+%      <concept>
+%          <concept_id>10003456.10003462.10003602.10003608</concept_id>
+%          <concept_desc>Social and professional topics~Medical technologies</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010250</concept_id>
+%          <concept_desc>Computing methodologies~Object detection</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178.10010224.10010245.10010253</concept_id>
+%          <concept_desc>Computing methodologies~Tracking</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010178</concept_id>
+%          <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010147.10010257.10010321</concept_id>
+%          <concept_desc>Computing methodologies~Machine learning algorithms</concept_desc>
+%          <concept_significance>500</concept_significance>
+%          </concept>
+%      <concept>
+%          <concept_id>10010405.10010444.10010449</concept_id>
+%          <concept_desc>Applied computing~Health informatics</concept_desc>
+%          <concept_significance>300</concept_significance>
+%          </concept>
+%    </ccs2012>
+% \end{CCSXML}
+  
+% \ccsdesc[300]{Social and professional topics~Medical technologies}
+% \ccsdesc[500]{Computing methodologies~Object detection}
+% \ccsdesc[500]{Computing methodologies~Tracking}
+% \ccsdesc[500]{Computing methodologies~Artificial intelligence}
+% \ccsdesc[500]{Computing methodologies~Machine learning algorithms}
+% \ccsdesc[300]{Applied computing~Health informatics}
+%%
+%% A "teaser" image appears between the author and affiliation
+%% information and the body of the document, and typically spans the
+%% page.
+% \begin{teaserfigure}
+%   \centering
+%   \includegraphics[height=150px]{teaserimage}
+%   \caption{Sample frame with tracked tools using best model and its performance.}
+%   \Description{Sample frame from our dataset showing the tracked fenestrated and curved forceps and their respective tips \textit{(left)}. A plot showing the performances of different models using mean average precision against weighted inference time on multiple datasets \textit{(right)}.}
+%   \label{fig:teaser}
+% \end{teaserfigure}
+
+\received[Submitted]{30 August 2024}
+% \received[revised]{12 March 2009}
+% \received[accepted]{5 June 2009}
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+% SECTION 1
+\input{introduction}
+
+% SECTION 2
+% \input{background}
+
+% SECTION 3
+\input{methods}
+
+% SECTION 4
+\input{discussion}
+
+\begin{acks}
+O. Choudhry's Ph.D. studies are supported by the University of Leeds (UoL). The work was supported in full by UK Research and Innovation (UKRI) and UK Engineering and Physical Sciences Research Council (EPSRC) grant EP/S024336/1 for the UoL Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. Any opinions, findings, conclusions, or recommendations expressed in this article are those of the author and do not necessarily reflect the views of the UKRI, ESPRC or UoL.
+
+We want to thank the supervisors \href{mailto: D.P.Jones@leeds.ac.uk}{Dr Dominic Jones} and \href{mailto: S.S.Ali@leeds.ac.uk}{Dr Sharib Ali} for their guidance and support throughout the project.
+\end{acks}
+
+\section*{Conflict of Interest Statement}
+
+The authors declare no conflicts of interest.
+
+% \section*{Ethical Approval Statement}
+
+% This study was approved by the Ethics Committee of the University of Leeds School of Computing. (Approval number: \textcolor{red}{\textit{[insert number here]}}).
+
+\section*{Reporting Statement}
+
+In this paper, we aim to follow the Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD+AI) \cite{collins_tripodai_2024} to assist in reporting this study. Even though we will not look specifically at prognosis or diagnosis, the TRIPOD+AI guidelines still provide a useful framework for reporting machine learning studies in healthcare.
+
+\section*{Data Availability Statement}
+
+The in-house Artificial Intelligence Enhanced Laparoscopic Training (AI-ELT) dataset is not yet publicly available; however, it will be in the future at the repository: \url{https://github.com/omariosc/AI-ELT/}. %The Augmented Reality Tool Network (ART-Net) dataset can be requested from the original paper's authors in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}. the PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
+
+\section*{Code Sharing Statement}
+
+The code, including all helper files, scripts, notebooks and models used and results obtained in this study, are all freely available at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
+
+\section*{Declarations}
+
+We acknowledge the use of ChatGPT-4o (Open AI, \url{https://chatgpt.com/}) to proofread the final draft and assistance in code development alongside GitHub Copilot (v1.223.1063 pre-release, \url{https://github.com/features/copilot}).
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+% \bibliographystyle{unsrt}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
+%%
+%% If your work has an appendix, this is the place to put it.
+% \input{appendix}
+\end{document}
 \endinput
+
 %%
 %% End of file `sample-sigconf-authordraft.tex'.
 
