@@ -1158,9 +1158,28 @@ FUNCTION { format.authors }
     { "" }
     {
       "\bibfield{author}{"
-      author format.names add.period$ * "}" *} % jtb: add period if none before
+      author #1 "{ff~}{vv~}{ll}" format.name$
+      author num.names$ #1 >
+        {
+          " et~al." *
+        }
+        'skip$
+      if$
+      add.period$ * "}" *   % add period if none before
+    }
   if$
 }
+
+
+% FUNCTION { format.authors }
+% {
+%   author empty.or.unknown
+%     { "" }
+%     {
+%       "\bibfield{author}{"
+%       author format.names add.period$ * "}" *} % jtb: add period if none before
+%   if$
+% }
 
 FUNCTION { format.key }
 {

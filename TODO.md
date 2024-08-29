@@ -31,7 +31,7 @@
 | 27 | Sat 24th Aug   | ~~Complete discussion and partial methodology.~~ |
 | 28 | Sun 25th Aug   | ~~Partial methodology.~~ |
 | 29 | Mon 26th Aug   | ~~Complete methodology.~~ |
-| 30 | Tues 27th Aug  | Start background Research. |
-| 31 | Wed 28th Aug   | Finish background Research. |
-| 32 | Thurs 29th Aug | If not enough references, use "Selected Papers" in the Google Sheets.  |
-| 33 | Fri 30th Aug | Report deadline. Finalise Presentation. |
+| 30 | Tues 27th Aug  | ~~Start background research.~~ |
+| 31 | Wed 28th Aug   | Continue background research. |
+| 32 | Thurs 29th Aug | Finish background research. |
+| 33 | Fri 30th Aug | If not enough references, use "Selected Papers" in the Google Sheets. Report deadline. |

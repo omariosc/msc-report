@@ -59,6 +59,8 @@
 \usepackage{enumitem}
 \usepackage[table,x11names]{xcolor}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
 
 \raggedbottom
 \settopmatter{printacmref=false} % Removes the ACM reference format (copyright block)
@@ -242,7 +244,7 @@
 \input{introduction}
 
 % SECTION 2
-% \input{background}
+\input{background}
 
 % SECTION 3
 \input{methods}
@@ -251,18 +253,23 @@
 \input{discussion}
 
 \begin{acks}
-O. Choudhry's Ph.D. studies are supported by the University of Leeds (UoL). The work was supported in full by UK Research and Innovation (UKRI) and UK Engineering and Physical Sciences Research Council (EPSRC) grant EP/S024336/1 for the UoL Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. Any opinions, findings, conclusions, or recommendations expressed in this article are those of the author and do not necessarily reflect the views of the UKRI, ESPRC or UoL.
+O. Choudhry's Ph.D. studies are supported by the University of Leeds (UoL). The work was funded in full by UK Research and Innovation (UKRI) and UK Engineering and Physical Sciences Research Council (EPSRC) grant EP/S024336/1 for the UoL Centre for Doctoral Training in Artificial Intelligence for Medical Diagnosis and Care. Any opinions, findings, conclusions, or recommendations expressed in this article are those of the author and do not necessarily reflect the views of the UKRI, ESPRC or UoL.
 
 We want to thank the supervisors \href{mailto: D.P.Jones@leeds.ac.uk}{Dr Dominic Jones} and \href{mailto: S.S.Ali@leeds.ac.uk}{Dr Sharib Ali} for their guidance and support throughout the project.
 \end{acks}
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+% \bibliographystyle{unsrt}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
+\section*{Ethics Statement}
+
+Approval for the AI-ELT dataset collection was granted by the University of Leeds Faculty of Engineering and Physical Sciences Research Ethics Committee (ref: MEEC 22-023). It contains no personally identifiable information nor human body parts. All other datasets used in this study are entirely non-identifiable, open-source, or simulated data and meet the requirements set by the standards at UoL, so there are no ethical concerns.
 
 \section*{Conflict of Interest Statement}
 
 The authors declare no conflicts of interest.
-
-% \section*{Ethical Approval Statement}
-
-% This study was approved by the Ethics Committee of the University of Leeds School of Computing. (Approval number: \textcolor{red}{\textit{[insert number here]}}).
 
 \section*{Reporting Statement}
 
@@ -270,21 +277,15 @@ In this paper, we aim to follow the Transparent Reporting of a multivariable pre
 
 \section*{Data Availability Statement}
 
-The in-house Artificial Intelligence Enhanced Laparoscopic Training (AI-ELT) dataset is not yet publicly available; however, it will be in the future at the repository: \url{https://github.com/omariosc/AI-ELT/}. %The Augmented Reality Tool Network (ART-Net) dataset can be requested from the original paper's authors in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}. the PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
+The in-house Artificial Intelligence Enhanced Laparoscopic Training (AI-ELT) dataset is not yet publicly available; however, it will be in the future at the repository: \url{https://github.com/omariosc/AI-ELT/}. %The Augmented Reality Tool Network (ART-Net) dataset can be requested from the original paper's authors in the following repository: \url{https://github.com/kamruleee51/ART-Net}. \cite{hasan_detection_2021}. The MICCAI 2015 EndoVis dataset \cite{bernal_comparative_2017} can be downloaded here: \url{https://web.archive.org/web/20230323215521/https://opencas.webarchiv.kit.edu/?q=node/30}.Thee PEg TRAnfer Workflow Dataset can be downloaded here: \url{https://www.synapse.org/Synapse:syn25147789/wiki/608879}.
 
 \section*{Code Sharing Statement}
 
 The code, including all helper files, scripts, notebooks and models used and results obtained in this study, are all freely available at the repository: \url{https://github.com/omariosc/msc-surgical-tool-tracking/}.
 
-\section*{Declarations}
+\section*{Generative AI Use Declarations}
 
 We acknowledge the use of ChatGPT-4o (Open AI, \url{https://chatgpt.com/}) to proofread the final draft and assistance in code development alongside GitHub Copilot (v1.223.1063 pre-release, \url{https://github.com/features/copilot}).
-%%
-%% The next two lines define the bibliography style to be used, and
-%% the bibliography file.
-% \bibliographystyle{unsrt}
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{sample-base}
 %%
 %% If your work has an appendix, this is the place to put it.
 % \input{appendix}
@@ -1735,7 +1736,7 @@ We acknowledge the use of ChatGPT-4o (Open AI, \url{https://chatgpt.com/}) to pr
 % \textbf{displaymath} environment.
 
 % Again, in either environment, you can use any of the symbols and
-% structures available in \LaTeX\@; this section will just give a couple
+% structures available in \LaTeX\@; this section will jive a couple
 % of examples of display equations in context.  First, consider the
 % equation, shown as an inline equation above:
 % \begin{equation}
@@ -1751,7 +1752,7 @@ We acknowledge the use of ChatGPT-4o (Open AI, \url{https://chatgpt.com/}) to pr
 % \begin{equation}
 %   \sum_{i=0}^{\infty}x_i=\int_{0}^{\pi+2} f
 % \end{equation}
-% just to demonstrate \LaTeX's able handling of numbering.
+% jo demonstrate \LaTeX's able handling of numbering.
 
 % \section{Figures}
 

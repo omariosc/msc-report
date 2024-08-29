@@ -1,13 +1,14 @@
 \begin{abstract}
-    \textbf{Background:} In low-middle-income countries (LMICs), there is a critical need for skilled surgeons. Alternative training processes that include computer-assisted surgical skill evaluation are essential to address this gap. Surgical videos can be leveraged to derive insights into surgical skill assessment using tool detection and tracking, both highly researched areas.
+    \textbf{Background:} In low-middle-income countries (LMICs), there is a critical need for skilled surgeons. Alternative training processes that include computer-assisted surgical skill evaluation are essential to address this gap. Surgical videos can be leveraged to derive insights into surgical skill assessment using tool detection and tracking.
  
     \textbf{Methods:} Multiple anchor-based and anchor-free deep learning SOTA models are implemented and tested, yielding mean Average Precision (mAP) scores for detected tool and tooltip bounding boxes across the newly proposed in-house AI-ELT dataset.
     
-    \textbf{Results:} Overall, the anchor-free YOLOv8-X model was the most accurate and efficient, achieving mAP$_{50}$ of 99.5\% and mAP$_{50:95}$ of 85.6\% on the test set with an inference time of 21.7ms, approximately 46 FPS. The proposed tracking algorithm has an accuracy of 100\% over given detections.
+    \textbf{Results:} Overall, the anchor-free YOLOv8-X model was the most accurate and efficient, achieving mAP$_{50}$ of 99.5\% and mAP$_{50:95}$ of 85.6\% on the test set with an inference time of 21.7ms/~46 FPS and 100\% tracking accuracy over detected objects.
   
-    \textbf{Discussion:} The introduced dataset is particularly useful for applications in LMICs where access to advanced training facilities is limited. These results highlight the models' potential for effective real-time surgical tool detection, even in resource-constrained environments. 
+    \textbf{Discussion:} The introduced dataset is particularly useful for applications in LMICs where access to advanced training facilities is limited. The results highlight the models' potential for effective real-time surgical tool detection, even in resource-constrained environments. 
 \end{abstract}
 
+%%% 
 % \begin{abstract}
 %     \textbf{Background:} In low-middle-income countries (LMICs), there is a critical need for skilled surgeons. Alternative training processes that include computer-assisted surgical skill evaluation are essential to address this gap. Surgical videos can be leveraged to derive insights into surgical skill assessment using tool detection and tracking, both highly researched areas. The primary objective of this study is to detect and track surgical tools using various state-of-the-art (SOTA) models on the in-house Artificial Intelligence Enhanced Laparoscopic Training (AI-ELT) dataset to aid future research in non-in-vivo laparoscopic datasets in resource-constrained environments.
  
