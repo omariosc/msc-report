@@ -426,7 +426,7 @@ Surgical tool tracking dataset paper, 15 pages, 9 figures, 4 tables},
 	pages = {1050--1058},
 }
 
-@misc{bodenstedt_comparative_2018,
+@article{bodenstedt_comparative_2018,
 	title = {Comparative evaluation of instrument segmentation and tracking methods in minimally invasive surgery},
 	url = {http://arxiv.org/abs/1805.02475},
 	abstract = {Intraoperative segmentation and tracking of minimally invasive instruments is a prerequisite for computer- and robotic-assisted surgery. Since additional hardware like tracking systems or the robot encoders are cumbersome and lack accuracy, surgical vision is evolving as promising techniques to segment and track the instruments using only the endoscopic images. However, what is missing so far are common image data sets for consistent evaluation and benchmarking of algorithms against each other. The paper presents a comparative validation study of different vision-based methods for instrument segmentation and tracking in the context of robotic as well as conventional laparoscopic surgery. The contribution of the paper is twofold: we introduce a comprehensive validation data set that was provided to the study participants and present the results of the comparative validation study. Based on the results of the validation study, we arrive at the conclusion that modern deep learning approaches outperform other methods in instrument segmentation tasks, but the results are still not perfect. Furthermore, we show that merging results from different methods actually significantly increases accuracy in comparison to the best stand-alone method. On the other hand, the results of the instrument tracking task show that this is still an open challenge, especially during challenging scenarios in conventional laparoscopic surgery.},
@@ -597,7 +597,7 @@ Surgical tool tracking dataset paper, 15 pages, 9 figures, 4 tables},
 	year = {2024},
 }
 
-@misc{zlocha_improving_2019,
+@article{zlocha_improving_2019,
 	title = {Improving {RetinaNet} for {CT} {Lesion} {Detection} with {Dense} {Masks} from {Weak} {RECIST} {Labels}},
 	copyright = {arXiv.org perpetual, non-exclusive license},
 	url = {https://arxiv.org/abs/1906.02283},
@@ -712,7 +712,6 @@ Accepted at MICCAI 2019},
 	author = {Herrera, Luis C. Garcia Peraza},
 	month = jun,
 	year = {2024},
-	note = {original-date: 2021-01-20T23:32:50Z},
 }
 
 @misc{choudhry_omarioscmsc-surgical-tool-tracking_2024,
@@ -723,7 +722,6 @@ Accepted at MICCAI 2019},
 	author = {Choudhry, Omar},
 	month = aug,
 	year = {2024},
-	note = {original-date: 2024-04-21T19:14:57Z},
 }
 
 @misc{aliexpress,
@@ -751,4 +749,345 @@ Accepted at MICCAI 2019},
 	month = jun,
 	year = {2005},
 	pages = {2371--2379},
+}
+
+@phdthesis{nwoye:tel-03855189,
+  TITLE = {{Deep learning methods for the detection and recognition of surgical tools and activities in laparoscopic videos}},
+  AUTHOR = {Nwoye, Chinedu Innocent},
+  URL = {https://theses.hal.science/tel-03855189},
+  NUMBER = {2021STRAD038},
+  SCHOOL = {{Universit{\'e} de Strasbourg}},
+  YEAR = {2021},
+  MONTH = Nov,
+  KEYWORDS = {Deep learning ; Tool detection ; Tool tracking ; Tool-tissue interaction ; Action triplet recognition ; CholecT50 ; Weak supervision ; Attention mechanism ; Apprentissage profond ; D{\'e}tection d'outils ; Suivi d'outils ; Interaction outil-tissu ; Reconnaissance de triplet d'action ; CholectT50 ; Supervision faible ; M{\'e}canisme d'attention},
+  TYPE = {Theses},
+  PDF = {https://theses.hal.science/tel-03855189/file/Nwoye_Chinedu_2021_ED269.pdf},
+  HAL_ID = {tel-03855189},
+  HAL_VERSION = {v1},
+}
+
+@article{yolo7_2024,
+	title = {{YOLOv7}‐{RepFPN}: {Improving} real‐time performance of laparoscopic tool detection on embedded systems},
+	volume = {11},
+	issn = {2053-3713, 2053-3713},
+	shorttitle = {{YOLOv7}‐{RepFPN}},
+	url = {https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/htl2.12072},
+	doi = {10.1049/htl2.12072},
+	abstract = {Abstract
+            This study focuses on enhancing the inference speed of laparoscopic tool detection on embedded devices. Laparoscopy, a minimally invasive surgery technique, markedly reduces patient recovery times and postoperative complications. Real‐time laparoscopic tool detection helps assisting laparoscopy by providing information for surgical navigation, and its implementation on embedded devices is gaining interest due to the portability, network independence and scalability of the devices. However, embedded devices often face computation resource limitations, potentially hindering inference speed. To mitigate this concern, the work introduces a two‐fold modification to the YOLOv7 model: the feature channels and integrate RepBlock is halved, yielding the YOLOv7‐RepFPN model. This configuration leads to a significant reduction in computational complexity. Additionally, the focal EIoU (efficient intersection of union) loss function is employed for bounding box regression. Experimental results on an embedded device demonstrate that for frame‐by‐frame laparoscopic tool detection, the proposed YOLOv7‐RepFPN achieved an mAP of 88.2\% (with IoU set to 0.5) on a custom dataset based on EndoVis17, and an inference speed of 62.9 FPS. Contrasting with the original YOLOv7, which garnered an 89.3\% mAP and 41.8 FPS under identical conditions, the methodology enhances the speed by 21.1 FPS while maintaining detection accuracy. This emphasizes the effectiveness of the work.},
+	language = {en},
+	number = {2-3},
+	urldate = {2024-08-26},
+	journal = {Healthcare Technology Letters},
+	author = {Liu, Yuzhang and Hayashi, Yuichiro and Oda, Masahiro and Kitasaka, Takayuki and Mori, Kensaku},
+	month = apr,
+	year = {2024},
+	pages = {157--166},
+}
+
+@article{SurgiTrack,
+	title = {{SurgiTrack}: {Fine}-{Grained} {Multi}-{Class} {Multi}-{Tool} {Tracking} in {Surgical} {Videos}},
+	copyright = {Creative Commons Attribution Non Commercial Share Alike 4.0 International},
+	shorttitle = {{SurgiTrack}},
+	url = {https://arxiv.org/abs/2405.20333},
+	doi = {10.48550/ARXIV.2405.20333},
+	abstract = {Accurate tool tracking is essential for the success of computer-assisted intervention. Previous efforts often modeled tool trajectories rigidly, overlooking the dynamic nature of surgical procedures, especially tracking scenarios like out-of-body and out-of-camera views. Addressing this limitation, the new CholecTrack20 dataset provides detailed labels that account for multiple tool trajectories in three perspectives: (1) intraoperative, (2) intracorporeal, and (3) visibility, representing the different types of temporal duration of tool tracks. These fine-grained labels enhance tracking flexibility but also increase the task complexity. Re-identifying tools after occlusion or re-insertion into the body remains challenging due to high visual similarity, especially among tools of the same category. This work recognizes the critical role of the tool operators in distinguishing tool track instances, especially those belonging to the same tool category. The operators' information are however not explicitly captured in surgical videos. We therefore propose SurgiTrack, a novel deep learning method that leverages YOLOv7 for precise tool detection and employs an attention mechanism to model the originating direction of the tools, as a proxy to their operators, for tool re-identification. To handle diverse tool trajectory perspectives, SurgiTrack employs a harmonizing bipartite matching graph, minimizing conflicts and ensuring accurate tool identity association. Experimental results on CholecTrack20 demonstrate SurgiTrack's effectiveness, outperforming baselines and state-of-the-art methods with real-time inference capability. This work sets a new standard in surgical tool tracking, providing dynamic trajectories for more adaptable and precise assistance in minimally invasive surgeries.},
+	urldate = {2024-08-28},
+	publisher = {arXiv},
+	author = {Nwoye, Chinedu Innocent and Padoy, Nicolas},
+	year = {2024},
+	note = {Version Number: 1},
+	keywords = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+	annote = {Other
+15 pages, 7 figures, 9 tables, 1 video. Supplementary video available at: https://vimeo.com/951853260},
+}
+
+@article{ByteTrack,
+	title = {{ByteTrack}: {Multi}-{Object} {Tracking} by {Associating} {Every} {Detection} {Box}},
+	copyright = {arXiv.org perpetual, non-exclusive license},
+	shorttitle = {{ByteTrack}},
+	url = {https://arxiv.org/abs/2110.06864},
+	doi = {10.48550/ARXIV.2110.06864},
+	abstract = {Multi-object tracking (MOT) aims at estimating bounding boxes and identities of objects in videos. Most methods obtain identities by associating detection boxes whose scores are higher than a threshold. The objects with low detection scores, e.g. occluded objects, are simply thrown away, which brings non-negligible true object missing and fragmented trajectories. To solve this problem, we present a simple, effective and generic association method, tracking by associating almost every detection box instead of only the high score ones. For the low score detection boxes, we utilize their similarities with tracklets to recover true objects and filter out the background detections. When applied to 9 different state-of-the-art trackers, our method achieves consistent improvement on IDF1 score ranging from 1 to 10 points. To put forwards the state-of-the-art performance of MOT, we design a simple and strong tracker, named ByteTrack. For the first time, we achieve 80.3 MOTA, 77.3 IDF1 and 63.1 HOTA on the test set of MOT17 with 30 FPS running speed on a single V100 GPU. ByteTrack also achieves state-of-the-art performance on MOT20, HiEve and BDD100K tracking benchmarks. The source code, pre-trained models with deploy versions and tutorials of applying to other trackers are released at https://github.com/ifzhang/ByteTrack.},
+	urldate = {2024-08-29},
+	publisher = {arXiv},
+	author = {Zhang, Yifu and Sun, Peize and Jiang, Yi and Yu, Dongdong and Weng, Fucheng and Yuan, Zehuan and Luo, Ping and Liu, Wenyu and Wang, Xinggang},
+	year = {2021},
+	note = {Version Number: 3},
+	keywords = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+}
+
+@article{SMILEtrack,
+	title = {{SMILEtrack}: {SiMIlarity} {LEarning} for {Occlusion}-{Aware} {Multiple} {Object} {Tracking}},
+	shorttitle = {{SMILEtrack}},
+	url = {http://arxiv.org/abs/2211.08824},
+	abstract = {Despite recent progress in Multiple Object Tracking (MOT), several obstacles such as occlusions, similar objects, and complex scenes remain an open challenge. Meanwhile, a systematic study of the cost-performance tradeoff for the popular tracking-by-detection paradigm is still lacking. This paper introduces SMILEtrack, an innovative object tracker that effectively addresses these challenges by integrating an efficient object detector with a Siamese network-based Similarity Learning Module (SLM). The technical contributions of SMILETrack are twofold. First, we propose an SLM that calculates the appearance similarity between two objects, overcoming the limitations of feature descriptors in Separate Detection and Embedding (SDE) models. The SLM incorporates a Patch Self-Attention (PSA) block inspired by the vision Transformer, which generates reliable features for accurate similarity matching. Second, we develop a Similarity Matching Cascade (SMC) module with a novel GATE function for robust object matching across consecutive video frames, further enhancing MOT performance. Together, these innovations help SMILETrack achieve an improved trade-off between the cost (\{{\textbackslash}em e.g.\}, running speed) and performance (e.g., tracking accuracy) over several existing state-of-the-art benchmarks, including the popular BYTETrack method. SMILETrack outperforms BYTETrack by 0.4-0.8 MOTA and 2.1-2.2 HOTA points on MOT17 and MOT20 datasets. Code is available at https://github.com/pingyang1117/SMILEtrack\_Official},
+	urldate = {2024-08-29},
+	publisher = {arXiv},
+	author = {Wang, Yu-Hsiang and Hsieh, Jun-Wei and Chen, Ping-Yang and Chang, Ming-Ching and So, Hung Hin and Li, Xin},
+	month = jan,
+	year = {2024},
+	note = {arXiv:2211.08824 [cs]},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {Comment: Our paper was accepted by AAAI2024},
+	file = {arXiv Fulltext PDF:/Users/scsoc/Zotero/storage/J8LAAHAI/Wang et al. - 2024 - SMILEtrack SiMIlarity LEarning for Occlusion-Awar.pdf:application/pdf;arXiv.org Snapshot:/Users/scsoc/Zotero/storage/Q3YIEQIH/2211.html:text/html},
+}
+
+@article{nwoye_2019,
+	title = {Weakly supervised convolutional {LSTM} approach for tool tracking in laparoscopic videos},
+	volume = {14},
+	issn = {1861-6410, 1861-6429},
+	url = {http://link.springer.com/10.1007/s11548-019-01958-6},
+	doi = {10.1007/s11548-019-01958-6},
+	language = {en},
+	number = {6},
+	urldate = {2024-08-29},
+	journal = {International Journal of Computer Assisted Radiology and Surgery},
+	author = {Nwoye, Chinedu Innocent and Mutter, Didier and Marescaux, Jacques and Padoy, Nicolas},
+	month = jun,
+	year = {2019},
+	pages = {1059--1067},
+	file = {Submitted Version:/Users/scsoc/Zotero/storage/64XZC5JV/Nwoye et al. - 2019 - Weakly supervised convolutional LSTM approach for .pdf:application/pdf},
+}
+
+@article{BoT-SORT,
+	title = {{BoT}-{SORT}: {Robust} {Associations} {Multi}-{Pedestrian} {Tracking}},
+	copyright = {arXiv.org perpetual, non-exclusive license},
+	shorttitle = {{BoT}-{SORT}},
+	url = {https://arxiv.org/abs/2206.14651},
+	doi = {10.48550/ARXIV.2206.14651},
+	abstract = {The goal of multi-object tracking (MOT) is detecting and tracking all the objects in a scene, while keeping a unique identifier for each object. In this paper, we present a new robust state-of-the-art tracker, which can combine the advantages of motion and appearance information, along with camera-motion compensation, and a more accurate Kalman filter state vector. Our new trackers BoT-SORT, and BoT-SORT-ReID rank first in the datasets of MOTChallenge [29, 11] on both MOT17 and MOT20 test sets, in terms of all the main MOT metrics: MOTA, IDF1, and HOTA. For MOT17: 80.5 MOTA, 80.2 IDF1, and 65.0 HOTA are achieved. The source code and the pre-trained models are available at https://github.com/NirAharon/BOT-SORT},
+	urldate = {2024-08-29},
+	publisher = {arXiv},
+	author = {Aharon, Nir and Orfaig, Roy and Bobrovsky, Ben-Zion},
+	year = {2022},
+	note = {Version Number: 2},
+	keywords = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+}
+
+@article{paley_crowdsourced_2021,
+	title = {Crowdsourced {Assessment} of {Surgical} {Skill} {Proficiency} in {Cataract} {Surgery}},
+	volume = {78},
+	issn = {19317204},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S1931720421000477},
+	doi = {10.1016/j.jsurg.2021.02.004},
+	language = {en},
+	number = {4},
+	urldate = {2024-08-30},
+	journal = {Journal of Surgical Education},
+	author = {Paley, Grace L. and Grove, Rebecca and Sekhar, Tejas C. and Pruett, Jack and Stock, Michael V. and Pira, Tony N. and Shields, Steven M. and Waxman, Evan L. and Wilson, Bradley S. and Gordon, Mae O. and Culican, Susan M.},
+	month = jul,
+	year = {2021},
+	pages = {1077--1088},
+	file = {Full Text:/Users/scsoc/Zotero/storage/936W2VPD/Paley et al. - 2021 - Crowdsourced Assessment of Surgical Skill Proficie.pdf:application/pdf},
+}
+
+@incollection{ourselin_real-time_2016,
+	address = {Cham},
+	title = {Real-{Time} {Online} {Adaption} for {Robust} {Instrument} {Tracking} and {Pose} {Estimation}},
+	volume = {9900},
+	isbn = {978-3-319-46719-1 978-3-319-46720-7},
+	url = {https://link.springer.com/10.1007/978-3-319-46720-7_49},
+	language = {en},
+	urldate = {2024-08-30},
+	booktitle = {Medical {Image} {Computing} and {Computer}-{Assisted} {Intervention} – {MICCAI} 2016},
+	publisher = {Springer International Publishing},
+	author = {Rieke, Nicola and Tan, David Joseph and Tombari, Federico and Vizcaíno, Josué Page and Di San Filippo, Chiara Amat and Eslami, Abouzar and Navab, Nassir},
+	editor = {Ourselin, Sebastien and Joskowicz, Leo and Sabuncu, Mert R. and Unal, Gozde and Wells, William},
+	year = {2016},
+	doi = {10.1007/978-3-319-46720-7_49},
+	note = {Series Title: Lecture Notes in Computer Science},
+	pages = {422--430},
+}
+
+@article{magro_dual-instrument_2024,
+	title = {A dual-instrument {Kalman}-based tracker to enhance robustness of microsurgical tools tracking},
+	issn = {1861-6429},
+	url = {https://link.springer.com/10.1007/s11548-024-03246-4},
+	doi = {10.1007/s11548-024-03246-4},
+	abstract = {Abstract
+            
+              
+                Purpose:
+              
+              The integration of a surgical robotic instrument tracking module within optical microscopes holds the potential to advance microsurgery practices, as it facilitates automated camera movements, thereby augmenting the surgeon’s capability in executing surgical procedures.
+            
+            
+              
+                Methods:
+              
+              In the present work, an innovative detection backbone based on spatial attention module is implemented to enhance the detection accuracy of small objects within the image. Additionally, we have introduced a robust data association technique, capable to re-track surgical instrument, mainly based on the knowledge of the dual-instrument robotics system, Intersection over Union metric and Kalman filter.
+            
+            
+              
+                Results:
+              
+              The effectiveness of this pipeline was evaluated through testing on a dataset comprising ten manually annotated videos of anastomosis procedures involving either animal or phantom vessels, exploiting the Symani®Surgical System—a dedicated robotic platform designed for microsurgery. The multiple object tracking precision (MOTP) and the multiple object tracking accuracy (MOTA) are used to evaluate the performance of the proposed approach, and a new metric is computed to demonstrate the efficacy in stabilizing the tracking result along the video frames. An average MOTP of 74±0.06\% and a MOTA of 99±0.03\% over the test videos were found.
+            
+            
+              
+                Conclusion:
+              
+              These results confirm the potential of the proposed approach in enhancing precision and reliability in microsurgical instrument tracking. Thus, the integration of attention mechanisms and a tailored data association module could be a solid base for automatizing the motion of optical microscopes.},
+	language = {en},
+	urldate = {2024-08-30},
+	journal = {International Journal of Computer Assisted Radiology and Surgery},
+	author = {Magro, Mattia and Covallero, Nicola and Gambaro, Elena and Ruffaldi, Emanuele and De Momi, Elena},
+	month = aug,
+	year = {2024},
+}
+
+@article{yang_image-based_2020,
+	title = {Image-based laparoscopic tool detection and tracking using convolutional neural networks: a review of the literature},
+	volume = {25},
+	issn = {2469-9322},
+	shorttitle = {Image-based laparoscopic tool detection and tracking using convolutional neural networks},
+	url = {https://www.tandfonline.com/doi/full/10.1080/24699322.2020.1801842},
+	doi = {10.1080/24699322.2020.1801842},
+	language = {en},
+	number = {1},
+	urldate = {2024-08-30},
+	journal = {Computer Assisted Surgery},
+	author = {Yang, Congmin and Zhao, Zijian and Hu, Sanyuan},
+	month = jan,
+	year = {2020},
+	pages = {15--28},
+	file = {Full Text:/Users/scsoc/Zotero/storage/WSS85SKP/Yang et al. - 2020 - Image-based laparoscopic tool detection and tracki.pdf:application/pdf},
+}
+
+@article{castillo-segura_objective_2021,
+	title = {Objective and automated assessment of surgical technical skills with {IoT} systems: {A} systematic literature review},
+	volume = {112},
+	issn = {09333657},
+	shorttitle = {Objective and automated assessment of surgical technical skills with {IoT} systems},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0933365720312720},
+	doi = {10.1016/j.artmed.2020.102007},
+	language = {en},
+	urldate = {2024-08-30},
+	journal = {Artificial Intelligence in Medicine},
+	author = {Castillo-Segura, Pablo and Fernández-Panadero, Carmen and Alario-Hoyos, Carlos and Muñoz-Merino, Pedro J. and Delgado Kloos, Carlos},
+	month = feb,
+	year = {2021},
+	pages = {102007},
+}
+
+@article{rodrigues_surgical_2022,
+	title = {Surgical {Tool} {Datasets} for {Machine} {Learning} {Research}: {A} {Survey}},
+	volume = {130},
+	issn = {0920-5691, 1573-1405},
+	shorttitle = {Surgical {Tool} {Datasets} for {Machine} {Learning} {Research}},
+	url = {https://link.springer.com/10.1007/s11263-022-01640-6},
+	doi = {10.1007/s11263-022-01640-6},
+	abstract = {Abstract
+            This paper is a comprehensive survey of datasets for surgical tool detection and related surgical data science and machine learning techniques and algorithms. The survey offers a high level perspective of current research in this area, analyses the taxonomy of approaches adopted by researchers using surgical tool datasets, and addresses key areas of research, such as the datasets used, evaluation metrics applied and deep learning techniques utilised. Our presentation and taxonomy provides a framework that facilitates greater understanding of current work, and highlights the challenges and opportunities for further innovative and useful research.},
+	language = {en},
+	number = {9},
+	urldate = {2024-08-30},
+	journal = {International Journal of Computer Vision},
+	author = {Rodrigues, Mark and Mayo, Michael and Patros, Panos},
+	month = sep,
+	year = {2022},
+	pages = {2222--2248},
+	file = {Full Text:/Users/scsoc/Zotero/storage/4M3RDDGG/Rodrigues et al. - 2022 - Surgical Tool Datasets for Machine Learning Resear.pdf:application/pdf},
+}
+
+@inproceedings{fathabadi_surgical_2021,
+	address = {Las Vegas, NV, USA},
+	title = {Surgical {Skill} {Training} and {Evaluation} for a {Peg} {Transfer} {Task} of a {Three} {Camera}-{Based} {Laparoscopic} {Box}-{Trainer} {System}},
+	copyright = {https://doi.org/10.15223/policy-029},
+	isbn = {978-1-66545-841-2},
+	url = {https://ieeexplore.ieee.org/document/9799127/},
+	doi = {10.1109/CSCI54926.2021.00242},
+	urldate = {2024-08-30},
+	booktitle = {2021 {International} {Conference} on {Computational} {Science} and {Computational} {Intelligence} ({CSCI})},
+	publisher = {IEEE},
+	author = {Fathabadi, Fatemeh Rashidi and Grantner, Janos L. and Shebrain, Saad A and Abdel-Qader, Ikhlas},
+	month = dec,
+	year = {2021},
+	pages = {1146--1151},
+}
+
+@inproceedings{fathabadi_surgical_2021-1,
+	address = {Melbourne, Australia},
+	title = {Surgical {Skill} {Assessment} {System} {Using} {Fuzzy} {Logic} in a {Multi}-{Class} {Detection} of {Laparoscopic} {Box}-{Trainer} {Instruments}},
+	copyright = {https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html},
+	isbn = {978-1-66544-207-7},
+	url = {https://ieeexplore.ieee.org/document/9658766/},
+	doi = {10.1109/SMC52423.2021.9658766},
+	urldate = {2024-08-30},
+	booktitle = {2021 {IEEE} {International} {Conference} on {Systems}, {Man}, and {Cybernetics} ({SMC})},
+	publisher = {IEEE},
+	author = {Fathabadi, Fatemeh Rashidi and Grantner, Janos L. and Shebrain, Saad A and Abdel-Qader, Ikhlas},
+	month = oct,
+	year = {2021},
+	pages = {1248--1253},
+}
+
+@article{fathabadi_fuzzy_2022,
+	title = {Fuzzy logic supervisor – {A} surgical skills assessment system using multi-class detection of laparoscopic box-trainer instruments},
+	volume = {43},
+	issn = {10641246, 18758967},
+	url = {https://www.medra.org/servlet/aliasResolver?alias=iospress&doi=10.3233/JIFS-213243},
+	doi = {10.3233/JIFS-213243},
+	abstract = {Recent developments in deep learning can be used in skill assessments for laparoscopic surgeons. In Minimally Invasive Surgery (MIS), surgeons should acquire many skills before carrying out a real operation. The Laparoscopic Surgical Box-Trainer allows surgery residents to train on specific skills that are not traditionally taught to them. This study aims to automatically detect the tips of laparoscopic instruments, localize a point, evaluate the detection accuracy to provide valuable assessment and expedite the development of surgery skills and assess the trainees’ performance using a Multi-Input-Single-Output Fuzzy Logic Supervisor system. The output of the fuzzy logic assessment is the performance evaluation for the surgeon, and it is quantified in percentages. Based on the experimental results, the trained SSD Mobilenet V2 FPN can identify each instrument at a score of 70\% fidelity. On the other hand, the trained SSD ResNet50 V1 FPN can detect each instrument at the score of 90\% fidelity, in each location within a region of interest, and determine their relative distance with over 65\% and 80\% reliability, respectively. This method can be applied in different types of laparoscopic tooltip detection. Because there were a few instances when the detection failed, and the system was designed to generate pass-fail assessment, we recommend improving the measurement algorithm and the performance assessment by adding a camera to the system and measuring the distance from multiple perspectives.},
+	number = {4},
+	urldate = {2024-08-30},
+	journal = {Journal of Intelligent \& Fuzzy Systems},
+	author = {Fathabadi, Fatemeh Rashidi and Grantner, Janos L. and Shebrain, Saad A. and Abdel-Qader, Ikhlas},
+	month = aug,
+	year = {2022},
+	pages = {4741--4756},
+}
+
+
+@article{rabbani_can_2024,
+	title = {Can surgical computer vision benefit from large-scale visual foundation models?},
+	volume = {19},
+	issn = {1861-6429},
+	url = {https://link.springer.com/10.1007/s11548-024-03125-y},
+	doi = {10.1007/s11548-024-03125-y},
+	language = {en},
+	number = {6},
+	urldate = {2024-08-30},
+	journal = {International Journal of Computer Assisted Radiology and Surgery},
+	author = {Rabbani, Navid and Bartoli, Adrien},
+	month = apr,
+	year = {2024},
+	pages = {1157--1163},
+}
+
+
+@article{huaulme_peg_2022,
+	title = {{PEg} {TRAnsfer} {Workflow} recognition challenge report: {Does} multi-modal data improve recognition?},
+	copyright = {Creative Commons Attribution Non Commercial Share Alike 4.0 International},
+	shorttitle = {{PEg} {TRAnsfer} {Workflow} recognition challenge report},
+	url = {https://arxiv.org/abs/2202.05821},
+	doi = {10.48550/ARXIV.2202.05821},
+	abstract = {This paper presents the design and results of the "PEg TRAnsfert Workflow recognition" (PETRAW) challenge whose objective was to develop surgical workflow recognition methods based on one or several modalities, among video, kinematic, and segmentation data, in order to study their added value. The PETRAW challenge provided a data set of 150 peg transfer sequences performed on a virtual simulator. This data set was composed of videos, kinematics, semantic segmentation, and workflow annotations which described the sequences at three different granularity levels: phase, step, and activity. Five tasks were proposed to the participants: three of them were related to the recognition of all granularities with one of the available modalities, while the others addressed the recognition with a combination of modalities. Average application-dependent balanced accuracy (AD-Accuracy) was used as evaluation metric to take unbalanced classes into account and because it is more clinically relevant than a frame-by-frame score. Seven teams participated in at least one task and four of them in all tasks. Best results are obtained with the use of the video and the kinematics data with an AD-Accuracy between 93\% and 90\% for the four teams who participated in all tasks. The improvement between video/kinematic-based methods and the uni-modality ones was significant for all of the teams. However, the difference in testing execution time between the video/kinematic-based and the kinematic-based methods has to be taken into consideration. Is it relevant to spend 20 to 200 times more computing time for less than 3\% of improvement? The PETRAW data set is publicly available at www.synapse.org/PETRAW to encourage further research in surgical workflow recognition.},
+	urldate = {2024-08-30},
+	author = {Huaulmé, Arnaud and Harada, Kanako and Nguyen, Quang-Minh and Park, Bogyu and Hong, Seungbum and Choi, Min-Kook and Peven, Michael and Li, Yunshuang and Long, Yonghao and Dou, Qi and Kumar, Satyadwyoom and Lalithkumar, Seenivasan and Hongliang, Ren and Matsuzaki, Hiroki and Ishikawa, Yuto and Harai, Yuriko and Kondo, Satoshi and Mitsuishi, Mamoru and Jannin, Pierre},
+	year = {2022},
+	note = {Publisher: arXiv
+Version Number: 3},
+	keywords = {Artificial Intelligence (cs.AI), Databases (cs.DB), FOS: Computer and information sciences, Machine Learning (cs.LG)},
+	annote = {Other
+Challenge report doi.org/10.1016/j.cmpb.2023.107561},
+}
+
+@article{cartucho_visionblender_2021,
+	title = {{VisionBlender}: a tool to efficiently generate computer vision datasets for robotic surgery},
+	volume = {9},
+	issn = {2168-1163, 2168-1171},
+	shorttitle = {{VisionBlender}},
+	url = {https://www.tandfonline.com/doi/full/10.1080/21681163.2020.1835546},
+	doi = {10.1080/21681163.2020.1835546},
+	language = {en},
+	number = {4},
+	urldate = {2024-08-30},
+	journal = {Computer Methods in Biomechanics and Biomedical Engineering: Imaging \& Visualization},
+	author = {Cartucho, João and Tukra, Samyakh and Li, Yunpeng and S. Elson, Daniel and Giannarou, Stamatia},
+	month = jul,
+	year = {2021},
+	pages = {331--338},
+	file = {Full Text:/Users/scsoc/Zotero/storage/PJSV9H3I/Cartucho et al. - 2021 - VisionBlender a tool to efficiently generate comp.pdf:application/pdf},
 }

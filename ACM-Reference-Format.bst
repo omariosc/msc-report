@@ -58,6 +58,7 @@ ENTRY
         url           % UTAH
         bookpages     % UTAH
         numpages
+        urldate
         lastaccessed  % UTAH: used only for @Misc{...}
         coden         % UTAH
         isbn          % UTAH
@@ -2425,25 +2426,69 @@ FUNCTION { mastersthesis }
   fin.entry
 }
 
+FUNCTION {format.urldate}
+{
+  urldate empty$
+    { "" }
+    { " Accessed: " urldate * }
+  if$
+}
+
 FUNCTION { misc }
 {
   output.bibitem
   format.authors "author" output.check
-  author format.key output            % added
-  output.year.check                   % added
-  title howpublished new.block.checkb
-  format.title output
+  author format.key output            
+  output.year.check                   
+
+  format.title output  % Ensure the title is output correctly
   new.block
+
   howpublished empty.or.unknown
     { }
     { "\bibinfo{howpublished}{" howpublished "}" * * output }
   if$
+
+  urldate empty.or.unknown
+    { }
+    { new.block " Accessed: " urldate * output }  % Add access date
+  if$
+
+  url empty.or.unknown
+    { }
+    { new.block "\url{" url * "}" * output }  % Include the URL
+  if$
+  
+  note empty.or.unknown
+    { }
+    { new.block note output }  % Include any additional notes
+  if$
+
   "" output.nonnull.dot.space
   calc.format.page.count output
   fin.block
-  output.issue.doi.coden.isxn.lccn.url.eprint.note
   fin.entry
 }
+
+% FUNCTION { misc }
+% {
+%   output.bibitem
+%   format.authors "author" output.check
+%   author format.key output            % added
+%   output.year.check                   % added
+%   title howpublished new.block.checkb
+%   format.title output
+%   new.block
+%   howpublished empty.or.unknown
+%     { }
+%     { "\bibinfo{howpublished}{" howpublished "}" * * output }
+%   if$
+%   "" output.nonnull.dot.space
+%   calc.format.page.count output
+%   fin.block
+%   output.issue.doi.coden.isxn.lccn.url.eprint.note
+%   fin.entry
+% }
 
 FUNCTION { online } { manual }
 
