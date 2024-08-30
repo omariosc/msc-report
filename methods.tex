@@ -4,25 +4,29 @@
 
 \subsubsection{AI-ELT}
 
-Our in-house dataset was collected on 11-12th October 2023 at the 8th Urology Boot Camp in Leeds, United Kingdom \cite{urology2023}. It contains 24 laparoscopic training videos, each a trial performed by a single participant. All participants, surgical trainees and trainers were given a handout, as shown in Figure \ref{fig:dataset-collection}, which explained the study and the data collection process. We used a Simulated Insufflated Belly Laparoscopic Trainer Simulator Training Box with 30 Degree 1920x1080 HD Camera \cite{aliexpress}. The sensors were three NDI Aurora 6DoF (Six Degrees-of-Freedom) electromagnetic trackers (one on each tool and one on the camera) \cite{hummel_design_2005}. The calibrated position was to the fulcrum of each tool, performed by pivot calibration (see the black reference point on the right of the peg transfer board with the blue tape in Figure \ref{fig:test1_issues}). Motion actions and characteristics may be used to identify an expert surgeon compared to the actions of a novice or trainee \cite{jones_analysis_2018}. Handedness data was collected using the Edinburgh Handedness survey for the main hand used in various tasks, including writing, scissors, toothbrush, etc. \cite{oldfield_assessment_1971}. If a surgeon uses their dominant hand more often, they may be less skilled with the other hand - reduced bimanual dexterity. Level of expertise was estimated using the number of performed procedures in their lifetimes and within the last 12 months. Participants were confirmed not to have a pacemaker or other metal implants which could interfere with the electromagnetic tracking system. The first trial contained extra lighting causing visual defects (see Figure \ref{fig:test1_issues}), which was removed for subsequent trials. In this study, there was no need for any participant follow-up.
-% If a surgeon uses their dominant hand more often, they may be more skilled in that hand and less skilled with the other hand if they use it less often.
-
-% Generally compared to other datasets, the camera was of higher resolution with increased field-of-vision (FOV), contained two tools in all procedures (many laparoscopic videos contain just a single tool), and 6DoF ground truth three-dimensional tooltip positions and spatial rotation quaternions. Surgeon information included data about the participants' handedness and level of expertise.
-
 \begin{figure}[tbp]
     \centering
     \vspace*{-2.5mm}
     \includegraphics[width=1\linewidth]{dataset_collection.png}
     \vspace*{-6.5mm}
     \caption{AI-ELT Dataset Collection}
-    \vspace*{-3mm}
+    \vspace*{-5mm}
     \label{fig:dataset-collection}
     \Description{Handout given to surgeons preceding the data collection process.}
 \end{figure}
 
+Our in-house dataset was collected on 11-12th October 2023 at the 8th Urology Boot Camp in Leeds, United Kingdom \cite{urology2023}. It contains 24 laparoscopic training videos, each a trial performed by a single participant. All participants, surgical trainees and trainers were given a handout, as shown in Figure \ref{fig:dataset-collection}, which explained the study and the data collection process. We used a Simulated Insufflated Belly Laparoscopic Trainer Simulator Training Box \cite{aliexpress}. The sensors were three NDI Aurora 6DoF (Six Degrees-of-Freedom) electromagnetic trackers (one on each tool and one on the camera) \cite{hummel_design_2005}. The calibrated position was to the fulcrum of each tool, performed by pivot calibration (see the black reference point on the right of the peg transfer board with the blue tape in Figure \ref{fig:test1_issues}). Motion actions and characteristics may be used to identify an expert surgeon compared to the actions of a novice or trainee \cite{jones_analysis_2018}. Handedness data was collected using the Edinburgh Handedness survey for the main hand used in various tasks, including writing, scissors, toothbrush, etc. \cite{oldfield_assessment_1971}. If a surgeon uses their dominant hand more often, they may be less skilled with the other hand - reduced bimanual dexterity. Level of expertise was estimated using the number of performed procedures in their lifetimes and within the last 12 months. Participants were confirmed not to have a pacemaker or other metal implants which could interfere with the electromagnetic tracking system. The first trial contained extra lighting causing visual defects (see Figure \ref{fig:test1_issues}), which was removed for subsequent trials. In this study, there was no need for any participant follow-up.
+% ...Simulator Training Box with 30 Degree 1920x1080 HD Camera
+
+% Generally compared to other datasets, the camera was of higher resolution with increased field-of-vision (FOV), contained two tools in all procedures (many laparoscopic videos contain just a single tool), and 6DoF ground truth three-dimensional tooltip positions and spatial rotation quaternions. Surgeon information included data about the participants' handedness and level of expertise.
+
 %% The handout explained that the study was to collect motion data from a peg transfer task. The goal was to train an AI system to localise the laparoscopic tools using the image alone. This would help develop a new training system, giving automated feedback on individual sub-skills. In this study, we focused on first detecting the tools, which could then be used with the sensor data to build a model which could predict the tools' motion based on the tool's location in the image.
 
-\begin{figure}[htbp]
+% The average number of procedures performed was 120, with a range of 0 to over 1000, with 22 estimated to be performed on average in the last 12 months, ranging from 0 to 100. All 24 participants agreed to share their results entirely. If we categorise the surgeon's skills based on several procedures, where low is <20, medium is between 20 and 100, and high is >100, then we have 9 low, 9 medium and 6 high-skilled surgeons. Results from the Edinburgh Handedness survey \cite{oldfield_assessment_1971} showed almost all surgeons were right-handed, with one left (participant 12) and one who alternated hands (participant 3).
+
+% The results of the Edinburgh Handedness survey \cite{oldfield_assessment_1971} could be used to evaluate surgical skills based on the handedness of the surgeon. Further annotations could be developed based on existing metrics of technical surgeons, e.g. Objective Structured Assessment of Technical Skills (OSATS) \cite{martin_objective_1997, hussein_development_2017}. Though based on questionnaires and subjective, they could help set a baseline for categorising surgical skill level \cite{hilal_randomized_2017}. Key movement metrics which define the skill level for typical tasks in a laparoscopic procedure can be identified \cite{pears_capturing_2021}. These metrics can be quantified from trainee videos to create task-specific learning curves.
+
+\begin{figure}[tp]
     \centering
     \vspace{-2.5mm}
     \includegraphics[width=1\linewidth]{test1_issues}
@@ -33,38 +37,36 @@ Our in-house dataset was collected on 11-12th October 2023 at the 8th Urology Bo
     \Description{We see a few issues with the dataset. Of all 24 videos, 1 emits extra light onto the scene (Test 1). We also see some frames have been cut off, either a little (\textit{left}) or a lot (\textit{middle}). We also note some camera overheating, causing image defects (\textit{right}).}
 \end{figure}
 
-% The average number of procedures performed was 120, with a range of 0 to over 1000, with 22 estimated to be performed on average in the last 12 months, ranging from 0 to 100. All 24 participants agreed to share their results entirely. If we categorise the surgeon's skills based on several procedures, where low is <20, medium is between 20 and 100, and high is >100, then we have 9 low, 9 medium and 6 high-skilled surgeons. Results from the Edinburgh Handedness survey \cite{oldfield_assessment_1971} showed almost all surgeons were right-handed, with one left (participant 12) and one who alternated hands (participant 3).
-
-% The results of the Edinburgh Handedness survey \cite{oldfield_assessment_1971} could be used to evaluate surgical skills based on the handedness of the surgeon. Further annotations could be developed based on existing metrics of technical surgeons, e.g. Objective Structured Assessment of Technical Skills (OSATS) \cite{martin_objective_1997, hussein_development_2017}. Though based on questionnaires and subjective, they could help set a baseline for categorising surgical skill level \cite{hilal_randomized_2017}. Key movement metrics which define the skill level for typical tasks in a laparoscopic procedure can be identified \cite{pears_capturing_2021}. These metrics can be quantified from trainee videos to create task-specific learning curves.
-
 \subsubsection{Data Preparation}
 
 Each of the 24 videos is $\sim$3 minutes long in 1920x1080 resolution, totalling 1.32GB of 103,629 ground truth annotated frames. To ensure robust model validation, we have manually labelled 1\% of the images across 23 videos and one video fully labelled as a test set by modifying an existing keypoint annotation tool \cite{herrera_luiscarlosgphkeypoint-annotation-tool_2024}. Annotations were recorded in a text file in Common Object in Context (COCO) format with class (either tool or tooltip), bounding box centre ($x$), bounding box centre ($y$), width and height. Values were normalised to the image size to allow better generalizability with different image sizes. No duplicates, outliers or inconsistencies were noticed. However, we see a few issues with the dataset (Figure \ref{fig:test1_issues}). Some frames have been cut off, either a little (\textit{left}) or a lot (\textit{middle}). We also note some camera overheating, causing image defects (\textit{right}). We appropriately removed missing data for model training, giving 864 clean training data files out of 1045.
 
-Our code contains multiple helper functions and classes to assist in future development \cite{choudhry_omarioscmsc-surgical-tool-tracking_2024}. This will be adapted to a more formal AI-ELT framework in the future. Before manual annotation, we attempted to get the objects' $x$ and $y$ positions using ground truth 3D position data, matrix transformations with intrinsic and extrinsic camera and scene parameters, and regular linear regression. However, the error margin was too high. The best-produced model could be used to annotate remaining bounding boxes with weak labels in a teacher-student framework or for a more complex model to reverse-engineer positions from motion data in future datasets \cite{teevno_semi-supervised_2023}. Inspired by the CholecTrack20 schematic diagram, we present an intuitive way to understand the dataset \cite{nwoye_cholectrack20_2023}.
+Our code contains multiple helper functions and classes to assist in future development \cite{choudhry_omarioscmsc-surgical-tool-tracking_2024}. This will be adapted to a more formal AI-ELT framework in the future. Before manual annotation, we attempted to get the objects' $x$ and $y$ positions using ground truth 3D position data, matrix transformations with intrinsic and extrinsic camera and scene parameters, and regular linear regression. However, the error margin was too high. Inspired by the CholecTrack20 schematic diagram \cite{nwoye_cholectrack20_2023}, we present an intuitive way to understand the dataset (Figure \ref{fig:schematic_diagram}).
 
-\begin{figure}[htbp]
+\begin{figure}[hbp]
     \centering
     \vspace*{-2mm}
     \includegraphics[width=\linewidth]{schematic_diagram.png}
     \vspace*{-7.5mm}
-    \caption{Schematic diagram of the dataset files showing (a) folder structure for the dataset and (b) Data structure for the JSON label files.}
+    \caption{Schematic diagram showing (a) folder structure and (b) data structure for the JSON label files.}
     \vspace*{-5mm}
     \label{fig:schematic_diagram}
     \Description{Schematic diagram for the AI-ELT Dataset}
 \end{figure}
 
+% The best-produced model could be used to annotate remaining bounding boxes with weak labels in a teacher-student framework or for a more complex model to reverse-engineer positions from motion data in future datasets \cite{teevno_semi-supervised_2023}.
+
 \subsubsection{Other Datasets}
 
-The final decision was to perform additional extensive evaluation solely on the ART-Net dataset \cite{hasan_detection_2021}. Since we will reimplement the ART-Net model (with its code already available), it is logical to use the same dataset to evaluate the reproducibility and a more objective evaluation of the methods by comparing results. We converted the ART-Net tool and tooltip segmentation maps to bounding boxes (1,324 training images and 308 test images). We will keep the dataset's negative examples, which do not contain any tools to attempt to reduce potential false positives.
+The final decision was to perform additional extensive evaluation solely on the ART-Net dataset \cite{hasan_detection_2021}. Since we will reimplement the ART-Net model (with its code already available), it is logical to use the same dataset to evaluate the reproducibility and a more objective evaluation of the methods by comparing results. We converted the ART-Net tool and tooltip segmentation maps to bounding boxes (1,324 training images and 308 test images). We will keep the dataset's negative examples, which do not contain any tools, to reduce potential false positives.
 
 \subsection{Reimplementation of the State-of-the-Art}
 
-Multiple anchor-based and anchor-free deep learning SOTA models are implemented to consider LMIC resource constraints. The models were trained on a system with the following configuration: AMD Ryzen 3900X CPU, 32GB RAM, and an NVIDIA GeForce RTX 3060 GPU with 12GB of memory, running on Windows 11 Pro with Python 3.9.5 and PyTorch 2.2.1+cu121. In practice, the goal is to ensure these models can eventually be deployed on even less powerful and more affordable hardware. We use transfer learning by fine-tuning models with SOTA checkpoints to reduce training times and multiclass and multitask learning \cite{alabi_multitask_2024}. Models are tested on the AI-ELT and ART-Net datasets and qualitatively on the EndoVis 2015 dataset.
+Multiple SOTA models are implemented to consider LMIC resource constraints. The models were trained on a system with the following configuration: AMD Ryzen 3900X CPU, 32GB RAM, and an NVIDIA GeForce RTX 3060 GPU with 12GB of memory, running on Windows 11 Pro with Python 3.9.5 and PyTorch 2.2.1+cu121. In practice, the goal is to ensure these models can eventually be deployed on even less powerful and more affordable hardware. We use transfer learning by fine-tuning models with SOTA checkpoints to reduce training times and multiclass and multitask learning \cite{alabi_multitask_2024}. We evaluate models on the AI-ELT and ART-Net datasets and qualitatively on the EndoVis 2015 dataset.
 
 \subsubsection{Anchor-based Tool Detection}
 
-We tested all six different architectures of YOLOv10 (X, L, B, M, S, N) to investigate the effect of parameters and architecture size on inference and precision. RetinaNet and EfficientDet were trained with their default configurations. We also ran RetinaNet with anchor-box scale and ratio optimisation, which is expected to improve on results without anchor-box optimisation \cite{zlocha_improving_2019}.
+We tested all six different architectures of YOLOv10 (X, L, B, M, S, N) to investigate the effect of varying architectures on inference and precision. RetinaNet and EfficientDet were trained with their default configurations.
 
 \subsubsection{Anchor-free Tool Detection}
 
@@ -111,9 +113,7 @@ Though we discussed SOTA tracking algorithms, we can use a more efficient algori
 
 \subsubsection{Model Training}
 
-The models were trained using default configurations, ensuring consistency across different architectures and datasets. Specific hyperparameters included a batch size 16 (8 for memory-intensive models like SIMO and EfficientDet) and patience set to 10, allowing early stopping if validation performance did not improve after 10 epochs. Inference times were calculated based on the detection times per image over the test set. The YOLOv10 models trained on the AI-ELT dataset were fine-tuned versions of the models initially trained on the ART-Net dataset, which slightly reduced the iterations required for convergence. RetinaNet models with anchor-based optimisation were also fine-tuned versions of their non-optimised counterparts. Validation testing frequency was reduced to every 10 epochs to expedite training, especially for models with longer convergence times.
-
-% YOLO models employed a specific type of mosaic augmentation to improve generalisation. In this technique, images are cropped and stitched together to form a larger image, increasing the model's robustness to different spatial contexts. 
+The models were trained using default configurations, ensuring consistency across different architectures and datasets. Specific hyperparameters included a batch size 16 (8 for memory-intensive models like SIMO and EfficientDet) and patience set to 10, allowing early stopping if validation performance did not improve after 10 epochs. Inference times were calculated based on the detection times per image over the test set. The YOLOv10 models trained on the AI-ELT dataset were fine-tuned versions of the models initially trained on the ART-Net dataset, which slightly reduced the iterations required for convergence. Validation testing frequency was reduced to every 10 epochs to expedite training, especially for models with longer convergence times.
 
 \subsubsection{Evaluation Metrics}
 
